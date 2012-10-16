@@ -12,7 +12,7 @@ ZSH_THEME="yimmy"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
 # DISABLE_AUTO_UPDATE="true"
@@ -24,7 +24,7 @@ ZSH_THEME="yimmy"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -42,3 +42,5 @@ prepend_paths=($HOME/bin)
 append_paths=()
 path=($prepend_paths $path $append_paths)
 path=($^path(N))
+
+export EDITOR=vim
