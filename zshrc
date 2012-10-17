@@ -39,8 +39,9 @@ alias proxy='links http://google.com/'
 
 # Smart path configuration - only add if exists
 prepend_paths=($HOME/bin)
-append_paths=()
+append_paths=($HOME/devel/gocode/bin)
 path=($prepend_paths $path $append_paths)
 path=($^path(N))
 
 export EDITOR=vim
+export GOPATH=$HOME/devel/gocode
