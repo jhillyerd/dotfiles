@@ -43,8 +43,9 @@ prepend_paths=($HOME/bin)
 append_paths=($HOME/devel/gocode/bin)
 path=($prepend_paths $path $append_paths)
 path=($^path(N))
+typeset -U path
 
-cdpath=( ~/devel/gocode/src/github.com/jhillyerd )
+cdpath=(~/devel/gocode/src/github.com/jhillyerd)
 
 export EDITOR=vim
 export GOPATH=$HOME/devel/gocode
