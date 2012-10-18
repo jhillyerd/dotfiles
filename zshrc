@@ -10,6 +10,7 @@ ZSH_THEME="yimmy"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias proxy='links http://google.com/'
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
@@ -34,14 +35,16 @@ plugins=(git vi-mode)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-alias ls='ls --classify --color=tty'
-alias proxy='links http://google.com/'
+# Set ls options
+ls --color -d . &>/dev/null 2>&1 && alias ls='ls --classify --color=tty' || alias ls='ls -GF'
 
 # Smart path configuration - only add if exists
 prepend_paths=($HOME/bin)
 append_paths=($HOME/devel/gocode/bin)
 path=($prepend_paths $path $append_paths)
 path=($^path(N))
+
+cdpath=( ~/devel/gocode/src/github.com/jhillyerd )
 
 export EDITOR=vim
 export GOPATH=$HOME/devel/gocode
