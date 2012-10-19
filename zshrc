@@ -39,7 +39,7 @@ source $ZSH/oh-my-zsh.sh
 ls --color -d . &>/dev/null 2>&1 && alias ls='ls --classify --color=tty' || alias ls='ls -GF'
 
 # Smart path configuration - only add if exists
-prepend_paths=($HOME/bin)
+prepend_paths=($HOME/bin /opt/local/bin /opt/local/sbin)
 append_paths=($HOME/devel/gocode/bin)
 path=($prepend_paths $path $append_paths)
 path=($^path(N))
