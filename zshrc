@@ -40,7 +40,7 @@ ls --color -d . &>/dev/null 2>&1 && alias ls='ls --classify --color=tty' || alia
 
 # Smart path configuration - only add if exists
 prepend_paths=($HOME/bin /opt/local/bin /opt/local/sbin)
-append_paths=($HOME/devel/gocode/bin)
+append_paths=($HOME/devel/gocode/bin /usr/local/go/bin)
 path=($prepend_paths $path $append_paths)
 path=($^path(N))
 typeset -U path
