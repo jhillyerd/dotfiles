@@ -33,6 +33,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
+unsetopt correct_all
 
 # Customize to your needs...
 # Set ls options
