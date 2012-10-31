@@ -11,6 +11,7 @@ ZSH_THEME="yimmy"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias proxy='links http://google.com/'
+alias h='fc -l 100'
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
