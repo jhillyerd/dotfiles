@@ -42,7 +42,7 @@ ls --color -d . &>/dev/null 2>&1 && alias ls='ls --classify --color=tty' || alia
 
 # Smart path configuration - only add if exists
 prepend_paths=($HOME/bin /opt/local/bin /opt/local/sbin)
-append_paths=($HOME/devel/gocode/bin /usr/local/go/bin)
+append_paths=($HOME/devel/gocode/bin $HOME/devel/godeps/bin /usr/local/go/bin)
 path=($prepend_paths $path $append_paths)
 path=($^path(N))
 typeset -U path
@@ -50,4 +50,9 @@ typeset -U path
 cdpath=(~/devel/gocode/src/github.com/jhillyerd)
 
 export EDITOR=vim
-export GOPATH=$HOME/devel/gocode
+
+# Go setup
+export GOPATH=$HOME/devel/godeps:$HOME/devel/gocode
+if [ -d /usr/local/go ]; then
+  export GOROOT=/usr/local/go
+fi
