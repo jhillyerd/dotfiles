@@ -10,8 +10,10 @@ ZSH_THEME="yimmy"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias proxy='links http://google.com/'
+alias proxy='proxy.py'
 alias h='fc -l 100'
+alias la='ls -a'
+alias ll='ls -l'
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
@@ -53,6 +55,7 @@ export EDITOR=vim
 
 # Go setup
 export GOPATH=$HOME/devel/godeps:$HOME/devel/gocode
+export GOBIN=$HOME/bin
 if [ -d /usr/local/go ]; then
   export GOROOT=/usr/local/go
 fi
