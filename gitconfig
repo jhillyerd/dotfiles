@@ -1,5 +1,9 @@
 [user]
 	name = James Hillyerd
 	email = james@hillyerd.com
+
 [core]
 	excludesfile = ~/.cvsignore
+
+[push]
+	default = simple
