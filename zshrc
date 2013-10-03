@@ -61,6 +61,6 @@ if [ -d /usr/local/go ]; then
 fi
 
 # Ruby setup
-if which ruby >/dev/null && which gem >/dev/null; then
+if which ruby >& /dev/null && which gem >& /dev/null; then
     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
