@@ -11,9 +11,6 @@ ZSH_THEME="yimmy"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias proxy='proxy.py'
-alias h='fc -l 100'
-alias la='ls -a'
-alias ll='ls -l'
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
@@ -30,17 +27,20 @@ DISABLE_AUTO_UPDATE="true"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
 
+ZSH_TMUX_AUTOSTART=true
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode)
+plugins=(git golang history tmux vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
+unsetopt share_history
 
 # Customize to your needs...
 # Set ls options
-ls --color -d . &>/dev/null 2>&1 && alias ls='ls --classify --color=tty' || alias ls='ls -GF'
+ls --color -d . &>/dev/null 2>&1 && alias ls='ls -Fh --color=tty' || alias ls='ls -GF'
 
 # Smart path configuration - only add if exists
 prepend_paths=($HOME/bin /opt/local/bin /opt/local/sbin)
