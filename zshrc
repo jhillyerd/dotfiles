@@ -12,12 +12,18 @@ ZSH_THEME="yimmy"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias proxy='proxy.py'
+alias dk='sudo docker'
+function ghclone() {
+  repo="$1"
+  shift
+  git clone "https://jhillyerd@github.com/$repo" "$@"
+}
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
-DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="false"
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -36,7 +42,7 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git golang history tmux)
+plugins=(docker git golang history tmux)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
