@@ -7,3 +7,6 @@
 
 [push]
 	default = simple
+
+[github]
+	user = jhillyerd
