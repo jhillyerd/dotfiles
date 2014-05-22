@@ -32,6 +32,9 @@ if [ -n "$ZSH_PROXY_HOST" ]; then
     function noproxy() {
         _zsh_proxy_set ""
     }
+
+    # Initial proxy setup - no auth info
+    _zsh_proxy_set "http://$ZSH_PROXY_HOST"
 fi
 
 # vi:sw=4:ts=4:et
