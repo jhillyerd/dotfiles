@@ -11,7 +11,6 @@ ZSH_THEME="yimmy"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias proxy='proxy.py'
 alias dk='sudo docker'
 function ghclone() {
   repo="$1"
@@ -42,7 +41,12 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(docker git golang history tmux)
+plugins=(docker git golang history proxy tmux)
+
+# Source local config
+if [ -f "$HOME/.zshrc.local" ]; then
+  source "$HOME/.zshrc.local"
+fi
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
