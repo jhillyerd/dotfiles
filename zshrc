@@ -34,7 +34,7 @@ DISABLE_AUTO_UPDATE="false"
 COMPLETION_WAITING_DOTS="true"
 
 # Only start tmux from an SSH session
-if [[ -n "$SSH_CONNECTION" ]]; then
+if [[ -n "$SSH_CONNECTION" && "$TERM" != screen* ]]; then
   ZSH_TMUX_AUTOSTART=true
 fi
 
