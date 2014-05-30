@@ -1,0 +1,14 @@
+# Setup Go-lang environment
+
+if not set -q GOROOT
+  set -x GOROOT /usr/local/go
+end
+
+if test -d $GOROOT
+  if not contains $GOROOT/bin $PATH
+    set -x PATH $GOROOT/bin $PATH
+  end
+  set -x GOPATH ~/devel/godeps ~/devel/gocode
+else
+  set -e GOROOT
+end
