@@ -1,0 +1,267 @@
+# Git Aliases
+function g -d "git"
+  git $argv
+end
+
+function gst -d "git status"
+  git status $argv
+end
+
+function gd
+  git diff $argv
+end
+
+function gdc
+  git diff --cached $argv
+end
+
+function gl
+  git pull $argv
+end
+
+function gup
+  git pull --rebase $argv
+end
+
+function gp
+  git push $argv
+end
+
+function gdv
+  git diff -w $argv | view -
+end
+
+function gc
+  git commit -v $argv
+end
+
+function gc!
+  git commit -v --amend $argv
+end
+
+function gca
+  git commit -v -a $argv
+end
+
+function gca!
+  git commit -v -a --amend $argv
+end
+
+function gcmsg
+  git commit -m $argv
+end
+
+function gco
+  git checkout $argv
+end
+
+function gcm
+  git checkout master
+end
+
+function gr
+  git remote $argv
+end
+
+function grv
+  git remote -v $argv
+end
+
+function grmv
+  git remote rename $argv
+end
+
+function grrm
+  git remote remove $argv
+end
+
+function grset
+  git remote set-url $argv
+end
+
+function grup
+  git remote update $argv
+end
+
+function grbi
+  git rebase -i $argv
+end
+
+function grbc
+  git rebase --continue
+end
+
+function grba
+  git rebase --abort
+end
+
+function gb
+  git branch $argv
+end
+
+function gba
+  git branch -a $argv
+end
+
+function gcount
+  git shortlog -sn $argv
+end
+
+function gcl
+  git config --list
+end
+
+function gcp
+  git cherry-pick $argv
+end
+
+function glg
+  git log --stat --max-count=10 $argv
+end
+
+function glgg
+  git log --graph --max-count=10 $argv
+end
+
+function glgga
+  git log --graph --decorate --all $argv
+end
+
+function glo
+  git log --oneline --decorate --color $argv
+end
+
+function glog
+  git log --oneline --decorate --color --graph $argv
+end
+
+function gss
+  git status -s $argv
+end
+
+function ga
+  git add $argv
+end
+
+function gm
+  git merge $argv
+end
+
+function grh
+  git reset HEAD $argv
+end
+
+function grhh
+  git reset HEAD --hard $argv
+end
+
+function gclean
+  git reset --hard; and git clean -dfx $argv
+end
+
+function gwc
+  git whatchanged -p --abbrev-commit --pretty=medium $argv
+end
+
+function gpoat
+  git push origin --all; and git push origin --tags
+end
+
+function gmt
+  git mergetool --no-prompt $argv
+end
+
+function gg
+  git gui citool
+end
+
+function gga
+  git gui citool --amend
+end
+
+function gk
+  gitk --all --branches $argv
+end
+
+function gsts
+  git stash show --text $argv
+end
+
+function gsta
+  git stash $argv
+end
+
+function gstp
+  git stash pop $argv
+end
+
+function gstd
+  git stash drop $argv
+end
+
+# Will cd into the top of the current repository or submodule.
+function grt
+  cd (git rev-parse --show-toplevel; or echo ".")
+end
+
+# Git and svn mix
+function git-svn-dcommit-push
+  git svn dcommit; and git push github master:svntrunk
+end
+
+function gsr
+  git svn rebase $argv
+end
+
+function gsd
+  git svn dcommit $argv
+end
+
+function ggpull
+  git pull origin (_git_current_branch)
+end
+
+function ggpur
+  git pull --rebase origin (_git_current_branch)
+end
+
+function ggpush
+  git push origin (_git_current_branch)
+end
+
+function ggpnp
+  git pull origin (_git_current_branch); and git push origin (_git_current_branch)
+end
+
+function glp
+  if test (count $argv) -gt 0
+    git log --pretty=$argv[1]
+  end
+end
+
+# Work In Progress (wip)
+# These features allow to pause a branch development and switch to another one (wip)
+# When you want to go back to work, just unwip it
+#
+# these alias commit and uncomit wip branches
+function gwip
+  git add -A; git ls-files --deleted -z | xargs -r0 git rm; git commit -m "--wip--"
+end
+
+function gunwip
+  git log -n 1 | grep -q -c "\-\-wip\-\-"; and git reset HEAD~1
+end
+
+# these alias ignore changes to file
+function gignore
+  git update-index --assume-unchanged $argv
+end
+
+function gunignore
+  git update-index --no-assume-unchanged $argv
+end
+
+# list temporarily ignored files
+function gignored
+  git ls-files -v | grep "^[[:lower:]]" $argv
+end
