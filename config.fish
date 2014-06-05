@@ -14,3 +14,12 @@ set fish_custom $HOME/.dotfiles/oh-my-fish
 
 # Load oh-my-fish configuration.
 . $fish_path/oh-my-fish.fish
+
+# Environment setup
+if not set -q EDITOR
+  set -x EDITOR vim
+end
+
+if test -d $HOME/bin
+  set -x PATH $HOME/bin $PATH
+end
