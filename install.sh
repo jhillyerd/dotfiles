@@ -2,7 +2,10 @@
 
 echo "Installing to $HOME"
 
-for file in ctags cvsignore gitconfig tmux.conf zshrc zsh-custom; do
+rm -f $HOME/.bashrc
+rm -f $HOME/.bash_profile
+
+for file in bash_profile bashrc ctags cvsignore gitconfig tmux.conf zshrc zsh-custom; do
   target="$HOME/.$file"
   if [ -e "$target" ]; then
     echo "$target exists; skipping"
