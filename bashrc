@@ -9,7 +9,7 @@ fi
 alias ..="cd .."
 alias ...="cd ../.."
 alias ~="cd ~"
-alias -="cd -"
+alias -- -="cd -"
 alias h=history
 alias l="ls -lah"
 
