@@ -5,13 +5,18 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+# Color + human ls
+ls --color -d . &>/dev/null 2>&1 && alias ls='ls -Fh --color=tty' || alias ls='ls -GF'
+
 # User specific aliases and functions
 alias ..="cd .."
 alias ...="cd ../.."
 alias ~="cd ~"
 alias -- -="cd -"
 alias h=history
-alias l="ls -lah"
+alias l="ls -la"
+alias la="ls -la"
+alias ll="ls -l"
 
 # Git aliases
 alias g=git
