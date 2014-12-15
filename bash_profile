@@ -18,3 +18,12 @@ if hostname --fqdn | egrep 'nintendo|noa'; then
   HTTPS_PROXY=$proxy_host
   export http_proxy https_proxy HTTP_PROXY HTTPS_PROXY
 fi
+
+# Handle unsupported terminal types
+if ! infocmp "$TERM" >/dev/null; then
+  if [[ "$TERM" == *screen* ]]; then
+    export TERM=screen
+  else
+    export TERM=xterm-color
+  fi
+fi
