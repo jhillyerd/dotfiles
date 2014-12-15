@@ -9,6 +9,8 @@ fi
 export PATH=$PATH:$HOME/bin
 export EDITOR=vim
 
+set -o emacs
+
 # Proxy config
 if hostname --fqdn | egrep 'nintendo|noa'; then
   proxy_host=proxysg.noa.com:8080
