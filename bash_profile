@@ -22,7 +22,7 @@ if hostname --fqdn | egrep 'nintendo|noa'; then
 fi
 
 # Handle unsupported terminal types
-if ! infocmp "$TERM" >/dev/null; then
+if ! infocmp "$TERM" &>/dev/null; then
   if [[ "$TERM" == *screen* ]]; then
     export TERM=screen
   else
