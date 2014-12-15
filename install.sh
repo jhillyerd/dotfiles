@@ -1,9 +1,17 @@
 #!/bin/sh
 
+[[ "$TRACE" ]] && set -x
+set -eo pipefail
+
 echo "Installing to $HOME"
 
-rm -f $HOME/.bashrc
-rm -f $HOME/.bash_profile
+# Backup /etc/skel provided files
+for file in bash_profile bashrc; do
+  target="$HOME/.$file"
+  if [[ -f "$target" && ! -h "$target" ]]; then
+    mv "$target" "$target.bak"
+  fi
+done
 
 for file in bash_profile bashrc ctags cvsignore gitconfig tmux.conf zshrc zsh-custom; do
   target="$HOME/.$file"
