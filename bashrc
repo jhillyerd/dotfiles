@@ -17,6 +17,7 @@ alias h=history
 alias l="ls -la"
 alias la="ls -la"
 alias ll="ls -l"
+alias t="tmux a || tmux"
 
 # Git aliases
 alias g=git
