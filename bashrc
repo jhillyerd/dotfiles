@@ -32,3 +32,14 @@ alias gl="git pull"
 alias gp="git push"
 alias gpoat="git push origin --all; and git push origin --tags"
 alias gss="git status -s"
+
+# Functions
+settitle() {
+  printf "\033k$1\033\\"
+}
+
+ssh() {
+  settitle "$*"
+  command ssh "$@"
+  settitle "bash"
+}
