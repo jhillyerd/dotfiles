@@ -8,7 +8,7 @@ if test -d $GOROOT
   if not contains $GOROOT/bin $PATH
     set -x PATH $GOROOT/bin $PATH
   end
-  set -x GOPATH ~/devel/godeps ~/devel/gocode
+  set -x GOPATH $HOME/devel/godeps:$HOME/devel/gocode
 else
   set -e GOROOT
 end
