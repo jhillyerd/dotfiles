@@ -1,3 +1,3 @@
-function dk --d "sudo docker"
+function dk -d "sudo docker"
   sudo docker $argv
 end
