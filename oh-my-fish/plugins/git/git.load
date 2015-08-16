@@ -7,9 +7,10 @@ function ga
   git add $argv
 end
 
-function gb
-  git branch $argv
-end
+# gb conflicts with go build tool
+#function gb
+#  git branch $argv
+#end
 
 function gba
   git branch -a $argv
