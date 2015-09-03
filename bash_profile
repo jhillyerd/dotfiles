@@ -12,13 +12,15 @@ export EDITOR=vim
 set -o emacs
 
 # Proxy config
-if hostname --fqdn | egrep 'nintendo|noa'; then
-  proxy_host=proxysg.noa.com:8080
-  http_proxy=$proxy_host
-  https_proxy=$proxy_host
-  HTTP_PROXY=$proxy_host
-  HTTPS_PROXY=$proxy_host
-  export http_proxy https_proxy HTTP_PROXY HTTPS_PROXY
+if [[ "$(uname -s)" == "Linux" ]]; then
+  if hostname --fqdn | egrep 'nintendo|noa'; then
+    proxy_host=proxysg.noa.com:8080
+    http_proxy=$proxy_host
+    https_proxy=$proxy_host
+    HTTP_PROXY=$proxy_host
+    HTTPS_PROXY=$proxy_host
+    export http_proxy https_proxy HTTP_PROXY HTTPS_PROXY
+  fi
 fi
 
 # Handle unsupported terminal types
