@@ -6,7 +6,7 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # User specific environment and startup programs
-export PATH=$PATH:$HOME/bin
+export PATH="$PATH:$HOME/bin"
 export EDITOR=vim
 
 set -o emacs
@@ -46,3 +46,9 @@ gray="\[\033[1;36m\]"
 brwhite="\[\033[1;37m\]"
 
 PS1="$red┌$cyan\u$white@$cyan\h $gray\W $green\$(parse_git_branch) \n$red└$normal\\\$ "
+
+# Grails setup
+if [[ -d "$HOME/grails" ]]; then
+  export GRAILS_HOME="$HOME/grails"
+  export PATH="$PATH:$GRAILS_HOME/bin"
+fi
