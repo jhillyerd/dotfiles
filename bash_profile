@@ -55,3 +55,8 @@ if [[ -d "$HOME/grails" ]]; then
   export GRAILS_HOME="$HOME/grails"
   export PATH="$PATH:$GRAILS_HOME/bin"
 fi
+
+# Maven setup
+if [[ -d "/opt/apache-maven" ]]; then
+  export PATH="$PATH:/opt/apache-maven/bin"
+fi
