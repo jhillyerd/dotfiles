@@ -22,7 +22,7 @@ alias t="tmux a || tmux"
 # Git aliases
 alias g=git
 alias ga="git add"
-alias gb="git branch"
+alias gbr="git branch"
 alias gba="git branch -a"
 alias gc="git commit -v"
 alias gca="git commit -a -v"
