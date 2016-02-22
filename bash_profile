@@ -60,3 +60,12 @@ fi
 if [[ -d "/opt/apache-maven" ]]; then
   export PATH="$PATH:/opt/apache-maven/bin"
 fi
+
+# Setup Go-lang environment
+GOROOT="/usr/local/go"
+if [ -d "$GOROOT" ]; then
+  export GOROOT
+  export PATH="$PATH:$GOROOT/bin"
+  export GOPATH="$HOME/devel/gocode"
+  export CDPATH="$CDPATH:$GOPATH/src/github.com/jhillyerd"
+fi
