@@ -13,4 +13,4 @@ end
 #echo INIT $SHLVL
 source $OMF_CONFIG/golang.fish
 
-abbr -a dk sudo docker
+abbr -a dk docker
