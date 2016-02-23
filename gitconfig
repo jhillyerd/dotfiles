@@ -6,7 +6,7 @@
 	excludesfile = ~/.cvsignore
 
 [push]
-	default = upstream
+	default = simple
 
 [github]
 	user = jhillyerd
