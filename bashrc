@@ -2,7 +2,7 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+  . /etc/bashrc
 fi
 
 # Color + human ls
@@ -27,6 +27,7 @@ alias gba="git branch -a"
 alias gc="git commit -v"
 alias gca="git commit -a -v"
 alias gco="git checkout"
+alias gcm="git checkout master"
 alias gd="git diff"
 alias gl="git pull"
 alias glog="git log --oneline --decorate --color --graph"
