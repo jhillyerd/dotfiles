@@ -6,6 +6,10 @@ if not set -q EDITOR
   set -x EDITOR vim
 end
 
+if test -d /usr/local/bin
+  set -x PATH /usr/local/bin $PATH
+end
+
 if test -d $HOME/bin
   set -x PATH $HOME/bin $PATH
 end
