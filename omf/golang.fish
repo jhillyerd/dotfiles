@@ -12,7 +12,11 @@ if test -d $GOROOT/bin
   if not contains $GOROOT/bin $PATH
     set -x PATH $GOROOT/bin $PATH
   end
+else
+  set -e GOROOT
+end
 
+if test -d $godeps
   if test -d $godeps/bin; and not contains $godeps/bin $PATH
     set -x PATH $godeps/bin $PATH
   end
@@ -22,6 +26,4 @@ if test -d $GOROOT/bin
   if not contains $mycdpath $CDPATH
     set -U CDPATH $mycdpath $CDPATH
   end
-else
-  set -e GOROOT
 end

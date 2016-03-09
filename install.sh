@@ -17,6 +17,8 @@ main() {
   for file in bash_profile bashrc ctags cvsignore gitconfig tmux.conf; do
     linkfile "$file" "$HOME/.$file"
   done
+
+  linkfile "omf" "$HOME/.config/omf"
 }
 
 linkfile() {
