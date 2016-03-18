@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 [[ "$TRACE" ]] && set -x
 set -eo pipefail
