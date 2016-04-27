@@ -45,7 +45,7 @@ red="\[\033[0;31m\]"
 green="\[\033[0;32m\]"
 cyan="\[\033[0;36m\]"
 white="\[\033[0;37m\]"
-gray="\[\033[1;36m\]"
+gray="\[\033[m\]"
 brwhite="\[\033[1;37m\]"
 
 PS1="$red┌$cyan\u$white@$cyan\h $gray\W $green\$(parse_git_branch)"$'\n'"$red└$normal\\\$ "
