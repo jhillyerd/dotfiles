@@ -21,7 +21,7 @@ if test -d $godeps
     set -x PATH $godeps/bin $PATH
   end
 
-  set -x GOPATH $HOME/devel/godeps:$HOME/devel/gocode
+  set -g -x GOPATH $HOME/devel/godeps:$HOME/devel/gocode
 
   if not contains $mycdpath $CDPATH
     set -U CDPATH $mycdpath $CDPATH
