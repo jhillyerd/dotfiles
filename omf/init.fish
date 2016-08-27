@@ -20,6 +20,10 @@ if test -d $HOME/bin
   set -x PATH $HOME/bin $PATH
 end
 
+if test $TERM = 'xterm'
+  set -xg TERM 'xterm-256color'
+end
+
 #echo INIT $SHLVL
 source $OMF_CONFIG/golang.fish
 
