@@ -1,9 +1,12 @@
 #!/bin/bash
 
+DOTFILES="$HOME/.dotfiles"
+
 [[ "$TRACE" ]] && set -x
 set -eo pipefail
 
 main() {
+  cd "$DOTFILES"
   echo "Installing to $HOME"
 
   # Backup /etc/skel provided files
@@ -19,6 +22,11 @@ main() {
   done
 
   linkfile "omf" "$HOME/.config/omf"
+
+  for dir in config/*; do
+    local basename="${dir##*/}"
+    linkfile "$dir" "$HOME/.config/$basename"
+  done
 }
 
 linkfile() {
@@ -33,7 +41,7 @@ linkfile() {
     echo "$target exists; skipping"
   else
     echo "Linking $file to $target"
-    ln -s "$HOME/.dotfiles/$file" "$target"
+    ln -s "$DOTFILES/$file" "$target"
   fi
 }
 
