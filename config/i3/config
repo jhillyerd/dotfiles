@@ -77,9 +77,9 @@ bindsym $mod+s split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+p layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+y layout stacking
+bindsym $mod+u layout tabbed
+bindsym $mod+i layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+$chord+space floating toggle
@@ -156,10 +156,21 @@ bar {
         status_command i3status
 }
 
+# Default borders
+new_window normal 3
+new_float normal 5
+
 # Extra window controls
 # bindsym Mod1+Control+Left move left
 # bindsym Mod1+Control+Right move right
 bindsym --release button2 kill
+bindsym $mod+comma resize shrink width 10 px or 3 ppt
+bindsym $mod+period resize grow width 10 px or 3 ppt
+bindsym $mod+p border normal 5
+
+# Media keys
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 -- +10% && killall -SIGUSR1 i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -- -10% && killall -SIGUSR1 i3status
 
 # Extra launchers
 bindsym $mod+b exec "google-chrome"
