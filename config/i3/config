@@ -31,7 +31,7 @@ font pango:Droid Sans 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvtc
 
 # kill focused window
 bindsym $mod+q kill
