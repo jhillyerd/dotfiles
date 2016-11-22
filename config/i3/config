@@ -31,7 +31,7 @@ font pango:Droid Sans 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvtc
+bindsym $mod+t exec urxvtc
 
 # kill focused window
 bindsym $mod+q kill
@@ -74,7 +74,7 @@ bindsym $mod+v split h
 bindsym $mod+s split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+Return fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+y layout stacking
