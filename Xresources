@@ -6,3 +6,5 @@ Rxvt.foreground: DarkGray
 Rxvt.font: xft:Inconsolata:size=12
 /* Rxvt.lineSpace: 1 */
 /* Rxvt.letterSpace: -1 */
+Rxvt.perl-ext-common: default,matcher
+Rxvt.url-launcher: x-www-browser
