@@ -4,6 +4,7 @@
 
 # Configurables
 set $mod Mod1
+set $win Mod4
 set $chord Control
 set $audio_cmd pactl set-sink-volume 1 --
 set $status_refresh_cmd killall -s USR1 i3status
@@ -79,28 +80,28 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $win+1 workspace 1
+bindsym $win+2 workspace 2
+bindsym $win+3 workspace 3
+bindsym $win+4 workspace 4
+bindsym $win+5 workspace 5
+bindsym $win+6 workspace 6
+bindsym $win+7 workspace 7
+bindsym $win+8 workspace 8
+bindsym $win+9 workspace 9
+bindsym $win+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+$chord+1 move container to workspace 1
-bindsym $mod+$chord+2 move container to workspace 2
-bindsym $mod+$chord+3 move container to workspace 3
-bindsym $mod+$chord+4 move container to workspace 4
-bindsym $mod+$chord+5 move container to workspace 5
-bindsym $mod+$chord+6 move container to workspace 6
-bindsym $mod+$chord+7 move container to workspace 7
-bindsym $mod+$chord+8 move container to workspace 8
-bindsym $mod+$chord+9 move container to workspace 9
-bindsym $mod+$chord+0 move container to workspace 10
+bindsym $win+Shift+1 move container to workspace 1
+bindsym $win+Shift+2 move container to workspace 2
+bindsym $win+Shift+3 move container to workspace 3
+bindsym $win+Shift+4 move container to workspace 4
+bindsym $win+Shift+5 move container to workspace 5
+bindsym $win+Shift+6 move container to workspace 6
+bindsym $win+Shift+7 move container to workspace 7
+bindsym $win+Shift+8 move container to workspace 8
+bindsym $win+Shift+9 move container to workspace 9
+bindsym $win+Shift+0 move container to workspace 10
 
 # reload the configuration file
 bindsym $mod+$chord+c reload
