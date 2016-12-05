@@ -1,7 +1,6 @@
 # Setup Go-lang environment
 
-set -l gocode $HOME/devel/gocode
-set -l godeps $HOME/devel/godeps
+set -l gocode $HOME/go
 set -l mycdpath $gocode/src/github.com/jhillyerd
 
 if not set -q GOROOT
@@ -16,12 +15,12 @@ else
   set -e GOROOT
 end
 
-if test -d $godeps
-  if test -d $godeps/bin; and not contains $godeps/bin $PATH
-    set -x PATH $godeps/bin $PATH
+if test -d $gocode
+  if test -d $gocode/bin; and not contains $gocode/bin $PATH
+    set -x PATH $gocode/bin $PATH
   end
 
-  set -g -x GOPATH $HOME/devel/godeps:$HOME/devel/gocode
+  set -g -x GOPATH $gocode
 
   if not contains $mycdpath $CDPATH
     set -U CDPATH $mycdpath $CDPATH
