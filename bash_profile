@@ -40,15 +40,16 @@ parse_git_branch() {
   echo "("${ref#refs/heads/}")"
 }
 
-normal="\[\033[m\]"
-red="\[\033[0;31m\]"
-green="\[\033[0;32m\]"
-cyan="\[\033[0;36m\]"
-white="\[\033[0;37m\]"
-gray="\[\033[m\]"
-brwhite="\[\033[1;37m\]"
+normal="\[$(tput sgr0)\]"
+red="\[$(tput setaf 1)\]"
+green="\[$(tput setaf 2)\]"
+cyan="\[$(tput setaf 6)\]"
+white="\[$(tput setaf 7)\]"
+altcs="\[$(tput smacs)\]"
+nrmcs="\[$(tput rmacs)\]"
 
-PS1="$red┌$cyan\u$white@$cyan\h $gray\W $green\$(parse_git_branch)"$'\n'"$red└$normal\\\$ "
+PS1="$red${altcs}l$nrmcs$cyan\u$white@$cyan\h $normal\W $green\$(parse_git_branch)"$'\n'
+PS1+="$red${altcs}m$nrmcs$normal\\\$ "
 
 # Grails setup
 if [[ -d "$HOME/grails" ]]; then
