@@ -7,6 +7,10 @@ if test -d /usr/local/bin
   set -x PATH /usr/local/bin $PATH
 end
 
+if test -d $HOME/google-cloud-sdk/bin
+  set -x PATH $HOME/google-cloud-sdk/bin $PATH
+end
+
 if test -d $HOME/bin
   set -x PATH $HOME/bin $PATH
 end
