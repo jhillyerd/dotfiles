@@ -161,4 +161,4 @@ bindsym XF86AudioLowerVolume exec --no-startup-id $audio_cmd -5% && $status_refr
 # Extra launchers
 bindsym $mod+b exec "google-chrome"
 bindsym Mod4+l exec "i3lock -c 222233"
-bindsym Print exec "scrot --focused -e 'mv $f ~/Pictures/; gimp ~/Pictures/$f'"
+bindsym --release Print exec "$HOME/bin/snipit"
