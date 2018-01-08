@@ -1,9 +1,9 @@
 # .bashrc
 
 # Source global definitions
-if [ -f /etc/bashrc ]; then
-  . /etc/bashrc
-fi
+[ -f /etc/bashrc ] && source /etc/bashrc
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Color + human ls
 ls --color -d . &>/dev/null 2>&1 && alias ls='ls -Fh --color=tty' || alias ls='ls -GF'
