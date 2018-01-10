@@ -1,4 +1,5 @@
 package git-flow
 package https://github.com/jhillyerd/plugin-git
+package https://github.com/tuvistavie/fish-ssh-agent
 theme default
 theme yimmy
