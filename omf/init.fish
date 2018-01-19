@@ -1,19 +1,18 @@
+function _bin_path -a path -d "Add PATH if not already present"
+  if not string match -q $path $PATH; and test -d $path
+    set -x PATH $path $PATH
+  end
+end
+
 # Path setup
 if not contains . $CDPATH
   set -x CDPATH . $CDPATH
 end
 
-if test -d /usr/local/bin
-  set -x PATH /usr/local/bin $PATH
-end
-
-if test -d $HOME/google-cloud-sdk/bin
-  set -x PATH $HOME/google-cloud-sdk/bin $PATH
-end
-
-if test -d $HOME/bin
-  set -x PATH $HOME/bin $PATH
-end
+_bin_path /usr/local/bin
+_bin_path $HOME/google-cloud-sdk/bin
+_bin_path $HOME/.dotfiles/bin
+_bin_path $HOME/bin
 
 # Environment setup
 if test $TERM = 'xterm'
@@ -32,3 +31,6 @@ end
 
 # Abbreviations
 abbr -a dk docker
+
+# Cleanup
+functions -e _bin_path

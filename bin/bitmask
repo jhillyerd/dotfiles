@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+# bitmask
+# Description: Prints out a list of bits set in the provided mask
+
+mask = ARGV[0].to_i
+
+bit = 1
+while mask != 0
+  if mask & bit != 0
+    mask = mask ^ bit
+    printf "%8d (%d)\n", bit, mask
+  end
+
+  bit = bit << 1
+end
