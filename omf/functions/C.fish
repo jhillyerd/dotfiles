@@ -14,7 +14,20 @@ function C -d "List files and prompt for selection, copies to clipboard"
   end
   set -l name $snipfiles[$choice]
   if test -n $name
-    xclip -selection c < $snipdir/$name
-    echo "$name copied!"
+    set -l file $snipdir/$name
+    # Get extension
+    set -l matches (string match -r '\.([^.]+)$' $name)
+    set -l ext txt
+    if test (count $matches) -gt 1
+      set ext $matches[2]
+    end
+    if contains -- -e $argv
+      set -l tfile (mktemp --tmpdir Cedit.XXXXXXXXXX.$ext)
+      cp -f $file $tfile
+      set file $tfile
+      vim $file
+    end
+    xclip -selection c < $file
+    echo "$name copied from $file!"
   end
 end
