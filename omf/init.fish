@@ -30,7 +30,10 @@ if test -r /google/data/ro/teams/fish/google.fish
 end
 
 # Abbreviations
-abbr -a dk docker
+abbr --add dk docker
+abbr --add dkclean docker container prune --force
+abbr --add dke docker exec -it
+abbr --add dki docker run -itP
 
 # Cleanup
 functions -e _bin_path
