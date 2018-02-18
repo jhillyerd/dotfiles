@@ -3,7 +3,7 @@
 # description: git pull all my standard repos
 
 # Repositories to pull, relative to $HOME
-REPOS=(bin .vim .dotfiles)
+REPOS=(.vim .dotfiles)
 WARNCLR="\E[31m"
 RESET="\E[0m"
 
