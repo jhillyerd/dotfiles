@@ -10,3 +10,6 @@
 
 [github]
 	user = jhillyerd
+
+[http]
+	cookiefile = ~/.gitcookies
