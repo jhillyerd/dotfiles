@@ -30,6 +30,7 @@ if test -r /google/data/ro/teams/fish/google.fish
 end
 
 # Abbreviations
+abbr --add dc docker-compose
 abbr --add dk docker
 abbr --add dkclean docker container prune --force
 abbr --add dke docker exec -it
