@@ -13,3 +13,6 @@
 
 [http]
 	cookiefile = ~/.gitcookies
+
+[merge]
+	tool = vimdiff
