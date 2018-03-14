@@ -17,8 +17,8 @@ main() {
     fi
   done
 
-  for file in bash_profile bashrc ctags cvsignore gitconfig tmux.conf \
-    Xresources; do
+  for file in bash_profile bashrc ctags cvsignore gitconfig imwheelrc \
+    tmux.conf Xresources xsession; do
     linkfile "$file" "$HOME/.$file"
   done
 
