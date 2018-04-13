@@ -25,10 +25,6 @@ end
 
 source $OMF_CONFIG/golang.fish
 
-if test -r /google/data/ro/teams/fish/google.fish
-  source /google/data/ro/teams/fish/google.fish
-end
-
 # Abbreviations
 abbr --add dc docker-compose
 abbr --add dk docker
