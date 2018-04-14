@@ -10,6 +10,7 @@ if not contains . $CDPATH
 end
 
 _bin_path /usr/local/bin
+_bin_path /usr/local/node/bin
 _bin_path $HOME/google-cloud-sdk/bin
 _bin_path $HOME/.dotfiles/bin
 _bin_path $HOME/bin
