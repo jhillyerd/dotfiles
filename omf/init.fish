@@ -5,9 +5,7 @@ function _bin_path -a path -d "Add PATH if not already present"
 end
 
 # Path setup
-if not contains . $CDPATH
-  set -x CDPATH . $CDPATH
-end
+set -x CDPATH . $HOME/devel
 
 _bin_path /usr/local/bin
 _bin_path /usr/local/node/bin

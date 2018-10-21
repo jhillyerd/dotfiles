@@ -1,7 +1,6 @@
 # Setup Go-lang environment
 
 set -l gocode $HOME/go
-set -l mycdpath $gocode/src/github.com/jhillyerd
 
 if not set -q GOROOT
   set -x GOROOT /usr/local/go
@@ -21,8 +20,4 @@ if test -d $gocode
   end
 
   set -g -x GOPATH $gocode
-
-  if not contains $mycdpath $CDPATH
-    set -U CDPATH $mycdpath $CDPATH
-  end
 end
