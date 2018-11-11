@@ -20,9 +20,8 @@ if test $TERM = 'xterm'
   set -xg TERM 'xterm-256color'
 end
 
-if test -z $EDITOR
-  set -xg EDITOR vim
-end
+set -xg EDITOR vim
+set -xg VISUAL vim
 
 source $OMF_CONFIG/golang.fish
 
