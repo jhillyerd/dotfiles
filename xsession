@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# necessary to make Chrome pick up the proxy settings stored in gconf.
+export DESKTOP_SESSION=gnome
+
+# Disable audible bell
+xset -b
+
+setxkbmap -option compose:sclk
+
+# NOTE: This may break your compose key
+export GTK_IM_MODULE=xim
+
+# Background color
+xsetroot -solid "#333333"
+
+# Start urxvtd
+urxvtd -q -f -o
+
+# Mouse config
+xinput set-button-map "Kingsis Peripherals Evoluent VerticalMouse 4" \
+  1 2 3 4 5 6 7 9 7 8
+imwheel
+
+exec i3
