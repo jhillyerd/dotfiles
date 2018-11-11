@@ -160,6 +160,6 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id $audio_cmd +5% && $status_refr
 bindsym XF86AudioLowerVolume exec --no-startup-id $audio_cmd -5% && $status_refresh_cmd
 
 # Extra launchers
-bindsym $mod+b exec "google-chrome"
+bindsym $mod+b exec "www-browser"
 bindsym Mod4+l exec --no-startup-id $lockscreen_cmd
 bindsym --release Print exec "$HOME/bin/snipit"

@@ -51,11 +51,17 @@
     rxvt_unicode-with-plugins
     swaks
     vimHugeX
+    weechat
     wget
     zip
+
+    (writeShellScriptBin "www-browser" ''
+      exec ${google-chrome}/bin/google-chrome-stable "$@"
+    '')
   ];
 
   fonts.fonts = with pkgs; [
+    font-droid
     inconsolata
   ];
 
