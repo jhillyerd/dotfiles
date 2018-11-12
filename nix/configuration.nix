@@ -62,7 +62,7 @@
     wget
     zip
 
-    (writeShellScriptBin "www-browser" ''
+    (writeShellScriptBin "x-www-browser" ''
       exec ${google-chrome}/bin/google-chrome-stable "$@"
     '')
   ];
