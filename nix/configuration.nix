@@ -12,6 +12,9 @@
     autoResize = true;
   };
 
+  hardware.pulseaudio.enable = true;
+  powerManagement.enable = false;
+  sound.enable = true;
   virtualisation.virtualbox.guest.enable = true;
 
   users.users.james = {
@@ -19,7 +22,7 @@
     isNormalUser = true;
     home = "/home/james";
     description = "James Hillyerd";
-    extraGroups = [ "wheel" "networkmanager" "vboxsf" ];
+    extraGroups = [ "audio" "networkmanager" "vboxsf" "wheel" ];
     shell = pkgs.fish;
   };
 
@@ -34,6 +37,7 @@
 
   environment.systemPackages = with pkgs; [
     bind
+    file
     firefox
     fish
     git
@@ -42,6 +46,7 @@
     go
     google-chrome
     jq
+    lsof
     ncat
     nodejs
     patchelf
@@ -73,6 +78,4 @@
     enable = true;
     windowManager.i3.enable = true;
   };
-
-  powerManagement.enable = false;
 }
