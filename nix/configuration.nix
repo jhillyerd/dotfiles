@@ -43,6 +43,8 @@
     google-chrome
     jq
     ncat
+    nodejs
+    patchelf
     python3
     tmux
     tree
