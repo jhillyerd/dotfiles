@@ -22,7 +22,7 @@
     isNormalUser = true;
     home = "/home/james";
     description = "James Hillyerd";
-    extraGroups = [ "audio" "networkmanager" "vboxsf" "wheel" ];
+    extraGroups = [ "audio" "docker" "networkmanager" "vboxsf" "wheel" ];
     shell = pkgs.fish;
   };
 
@@ -37,6 +37,7 @@
 
   environment.systemPackages = with pkgs; [
     bind
+    docker
     file
     firefox
     fish
@@ -78,4 +79,6 @@
     enable = true;
     windowManager.i3.enable = true;
   };
+
+  virtualisation.docker.enable = true;
 }
