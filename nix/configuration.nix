@@ -42,6 +42,7 @@
     firefox
     fish
     git
+    gitAndTools.gitflow
     gcc
     gnumake
     go
