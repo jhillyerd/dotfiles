@@ -35,38 +35,40 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [
-    bind
-    docker
-    file
-    firefox
-    fish
-    git
-    gitAndTools.gitflow
-    gcc
-    gnumake
-    go
-    google-chrome
-    jq
-    lsof
-    ncat
-    nodejs
-    patchelf
-    python3
-    tmux
-    tree
-    universal-ctags
-    unzip
-    rxvt_unicode-with-plugins
-    swaks
-    vimHugeX
-    weechat
-    wget
-    zip
-
-    (writeShellScriptBin "x-www-browser" ''
-      exec ${google-chrome}/bin/google-chrome-stable "$@"
-    '')
+  environment.systemPackages = let
+    x-www-browser =
+      pkgs.writeShellScriptBin "x-www-browser" ''
+        exec ${pkgs.google-chrome}/bin/google-chrome-stable "$@"
+      '';
+    in with pkgs; [
+      bind
+      docker
+      file
+      firefox
+      fish
+      git
+      gitAndTools.gitflow
+      gcc
+      gnumake
+      go
+      google-chrome
+      jq
+      lsof
+      ncat
+      nodejs
+      patchelf
+      python3
+      tmux
+      tree
+      universal-ctags
+      unzip
+      rxvt_unicode-with-plugins
+      swaks
+      vimHugeX
+      weechat
+      wget
+      x-www-browser
+      zip
   ];
 
   fonts.fonts = with pkgs; [
