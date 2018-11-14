@@ -163,3 +163,6 @@ bindsym XF86AudioLowerVolume exec --no-startup-id $audio_cmd -5% && $status_refr
 bindsym $mod+b exec "x-www-browser"
 bindsym Mod4+l exec --no-startup-id $lockscreen_cmd
 bindsym --release Print exec "$HOME/bin/snipit"
+
+# Startup commands
+exec --no-startup-id xautolock -time 5 -locker "$lockscreen_cmd" &
