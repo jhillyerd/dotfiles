@@ -45,7 +45,6 @@
       docker
       file
       firefox
-      fish
       git
       gitAndTools.gitflow
       gcc
@@ -80,6 +79,7 @@
 
   services.xserver = {
     enable = true;
+    dpi = 108;
     windowManager.i3.enable = true;
   };
 
