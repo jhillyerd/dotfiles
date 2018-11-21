@@ -165,4 +165,4 @@ bindsym Mod4+l exec --no-startup-id $lockscreen_cmd
 bindsym --release Print exec "$HOME/bin/snipit"
 
 # Startup commands
-exec --no-startup-id xautolock -time 5 -locker "$lockscreen_cmd" &
+exec --no-startup-id xautolock -time 10 -locker "$lockscreen_cmd" &
