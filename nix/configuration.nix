@@ -33,6 +33,7 @@
 
   time.timeZone = "US/Pacific";
 
+  nix.useSandbox = false;
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = let
