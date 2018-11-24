@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # update-all-the-things
 # description: git pull all my standard repos
 
 # Repositories to pull, relative to $HOME
-REPOS=(.vim .dotfiles)
+REPOS=(.vim .chezmoi)
 WARNCLR="\E[31m"
 RESET="\E[0m"
 
