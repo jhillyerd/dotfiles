@@ -50,12 +50,10 @@
       gitAndTools.gitflow
       gcc
       gnumake
-      go
       google-chrome
       jq
       lsof
       ncat
-      nodejs
       patchelf
       python3
       tmux

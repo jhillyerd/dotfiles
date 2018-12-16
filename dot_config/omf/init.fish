@@ -31,6 +31,7 @@ abbr --add dk docker
 abbr --add dkclean docker container prune --force
 abbr --add dke docker exec -it
 abbr --add dki docker run -itP --rm
+abbr --add nfish "nix-shell -I nixpkgs=/home/james/nixpkgs --command 'SHELL=fish; exec fish'"
 
 # Cleanup
 functions -e _bin_path
