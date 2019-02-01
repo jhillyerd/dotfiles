@@ -161,6 +161,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id $audio_cmd -5% && $status_refr
 
 # Extra launchers
 bindsym $mod+b exec "x-www-browser"
+bindsym $mod+e exec --no-startup-id "$HOME/.scripts/dmenu-emoji.sh"
 bindsym Mod4+l exec --no-startup-id $lockscreen_cmd
 bindsym --release Print exec "$HOME/bin/snipit"
 
