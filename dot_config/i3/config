@@ -91,6 +91,7 @@ bindsym $win+7 workspace 7
 bindsym $win+8 workspace 8
 bindsym $win+9 workspace 9
 bindsym $win+0 workspace 10
+bindsym $win+Tab workspace back_and_forth
 
 # move focused container to workspace
 bindsym $win+Shift+1 move container to workspace 1
