@@ -105,6 +105,10 @@ bindsym $win+Shift+8 move container to workspace 8
 bindsym $win+Shift+9 move container to workspace 9
 bindsym $win+Shift+0 move container to workspace 10
 
+# scratchpad
+bindsym $mod+$chord+semicolon move scratchpad
+bindsym $mod+semicolon scratchpad show
+
 # reload the configuration file
 bindsym $mod+$chord+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -149,8 +153,6 @@ new_window normal 3
 new_float normal 5
 
 # Extra window controls
-# bindsym Mod1+Control+Left move left
-# bindsym Mod1+Control+Right move right
 bindsym --release button2 kill
 bindsym $mod+comma resize shrink width 100 px or 3 ppt
 bindsym $mod+period resize grow width 100 px or 3 ppt
