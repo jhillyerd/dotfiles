@@ -138,6 +138,12 @@ mode "resize" {
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
+
+        bindsym 3 resize set 30 ppt 100 ppt; mode "default"
+        bindsym 4 resize set 40 ppt 100 ppt; mode "default"
+        bindsym 5 resize set 50 ppt 100 ppt; mode "default"
+        bindsym 6 resize set 60 ppt 100 ppt; mode "default"
+        bindsym 7 resize set 70 ppt 100 ppt; mode "default"
 }
 
 bindsym $mod+r mode "resize"
