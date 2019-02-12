@@ -1,5 +1,11 @@
 # .bash_profile
 
+# Nix setup
+nixprofile="$HOME/.nix-profile/etc/profile.d/nix.sh"
+if [ -f "$nixprofile" ]; then
+  source "$nixprofile"
+fi
+
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
   . ~/.bashrc
