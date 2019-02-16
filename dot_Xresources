@@ -9,3 +9,4 @@ Rxvt.font: xft:Inconsolata:size=12
 Rxvt.perl-ext-common: default,matcher
 Rxvt.matcher.button: 1
 Rxvt.url-launcher: x-www-browser
+Xcursor.theme: elementary
