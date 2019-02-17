@@ -1,18 +1,16 @@
 [user]
 	name = James Hillyerd
 	email = james@hillyerd.com
-
 [core]
 	excludesfile = ~/.cvsignore
-
-[push]
-	default = simple
-
 [github]
 	user = jhillyerd
-
 [http]
 	cookiefile = ~/.gitcookies
-
 [merge]
 	tool = vimdiff
+[push]
+	default = simple
+[rebase]
+	abbreviateCommands = true
+	autoSquash = true
