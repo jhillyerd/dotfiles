@@ -26,6 +26,7 @@ set -xg VISUAL vim
 source $OMF_CONFIG/golang.fish
 
 # Abbreviations
+abbr --add ccd chezmoi cd
 abbr --add cea chezmoi edit --apply --diff
 abbr --add cu chezmoi update -v
 abbr --add dc docker-compose
