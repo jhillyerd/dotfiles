@@ -12,6 +12,7 @@ end
 _bin_path /usr/local/bin
 _bin_path /usr/local/node/bin
 _bin_path $HOME/google-cloud-sdk/bin
+_bin_path $HOME/.cargo/bin
 _bin_path $HOME/.scripts
 _bin_path $HOME/bin
 
