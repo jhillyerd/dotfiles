@@ -7,7 +7,6 @@ set $mod Mod1
 set $win Mod4
 set $chord Control
 set $audio_cmd pactl set-sink-volume 1 --
-set $lockscreen_cmd i3lock -c 222233
 set $status_refresh_cmd killall -s USR1 i3status
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -170,9 +169,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id $audio_cmd -5% && $status_refr
 # Extra launchers
 bindsym $mod+b exec "x-www-browser"
 bindsym $mod+e exec --no-startup-id "$HOME/.scripts/dmenu-emoji.sh"
-bindsym Mod4+l exec --no-startup-id $lockscreen_cmd
+bindsym Mod4+l exec --no-startup-id "$HOME/.scripts/lock-screen.sh"
 bindsym --release Print exec "$HOME/bin/snipit"
 
 # Startup commands
 exec --no-startup-id urxvtd -q -f -o
-exec --no-startup-id xautolock -time 10 -locker "$lockscreen_cmd" &

@@ -24,4 +24,6 @@ xinput set-button-map "Kingsis Peripherals Evoluent VerticalMouse 4" \
 imwheel
 {{- end }}
 
+xautolock -time 10 -locker "$HOME/.scripts/lock-screen.sh" &
+
 exec i3
