@@ -37,5 +37,8 @@ abbr --add dke docker exec -it
 abbr --add dki docker run -itP --rm
 abbr --add nfish "nix-shell -I nixpkgs=/home/james/nixpkgs --command 'SHELL=fish; exec fish'"
 
+# Key bindings
+bind \cp fzf-file-widget
+
 # Cleanup
 functions -e _bin_path
