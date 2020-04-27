@@ -27,14 +27,17 @@ set -xg VISUAL vim
 source $OMF_CONFIG/golang.fish
 
 # Abbreviations
-abbr -a -g ccd chezmoi cd
-abbr -a -g cea chezmoi edit --apply --diff
-abbr -a -g cu chezmoi update -v
+abbr -a -g cm chezmoi
+abbr -a -g cma chezmoi apply -v
+abbr -a -g cme chezmoi edit --apply --diff
+abbr -a -g cmu chezmoi update -v
+
 abbr -a -g dc docker-compose
 abbr -a -g dk docker
 abbr -a -g dkclean docker container prune --force
 abbr -a -g dke docker exec -it
 abbr -a -g dki docker run -itP --rm
+
 abbr -a -g nfish "nix-shell --command 'SHELL=fish; exec fish'"
 abbr -a -g nfish! "nix-shell -I nixpkgs=/home/james/nixpkgs --command 'SHELL=fish; exec fish'"
 
