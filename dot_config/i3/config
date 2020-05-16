@@ -169,4 +169,4 @@ bindsym --release Print exec "$HOME/bin/snipit"
 # Startup commands
 exec --no-startup-id "urxvtd -q -f -o"
 exec --no-startup-id "xsetroot -solid '#333333'"
-exec --no-startup-id "polybar example"
+exec --no-startup-id "polybar main"
