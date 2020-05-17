@@ -3,8 +3,10 @@
 # necessary to make Chrome pick up the proxy settings stored in gconf.
 export DESKTOP_SESSION=gnome
 
-# Disable audible bell
-xset -b
+urxvtd -q -f -o              # urxvt daemon
+sxhkd &                      # hot key daemon
+xsetroot -solid '#333333'    # set background
+xset -b                      # disable audible bell
 
 setxkbmap -option compose:sclk
 
@@ -22,5 +24,7 @@ imwheel
 {{- end }}
 
 xautolock -time 10 -locker "$HOME/.scripts/lock-screen.sh" &
+
+polybar -q main &
 
 exec i3

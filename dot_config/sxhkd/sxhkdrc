@@ -1,0 +1,12 @@
+# Launchers
+super + Return
+  urxvtc
+
+super + d
+  i3-dmenu-desktop
+
+super + e
+  $HOME/.scripts/dmenu-emoji.sh
+
+Print
+  $HOME/bin/snipit
