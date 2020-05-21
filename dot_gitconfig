@@ -9,6 +9,10 @@
 	cookiefile = ~/.gitcookies
 [merge]
 	tool = vimdiff
+[mergetool]
+        keepBackup = false
+[mergetool "vimdiff"]
+	cmd = vim -d $LOCAL $REMOTE $MERGED
 [push]
 	default = simple
 [rebase]
