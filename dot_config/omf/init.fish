@@ -29,6 +29,7 @@ source $OMF_CONFIG/golang.fish
 # Abbreviations
 abbr -a -g cm chezmoi
 abbr -a -g cma chezmoi apply -v
+abbr -a -g cmcd chezmoi cd
 abbr -a -g cme chezmoi edit --apply --diff
 abbr -a -g cmu chezmoi update -v
 
