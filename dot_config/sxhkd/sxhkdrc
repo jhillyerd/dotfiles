@@ -1,6 +1,6 @@
 # Launchers
 super + Return
-  urxvtc
+  termite
 
 super + e
   $HOME/.scripts/dmenu-emoji.sh
