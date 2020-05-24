@@ -6,7 +6,7 @@
 #cell_width_scale = 1.0
 #clickable_url = true
 #dynamic_title = true
-font = Monospace 9
+font = Inconsolata 12
 #fullscreen = true
 #icon_name = terminal
 #mouse_autohide = false
@@ -46,9 +46,9 @@ scrollback_lines = 10000
 #cursor = #dcdccc
 #cursor_foreground = #dcdccc
 
-#foreground = #dcdccc
+foreground = #a8a8a8
 #foreground_bold = #ffffff
-#background = #3f3f3f
+background = #000000
 
 # 20% background transparency (requires a compositor)
 #background = rgba(63, 63, 63, 0.8)
