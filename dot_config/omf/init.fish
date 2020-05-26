@@ -16,6 +16,8 @@ _bin_path $HOME/.cargo/bin
 _bin_path $HOME/.scripts
 _bin_path $HOME/bin
 
+set -xg GOPATH $HOME/go
+
 # Environment setup
 if test $TERM = 'xterm'
   set -xg TERM 'xterm-256color'
@@ -23,8 +25,6 @@ end
 
 set -xg EDITOR vim
 set -xg VISUAL vim
-
-source $OMF_CONFIG/golang.fish
 
 # Abbreviations
 abbr -a -g cm chezmoi
