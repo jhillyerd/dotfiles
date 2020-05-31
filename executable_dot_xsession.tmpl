@@ -16,7 +16,7 @@ setxkbmap -option compose:sclk
 export GTK_IM_MODULE=xim
 
 # Audio
-start-pulseaudio-x11
+command -v start-pulseaudio-x11 >/dev/null && start-pulseaudio-x11
 
 {{- if eq .machine "desktop" }}
 # Mouse config
@@ -25,8 +25,13 @@ xinput set-button-map "Kingsis Peripherals Evoluent VerticalMouse 4" \
 imwheel
 {{- end }}
 
-xautolock -time 10 -locker "$HOME/.scripts/lock-screen.sh" &
+# Setup screen locker
+dimmer="/usr/lib/xsecurelock/dimmer"
+if [ ! -x "$dimmer" ]; then
+  dimmer="$(dirname $(dirname $(readlink -f $(command -v xsecurelock))))/libexec/xsecurelock/dimmer"
+fi
+xset s 600 5
+xss-lock -n "$dimmer" -l -- xsecurelock &
 
 polybar -qr main &
-
 exec bspwm

@@ -1,3 +1,3 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-exec i3lock -c 222233
+xset s activate
