@@ -17,10 +17,10 @@ font pango:Droid Sans 9
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+t exec --no-startup-id urxvtc
+bindsym $win+Return exec --no-startup-id urxvtc
 
 # kill focused window
-bindsym $mod+q kill
+bindsym $win+w kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
@@ -109,11 +109,11 @@ bindsym $mod+$chord+semicolon move scratchpad
 bindsym $mod+semicolon scratchpad show
 
 # reload the configuration file
-bindsym $mod+$chord+c reload
+# bindsym $mod+$chord+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+$chord+r restart
+bindsym $win+$mod+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+$chord+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $win+$mod+q exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -161,12 +161,12 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id $audio_cmd +5% && $status_refr
 bindsym XF86AudioLowerVolume exec --no-startup-id $audio_cmd -5% && $status_refresh_cmd
 
 # Extra launchers
-bindsym $mod+b exec "x-www-browser"
+bindsym $win+b exec "x-www-browser"
 # bindsym $mod+e exec --no-startup-id "$HOME/.scripts/dmenu-emoji.sh"
-bindsym Mod4+l exec --no-startup-id "$HOME/.scripts/lock-screen.sh"
+bindsym $win+l exec --no-startup-id "$HOME/.scripts/lock-screen.sh"
 # bindsym --release Print exec "$HOME/bin/snipit"
 
 # Startup commands
-# exec --no-startup-id "urxvtd -q -f -o"
-# exec --no-startup-id "xsetroot -solid '#333333'"
-# exec --no-startup-id "polybar main"
+exec --no-startup-id "urxvtd -q -f -o"
+exec --no-startup-id "xsetroot -solid '#333333'"
+exec --no-startup-id "polybar -qr main"
