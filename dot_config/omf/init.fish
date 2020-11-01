@@ -23,8 +23,8 @@ if test $TERM = 'xterm'
   set -xg TERM 'xterm-256color'
 end
 
-set -xg EDITOR vim
-set -xg VISUAL vim
+set -xg EDITOR nvim
+set -xg VISUAL nvim
 
 # Abbreviations
 abbr -a -g cm chezmoi
