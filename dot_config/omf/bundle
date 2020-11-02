@@ -3,4 +3,3 @@ package https://github.com/jhillyerd/plugin-git
 package https://github.com/lilyball/nix-env.fish
 package https://github.com/tuvistavie/fish-ssh-agent
 theme default
-theme yimmy
