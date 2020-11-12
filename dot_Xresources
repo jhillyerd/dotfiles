@@ -3,7 +3,7 @@ Rxvt.scrollstyle: plain
 Rxvt.scrollColor: SlateGray
 Rxvt.background: Black
 Rxvt.foreground: DarkGray
-Rxvt.font: xft:Inconsolata:size=12
+Rxvt.font: xft:FiraCode:size=12:antialias=true
 /* Rxvt.lineSpace: 1 */
 /* Rxvt.letterSpace: -1 */
 Rxvt.perl-ext-common: default,matcher
