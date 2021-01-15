@@ -19,7 +19,7 @@ _bin_path $HOME/bin
 set -xg GOPATH $HOME/go
 
 # Environment setup
-if test $TERM = 'xterm'
+if test "$TERM" = 'xterm'
   set -xg TERM 'xterm-256color'
 end
 
