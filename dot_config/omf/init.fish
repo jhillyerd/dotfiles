@@ -42,6 +42,8 @@ abbr -a -g dki docker run -itP --rm
 abbr -a -g nfish "nix-shell --command 'SHELL=fish; exec fish'"
 abbr -a -g nfish! "nix-shell -I nixpkgs=/home/james/nixpkgs --command 'SHELL=fish; exec fish'"
 
+abbr -a -g hdel history delete --case-sensitive --exact \$history[1]
+
 # Key bindings
 bind \cp fzf-file-widget
 
