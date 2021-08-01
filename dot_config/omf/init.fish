@@ -30,10 +30,9 @@ set -xg VISUAL nvim
 abbr -a -g cm chezmoi
 abbr -a -g cma chezmoi apply -v
 abbr -a -g cmcd chezmoi cd
-abbr -a -g cme chezmoi edit --apply --diff
+abbr -a -g cme chezmoi edit --apply
 abbr -a -g cmu chezmoi update -v
 
-abbr -a -g dc docker-compose
 abbr -a -g dk docker
 abbr -a -g dkclean docker container prune --force
 abbr -a -g dke docker exec -it
