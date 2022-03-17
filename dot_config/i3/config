@@ -16,18 +16,8 @@ font pango:Droid Sans 9
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $win+Return exec --no-startup-id urxvtc
-
 # kill focused window
 bindsym $win+w kill
-
-# start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -159,14 +149,3 @@ bindsym $mod+period resize grow width 100 px or 3 ppt
 # Media keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id $audio_cmd +5% && $status_refresh_cmd
 bindsym XF86AudioLowerVolume exec --no-startup-id $audio_cmd -5% && $status_refresh_cmd
-
-# Extra launchers
-bindsym $win+b exec "x-www-browser"
-# bindsym $mod+e exec --no-startup-id "$HOME/.scripts/dmenu-emoji.sh"
-bindsym $win+l exec --no-startup-id "$HOME/.scripts/lock-screen.sh"
-# bindsym --release Print exec "$HOME/bin/snipit"
-
-# Startup commands
-exec --no-startup-id "urxvtd -q -f -o"
-exec --no-startup-id "xsetroot -solid '#333333'"
-exec --no-startup-id "polybar -qr main"
