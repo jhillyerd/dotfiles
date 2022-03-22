@@ -3,9 +3,8 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # Configurables
-set $mod Mod1
-set $win Mod4
-set $chord Control
+set $mod Mod4
+set $chord Shift
 set $audio_cmd pactl set-sink-volume 1 --
 set $status_refresh_cmd killall -s USR1 i3status
 
@@ -17,7 +16,7 @@ font pango:Droid Sans 9
 floating_modifier $mod
 
 # kill focused window
-bindsym $win+w kill
+bindsym $mod+w kill
 
 # change focus
 bindsym $mod+h focus left
@@ -50,7 +49,7 @@ bindsym $mod+v split h
 bindsym $mod+s split v
 
 # enter fullscreen mode for the focused container
-bindsym $win+f fullscreen toggle
+bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+y layout stacking
@@ -61,38 +60,38 @@ bindsym $mod+i layout toggle split
 bindsym $mod+$chord+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $win+1 workspace 1
-bindsym $win+2 workspace 2
-bindsym $win+3 workspace 3
-bindsym $win+4 workspace 4
-bindsym $win+5 workspace 5
-bindsym $win+6 workspace 6
-bindsym $win+7 workspace 7
-bindsym $win+8 workspace 8
-bindsym $win+9 workspace 9
-bindsym $win+0 workspace 10
-bindsym $win+Tab workspace back_and_forth
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+bindsym $mod+Tab workspace back_and_forth
 
 # move focused container to workspace
-bindsym $win+$chord+1 move container to workspace 1
-bindsym $win+$chord+2 move container to workspace 2
-bindsym $win+$chord+3 move container to workspace 3
-bindsym $win+$chord+4 move container to workspace 4
-bindsym $win+$chord+5 move container to workspace 5
-bindsym $win+$chord+6 move container to workspace 6
-bindsym $win+$chord+7 move container to workspace 7
-bindsym $win+$chord+8 move container to workspace 8
-bindsym $win+$chord+9 move container to workspace 9
-bindsym $win+$chord+0 move container to workspace 10
+bindsym $mod+$chord+1 move container to workspace 1
+bindsym $mod+$chord+2 move container to workspace 2
+bindsym $mod+$chord+3 move container to workspace 3
+bindsym $mod+$chord+4 move container to workspace 4
+bindsym $mod+$chord+5 move container to workspace 5
+bindsym $mod+$chord+6 move container to workspace 6
+bindsym $mod+$chord+7 move container to workspace 7
+bindsym $mod+$chord+8 move container to workspace 8
+bindsym $mod+$chord+9 move container to workspace 9
+bindsym $mod+$chord+0 move container to workspace 10
 
 # scratchpad
 bindsym $mod+$chord+semicolon move scratchpad
@@ -101,9 +100,9 @@ bindsym $mod+semicolon scratchpad show
 # reload the configuration file
 # bindsym $mod+$chord+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $win+$mod+r restart
+bindsym $mod+$chord+r restart
 # exit i3 (logs you out of your X session)
-bindsym $win+$mod+q exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+$chord+q exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -149,3 +148,5 @@ bindsym $mod+period resize grow width 100 px or 3 ppt
 # Media keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id $audio_cmd +5% && $status_refresh_cmd
 bindsym XF86AudioLowerVolume exec --no-startup-id $audio_cmd -5% && $status_refresh_cmd
+
+exec --no-startup-id "$HOME/.scripts/after-wm-start.sh"
