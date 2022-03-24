@@ -27,21 +27,25 @@ set -xg EDITOR nvim
 set -xg VISUAL nvim
 
 # Abbreviations
-abbr -a -g cm chezmoi
-abbr -a -g cma chezmoi apply -v
-abbr -a -g cmcd chezmoi cd
-abbr -a -g cme chezmoi edit --apply
-abbr -a -g cmu chezmoi update -v
+abbr -ag cm chezmoi
+abbr -ag cma chezmoi apply -v
+abbr -ag cmcd chezmoi cd
+abbr -ag cme chezmoi edit --apply
+abbr -ag cmu chezmoi update -v
 
-abbr -a -g dk docker
-abbr -a -g dkclean docker container prune --force
-abbr -a -g dke docker exec -it
-abbr -a -g dki docker run -itP --rm
+abbr -ag dk docker
+abbr -ag dkclean docker container prune --force
+abbr -ag dke docker exec -it
+abbr -ag dki docker run -itP --rm
 
-abbr -a -g nfish "nix-shell --command 'SHELL=fish; exec fish'"
-abbr -a -g nfish! "nix-shell -I nixpkgs=/home/james/nixpkgs --command 'SHELL=fish; exec fish'"
+abbr -ag nfish "nix-shell --command 'SHELL=fish; exec fish'"
+abbr -ag nfish! "nix-shell -I nixpkgs=/home/james/nixpkgs --command 'SHELL=fish; exec fish'"
 
-abbr -a -g hdel history delete --case-sensitive --exact \$history[1]
+abbr -ag hdel history delete --case-sensitive --exact \$history[1]
+
+if command -sq bat
+  abbr -ag cat bat
+end
 
 # Key bindings
 bind \cp fzf-file-widget
