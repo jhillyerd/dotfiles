@@ -1,3 +1,3 @@
 #!/bin/sh
 
-polybar -qr main &
+$HOME/.scripts/polybar-start.sh
