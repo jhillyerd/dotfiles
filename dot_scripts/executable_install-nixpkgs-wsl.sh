@@ -8,6 +8,7 @@ nix-env -iA \
   nixpkgs.gitAndTools.git-absorb \
   nixpkgs.jq \
   nixpkgs.neovim \
+  nixpkgs.nixfmt \
   nixpkgs.nmap \
   nixpkgs.nodejs \
   nixpkgs.starship \
