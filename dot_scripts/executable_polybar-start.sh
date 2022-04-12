@@ -12,6 +12,6 @@ main="${monitors[0]}"
 # Launch bars
 MONITOR="$main" polybar main >> $LOG 2>&1 & disown
 
-for secondary in "${array[@]:1}"; do
+for secondary in "${monitors[@]:1}"; do
   MONITOR="$secondary" polybar secondary >> $LOG 2>&1 & disown
 done
