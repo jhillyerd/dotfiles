@@ -6,6 +6,12 @@ LOG="$HOME/.polybar.log"
 polybar-msg cmd quit
 test -e $LOG && rm -f $LOG
 
+monitors=( $(polybar --list-monitors | cut -d":" -f1) )
+main="${monitors[0]}"
+
 # Launch bars
-MONITOR=DP-2 polybar main >> $LOG 2>&1 & disown
-MONITOR=DP-4 polybar secondary >> $LOG 2>&1 & disown
+MONITOR="$main" polybar main >> $LOG 2>&1 & disown
+
+for secondary in "${array[@]:1}"; do
+  MONITOR="$secondary" polybar secondary >> $LOG 2>&1 & disown
+done
