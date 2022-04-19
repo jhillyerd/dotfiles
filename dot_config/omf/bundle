@@ -1,3 +1,4 @@
+package git@github.com:jhillyerd/fish-ssh-agent.git
 package https://github.com/jhillyerd/plugin-git
 package https://github.com/lilyball/nix-env.fish
 theme default
