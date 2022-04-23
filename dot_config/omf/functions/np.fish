@@ -6,6 +6,11 @@ function np -a project -d "nix-project: cd <project> + nix-shell + tmux"
     ssh-add
   end
 
+  # Prompt for project
+  if test -z "$project"
+    set project (ls $project_dir | fzf)
+  end
+
   pushd "$project_dir/$project"
   nix-shell --command "SHELL=fish; exec tmux new-session -t $project"
   popd
