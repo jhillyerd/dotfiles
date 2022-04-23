@@ -43,6 +43,8 @@ abbr -ag nfish! "nix-shell -I nixpkgs=/home/james/nixpkgs --command 'SHELL=fish;
 
 abbr -ag hdel history delete --case-sensitive --exact \$history[1]
 
+abbr -ag run-inbucket "tmux neww -n inbucketd $HOME/dev-start.sh \; set remain-on-exit failed \; splitw"
+
 if command -sq bat
   abbr -ag cat bat
 end
