@@ -25,10 +25,8 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
-bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+$chord+h move left
@@ -63,10 +61,10 @@ bindsym $mod+$chord+space floating toggle
 #bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+Left focus parent
 
 # focus the child container
-bindsym $mod+d focus child
+bindsym $mod+Right focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
