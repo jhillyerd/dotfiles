@@ -1,0 +1,5 @@
+[".config/awesome/lain"]
+type = "archive"
+url = "https://github.com/lcpz/lain/archive/0df20e38bbd047c1afea46ab25e8ecf758bb5d45.zip"
+exact = true
+stripComponents = 1
