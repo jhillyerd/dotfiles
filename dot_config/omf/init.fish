@@ -30,7 +30,6 @@ set -xg VISUAL nvim
 abbr -ag cm chezmoi
 abbr -ag cma chezmoi apply -v
 abbr -ag cmcd chezmoi cd
-abbr -ag cme chezmoi edit --apply
 abbr -ag cmu chezmoi update -v
 
 abbr -ag dk docker
