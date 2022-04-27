@@ -3,7 +3,7 @@
     monitor = 0
     follow = none
 
-    geometry = "300x5-30+20"
+    geometry = "300x5-30-30"
     indicate_hidden = yes
     shrink = no
     transparency = 0
