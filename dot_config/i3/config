@@ -66,6 +66,12 @@ bindsym $mod+Left focus parent
 # focus the child container
 bindsym $mod+Right focus child
 
+# read 1 character and mark the current window with this character
+bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
+
+# read 1 character and go to the window with the character
+bindsym $mod+apostrophe exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
+
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -125,11 +131,13 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 
+        bindsym 2 resize set 20 ppt 100 ppt; mode "default"
         bindsym 3 resize set 30 ppt 100 ppt; mode "default"
         bindsym 4 resize set 40 ppt 100 ppt; mode "default"
         bindsym 5 resize set 50 ppt 100 ppt; mode "default"
         bindsym 6 resize set 60 ppt 100 ppt; mode "default"
         bindsym 7 resize set 70 ppt 100 ppt; mode "default"
+        bindsym 8 resize set 80 ppt 100 ppt; mode "default"
 }
 
 bindsym $mod+r mode "resize"
