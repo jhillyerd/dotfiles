@@ -11,7 +11,8 @@ local function make_icon(char)
     return wibox.widget {
         font = theme.icon_font,
         markup = ' ' .. char .. ' ',
-        align = 'center',
+        forced_width = dpi(30),
+        align = 'right',
         valign = 'center',
         widget = wibox.widget.textbox,
     }
@@ -20,18 +21,8 @@ end
 -- Textclock
 local clockicon = make_icon('')
 os.setlocale(os.getenv("LANG")) -- to localize the clock
-local mytextclock = wibox.widget.textclock(markup("#7788af", "%A %d %B ") .. markup("#ab7367", ">") .. markup("#de5e1e", " %H:%M "))
+local mytextclock = wibox.widget.textclock(markup("#7788af", "%A %d %B ") .. markup("#ab7367", ">") .. markup("#de5e1e", " %H:%M %P "))
 mytextclock.font = theme.font
-
--- Calendar
-theme.cal = lain.widget.cal({
-    attach_to = { mytextclock },
-    notification_preset = {
-        font = "Terminus 10",
-        fg   = theme.fg_normal,
-        bg   = theme.bg_normal
-    }
-})
 
 -- CPU
 local cpuicon = make_icon('')
@@ -65,7 +56,7 @@ local bat = lain.widget.bat({
 
 -- Volume
 local volicon = make_icon('')
-theme.volume = lain.widget.pulse({
+local volume = lain.widget.pulse({
     settings = function()
         local vlevel = volume_now.left .. "%"
         if volume_now.muted == "yes" then
@@ -75,6 +66,24 @@ theme.volume = lain.widget.pulse({
         widget:set_markup(markup.fontfg(theme.font, "#7493d2", vlevel))
     end
 })
+
+volume.widget:buttons(awful.util.table.join(
+    awful.button({}, 1, function() -- left click
+        awful.spawn("pavucontrol")
+    end),
+    awful.button({}, 3, function() -- right click
+        os.execute(string.format("pactl set-sink-mute %s toggle", volume.device))
+        volume.update()
+    end),
+    awful.button({}, 4, function() -- scroll up
+        os.execute(string.format("pactl set-sink-volume %s +3%%", volume.device))
+        volume.update()
+    end),
+    awful.button({}, 5, function() -- scroll down
+        os.execute(string.format("pactl set-sink-volume %s -3%%", volume.device))
+        volume.update()
+    end)
+))
 
 -- Net
 local netdownicon = make_icon('')
@@ -103,7 +112,7 @@ local create_wibox = function(s)
   return awful.wibar {
     position = "top",
     screen = s,
-    height = dpi(19),
+    height = dpi(20),
     bg = theme.bg_normal,
     fg = theme.fg_normal,
     widget = wibox.widget {
@@ -125,7 +134,7 @@ local create_wibox = function(s)
           netupicon,
           netupinfo.widget,
           volicon,
-          theme.volume.widget,
+          volume.widget,
           memicon,
           mem.widget,
           cpuicon,
