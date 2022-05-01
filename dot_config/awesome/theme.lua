@@ -7,7 +7,8 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font          = "sans 8"
+theme.font          = "Droad Sans 9"
+theme.icon_font     = "Siji 8"
 
 theme.bg_normal     = "#222222"
 theme.bg_focus      = "#435d8c"
@@ -39,6 +40,8 @@ theme.border_marked = "#91231c"
 -- Example:
 --theme.taglist_bg_focus = "#ff0000"
 
+theme.tasklist_fg_focus = theme.fg_normal
+
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)
 theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
@@ -47,6 +50,10 @@ theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
 theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
     taglist_square_size, theme.fg_normal
 )
+
+theme.tasklist_align = center
+theme.tasklist_disable_icon = true
+theme.tasklist_bg_focus = theme.bg_normal
 
 -- Variables set for theming notifications:
 -- notification_font
