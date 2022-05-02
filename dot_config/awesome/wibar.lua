@@ -21,7 +21,7 @@ end
 -- Textclock
 local clockicon = make_icon('')
 os.setlocale(os.getenv("LANG")) -- to localize the clock
-local mytextclock = wibox.widget.textclock(markup("#7788af", "%A %d %B ") .. markup("#ab7367", ">") .. markup("#de5e1e", " %H:%M %P "))
+local mytextclock = wibox.widget.textclock(markup("#7788af", "%A %d %B ") .. markup("#ab7367", ">") .. markup("#de5e1e", " %l:%M %P "))
 mytextclock.font = theme.font
 
 -- CPU
