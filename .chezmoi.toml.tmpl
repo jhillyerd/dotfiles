@@ -1,4 +1,5 @@
 {{- $machine := promptString "machine: laptop|desktop" -}}
+{{- $wm := promptString "window manager: awesome|i3" -}}
 {{- $wired := promptString "wired interface" -}}
 {{- $wifi := promptString "wifi interface" -}}
 [data]
@@ -7,3 +8,4 @@
   machine = "{{ $machine }}"
   wired = "{{ $wired }}"
   wifi = "{{ $wifi }}"
+  wm = "{{ $wm }}"
