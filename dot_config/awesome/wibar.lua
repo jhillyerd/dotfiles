@@ -63,7 +63,7 @@ local volume = lain.widget.pulse({
             vlevel = vlevel .. " M"
         end
 
-        widget:set_markup(markup.fontfg(theme.font, "#7493d2", vlevel))
+        widget:set_markup(markup.fontfg(theme.font, "#87af5f", vlevel))
     end
 })
 
@@ -133,8 +133,6 @@ local create_wibox = function(s)
           netdowninfo,
           netupicon,
           netupinfo.widget,
-          volicon,
-          volume.widget,
           memicon,
           mem.widget,
           cpuicon,
@@ -143,6 +141,8 @@ local create_wibox = function(s)
           temp.widget,
           baticon,
           bat.widget,
+          volicon,
+          volume.widget,
           clockicon,
           mytextclock,
           layout = wibox.layout.fixed.horizontal,
