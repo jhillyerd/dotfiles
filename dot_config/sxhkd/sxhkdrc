@@ -12,7 +12,7 @@ Print
   $HOME/bin/snipit
 
 super + d
-  dmenu_run
+  rofi -show combi
 
 super + F12
   $HOME/.scripts/lock-screen.sh

@@ -1,6 +1,6 @@
 configuration {
-  modes: [ combi ];
-  combi-modes: [ window, drun, run ];
+  modi: [ combi ];
+  combi-modi: [ window, drun, run ];
 }
 
 @theme "Arc-Dark"
