@@ -276,7 +276,6 @@ clientkeys = gears.table.join(
             end
             client.focus = prev_focused
             c:swap(prev_focused)
-            client.focus = c
           else
             client.focus = master
             c:swap(master)
