@@ -13,7 +13,9 @@ function np -a project -d "nix-project: cd <project> + nix-shell + tmux"
 
   pushd "$project_dir/$project"
 
-  if test -f shell.nix; or test -f default.nix
+  if test -f flake.nix
+    nix develop --command env SHELL=fish tmux new-session -t $project
+  else if test -f shell.nix; or test -f default.nix
     nix-shell --command "SHELL=fish; exec tmux new-session -t $project"
   else
     tmux new-session -t $project
