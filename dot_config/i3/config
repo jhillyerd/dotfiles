@@ -15,6 +15,21 @@ font pango:Droid Sans 9
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Monitors and workspaces
+set $left_display primary
+set $right_display DP-4
+
+workspace 1 output $left_display
+workspace 2 output $left_display
+workspace 3 output $left_display
+workspace 4 output $left_display
+workspace 5 output $left_display
+workspace 6 output $right_display
+workspace 7 output $right_display
+workspace 8 output $right_display
+workspace 9 output $right_display
+workspace 10 output $right_display
+
 # kill focused window
 bindsym $mod+w kill
 
@@ -105,7 +120,7 @@ bindsym $mod+semicolon scratchpad show
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+$chord+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+$chord+q exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+$chord+q exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -153,5 +168,8 @@ bindsym $mod+period resize grow width 100 px or 3 ppt
 # Media keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id $audio_cmd +5% && $status_refresh_cmd
 bindsym XF86AudioLowerVolume exec --no-startup-id $audio_cmd -5% && $status_refresh_cmd
+
+# Assignments
+assign [class="^jetbrains-idea-ce$"] 7
 
 exec --no-startup-id "$HOME/.scripts/after-wm-start.sh"
