@@ -1,0 +1,80 @@
+#!/usr/bin/env fish
+# init-home: initialize my home directory from repos
+
+function notice -a text
+  set_color -r
+  echo "### $text"
+  set_color normal
+end
+
+function checkout_repo -a url path
+  if [ -d $path ]
+    echo "$path already exists!"
+    exit 1
+  end
+
+  git clone -- $url $path; or exit 1
+end
+
+function checkout_my_repo -a name path
+  # Checkout via HTTPS.
+  set repo "jhillyerd/$name"
+  set url "https://github.com/jhillyerd/$name"
+  checkout_repo $url $path
+
+  # Update to use SSH remote.
+  set name_url origin "git@github.com:"$repo".git"
+  cd $path
+  git remote set-url $name_url 2>/dev/null; or git remote add $name_url
+  or exit 1
+end
+
+set root (pwd)
+
+# Verify necessary tools are installed.
+for cmd in git chezmoi sha256sum
+  if ! type -qf $cmd
+    echo "missing $cmd"
+    exit 1
+  end
+end
+
+notice "Fetch and verify oh my fish installer"
+set omfinst (mktemp -d)
+curl \
+  https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install \
+  > $omfinst/install
+cd $omfinst
+echo "429a76e5b5e692c921aa03456a41258b614374426f959535167222a28b676201  install" | sha256sum -c; or return
+cd $root
+
+notice "Checkout config repos"
+checkout_my_repo "dotfiles" "$root/.local/share/chezmoi"
+checkout_my_repo "dotvim" "$root/.config/nvim"
+
+notice "Setup chezmoi"
+set chezdir "$root/.config/chezmoi"
+set cheztoml "$chezdir/chezmoi.toml"
+
+if [ ! -e $cheztoml ]
+  mkdir -p $chezdir
+  echo > $cheztoml "\
+[data]
+  freenode_user = \"jhillyerd\"
+  freenode_password = \"SETME\"
+  machine = \"desktop\"
+  wired = \"eth0\"
+  wifi = \"none\"
+  wm = \"i3\""
+end
+
+chezmoi apply; or return
+
+notice "Install oh my fish"
+fish $omfinst/install --noninteractive
+rm -rf $omfinst
+
+notice "Setup neovim"
+$root/.config/nvim/install-plug
+
+notice "Home init complete!"
