@@ -8,13 +8,10 @@
 [http]
 	cookiefile = ~/.gitcookies
 [merge]
-	tool = neovim
+	tool = nvimdiff1
 [mergetool]
-        keepBackup = false
-[mergetool "vimdiff"]
-	cmd = vim -d $LOCAL $REMOTE $MERGED
-[mergetool "neovim"]
-	cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+	hideResolved = true
+	keepBackup = false
 [push]
 	default = simple
 [rebase]
