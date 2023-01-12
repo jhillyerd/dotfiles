@@ -7,6 +7,7 @@ nix-env -iA \
   nixpkgs.gitAndTools.gh \
   nixpkgs.gitAndTools.git-absorb \
   nixpkgs.jq \
+  nixpkgs.lazygit \
   nixpkgs.neovim \
   nixpkgs.nixfmt \
   nixpkgs.nmap \
