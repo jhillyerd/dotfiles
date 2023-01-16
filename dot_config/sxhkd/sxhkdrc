@@ -14,5 +14,8 @@ Print
 super + d
   rofi -show combi
 
+super + v
+  pavucontrol
+
 super + F12
   $HOME/.scripts/lock-screen.sh
