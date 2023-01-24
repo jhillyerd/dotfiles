@@ -8,10 +8,12 @@
 [http]
 	cookiefile = ~/.gitcookies
 [merge]
-	tool = nvimdiff1
+	tool = nvimdiff
 [mergetool]
 	hideResolved = true
 	keepBackup = false
+[mergetool.vimdiff]
+	layout = "@LOCAL,REMOTE"
 [push]
 	default = simple
 [rebase]
