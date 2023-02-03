@@ -48,6 +48,7 @@ if command -sq bat
 end
 
 # Key bindings
+bind \co nvim-last-file
 bind \cp fzf-file-widget
 
 # Cleanup
