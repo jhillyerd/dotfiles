@@ -11,7 +11,7 @@ function np -a project -d "nix-project: cd <project> + nix-shell + tmux"
     set project (ls $project_dir | fzf)
   end
 
-  pushd "$project_dir/$project"
+  pushd "$project_dir/$project"; or return
 
   if test -f flake.nix
     nix develop --command env SHELL=fish tmux new-session -t $project
