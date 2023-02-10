@@ -43,7 +43,7 @@ abbr -ag lg lazygit
 
 abbr -ag run-inbucket "tmux neww -n inbucketd $HOME/dev-start.sh \; set remain-on-exit failed \; splitw"
 
-if command -sq bat
+if command -q bat
   abbr -ag cat bat
 end
 
@@ -53,3 +53,7 @@ bind \cp fzf-file-widget
 
 # Cleanup
 functions -e _bin_path
+
+if command -q direnv
+  direnv hook fish | source
+end
