@@ -127,6 +127,23 @@ local function set_wallpaper(s)
     end
 end
 
+local function trade_with_master(c)
+  local master = awful.client.getmaster(awful.screen.focused())
+  local prev_focused = awful.client.focus.history.get(awful.screen.focused(), 1, nil)
+
+  if c == master then
+    if not prev_focused then
+      return
+    end
+    client.focus = prev_focused
+    c:swap(prev_focused)
+  else
+    client.focus = master
+    c:swap(master)
+    client.focus = c
+  end
+end
+
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
@@ -264,25 +281,10 @@ clientkeys = gears.table.join(
               {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
-
-    awful.key({ modkey }, "t",
-        function (c)
-          local master = awful.client.getmaster(awful.screen.focused())
-          local prev_focused = awful.client.focus.history.get(awful.screen.focused(), 1, nil)
-          if c == master then
-            if not prev_focused then
-              return
-            end
-            client.focus = prev_focused
-            c:swap(prev_focused)
-          else
-            client.focus = master
-            c:swap(master)
-            client.focus = c
-          end
-        end,
+    awful.key({ modkey }, "t", trade_with_master,
         {description = "trade with master", group = "client"}),
-
+    awful.key({ modkey }, "/", trade_with_master,
+        {description = "trade with master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),
     awful.key({ modkey,           }, "n",
