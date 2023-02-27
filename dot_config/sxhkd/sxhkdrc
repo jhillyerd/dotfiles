@@ -19,3 +19,9 @@ super + v
 
 super + F12
   $HOME/.scripts/lock-screen.sh
+
+XF86AudioRaiseVolume
+  pactl set-sink-volume 1 +5%
+
+XF86AudioLowerVolume
+  pactl set-sink-volume 1 -5%
