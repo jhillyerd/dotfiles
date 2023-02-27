@@ -35,11 +35,13 @@ abbr -ag dkclean docker container prune --force
 abbr -ag dke docker exec -it
 abbr -ag dki docker run -itP --rm
 
+abbr -ag lg lazygit
+abbr -ag tf terraform
+
 abbr -ag nfish "nix-shell --command 'SHELL=fish; exec fish'"
 abbr -ag nfish! "nix-shell -I nixpkgs=/home/james/nixpkgs --command 'SHELL=fish; exec fish'"
 
 abbr -ag hdel history delete --case-sensitive --exact \$history[1]
-abbr -ag lg lazygit
 
 abbr -ag run-inbucket "tmux neww -n inbucketd $HOME/dev-start.sh \; set remain-on-exit failed \; splitw"
 
