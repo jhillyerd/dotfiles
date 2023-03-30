@@ -8,8 +8,8 @@ super + Return
 super + b
   x-www-browser
 
-Print
-  $HOME/bin/snipit
+super + p
+  $HOME/.scripts/screenshot.sh
 
 super + d
   rofi -show combi
