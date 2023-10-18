@@ -45,7 +45,7 @@ curl \
   https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install \
   > $omfinst/install
 cd $omfinst
-echo "429a76e5b5e692c921aa03456a41258b614374426f959535167222a28b676201  install" | sha256sum -c; or return
+echo "429a76e5b5e692c921aa03456a41258b614374426f959535167222a28b676201  install" | sha256sum -c; or exit 1
 cd $root
 
 notice "Checkout config repos"
@@ -68,7 +68,7 @@ if [ ! -e $cheztoml ]
   wm = \"i3\""
 end
 
-chezmoi apply; or return
+chezmoi apply; or exit 1
 
 notice "Install oh my fish"
 fish $omfinst/install --noninteractive
