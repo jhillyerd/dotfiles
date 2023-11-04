@@ -35,6 +35,8 @@ abbr -ag dkclean docker container prune --force
 abbr -ag dke docker exec -it
 abbr -ag dki docker run -itP --rm
 
+abbr -ag ghwatch gh pr checks --watch
+
 abbr -ag lg lazygit
 abbr -ag tf terraform
 
