@@ -490,7 +490,7 @@ end)
 
 -- Only show titlebar on floating windows.
 client.connect_signal("property::floating", function(c)
-  if c.floating then
+  if c.floating and not c.fullscreen then
     awful.titlebar.show(c)
   else
     awful.titlebar.hide(c)
