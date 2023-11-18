@@ -16,7 +16,7 @@ font pango:Droid Sans 9
 floating_modifier $mod
 
 # Monitors and workspaces
-set $left_display primary
+set $left_display DP-4
 set $right_display DP-4
 
 workspace 1 output $left_display
