@@ -3,7 +3,7 @@
 LOG="$HOME/.polybar.log"
 
 # Terminate already running bar instances
-polybar-msg cmd quit
+polybar-msg cmd quit 2>/dev/null
 test -e $LOG && rm -f $LOG
 
 monitors=( $(polybar --list-monitors | cut -d":" -f1) )

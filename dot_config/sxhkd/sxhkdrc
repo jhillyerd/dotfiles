@@ -17,7 +17,7 @@ super + d
 super + v
   pavucontrol
 
-super + F12
+super + Escape
   $HOME/.scripts/lock-screen.sh
 
 XF86AudioRaiseVolume
