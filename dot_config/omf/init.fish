@@ -1,12 +1,12 @@
+# Path setup
+if test -d $HOME/devel
+  set -xg CDPATH . $HOME/devel
+end
+
 function _bin_path -a path -d "Prepend path if not already present"
   if not string match -q $path $PATH; and test -d $path
     set -x PATH $path $PATH
   end
-end
-
-# Path setup
-if test -d $HOME/devel
-  set -xg CDPATH . $HOME/devel
 end
 
 _bin_path /usr/local/bin
@@ -15,6 +15,7 @@ _bin_path $HOME/go/bin
 _bin_path $HOME/.cargo/bin
 _bin_path $HOME/.scripts
 _bin_path $HOME/bin
+functions -e _bin_path
 
 # Environment setup
 if test "$TERM" = "xterm"
@@ -38,6 +39,7 @@ abbr -ag dki docker run -itP --rm
 abbr -ag ghb gh browse
 abbr -ag ghwatch gh pr checks --watch
 
+abbr -ag k kubectl
 abbr -ag lg lazygit
 abbr -ag tf terraform
 
@@ -55,9 +57,6 @@ end
 # Key bindings
 bind \co nvim-last-file
 bind \cp fzf-file-widget
-
-# Cleanup
-functions -e _bin_path
 
 if command -q direnv
   direnv hook fish | source
