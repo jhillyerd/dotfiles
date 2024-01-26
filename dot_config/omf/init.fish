@@ -39,7 +39,7 @@ abbr -ag dki docker run -itP --rm
 abbr -ag ghb gh browse
 abbr -ag ghwatch gh pr checks --watch
 
-abbr -ag k kubectl
+abbr -ag kk kubectl kustomize
 abbr -ag lg lazygit
 abbr -ag tf terraform
 
