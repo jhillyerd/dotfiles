@@ -1,3 +1,7 @@
 Host *
-PermitLocalCommand yes
-LocalCommand ~/.scripts/ssh-title.fish %h
+  User james
+  ControlPath ~/.ssh/%C
+  ControlMaster auto
+  ControlPersist 15s
+  PermitLocalCommand yes
+  LocalCommand ~/.scripts/ssh-title.fish %h
