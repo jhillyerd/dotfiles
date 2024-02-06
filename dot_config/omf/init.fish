@@ -41,6 +41,7 @@ abbr -ag ghwatch gh pr checks --watch
 
 abbr -ag kk kubectl kustomize
 abbr -ag lg lazygit
+abbr -ag sh set -x host
 abbr -ag tf terraform
 
 abbr -ag nfish "nix-shell --command 'SHELL=fish; exec fish'"
