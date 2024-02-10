@@ -10,6 +10,8 @@ nix profile install \
   nixpkgs#gitAndTools.git-absorb \
   nixpkgs#jq \
   nixpkgs#lazygit \
+  nixpkgs#lf \
+  nixpkgs#sumneko-lua-language-server \
   nixpkgs#neovim \
   nixpkgs#nixfmt \
   nixpkgs#nmap \
