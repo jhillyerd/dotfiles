@@ -1,12 +1,11 @@
-[user]
-	name = James Hillyerd
-	email = james@hillyerd.com
 [core]
 	excludesfile = ~/.cvsignore
 [github]
 	user = jhillyerd
 [http]
 	cookiefile = ~/.gitcookies
+[init]
+	defaultBranch = main
 [merge]
 	tool = nvimdiff
 [mergetool]
@@ -14,14 +13,18 @@
 	keepBackup = false
 [mergetool.vimdiff]
 	layout = "@LOCAL,REMOTE"
+[pull]
+	ff = only
 [push]
 	default = simple
 [rebase]
 	abbreviateCommands = true
 	autoSquash = true
-[pull]
-	ff = only
-[init]
-	defaultBranch = main
+	updateRefs = true
+[rerere]
+	enabled = true
 [safe]
 	directory = /home/james/cluster_prod/homeassistant-data
+[user]
+	name = James Hillyerd
+	email = james@hillyerd.com
