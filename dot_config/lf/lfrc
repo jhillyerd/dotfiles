@@ -1,2 +1,4 @@
 set drawbox
 set previewer ~/.config/lf/preview.sh
+
+map <delete> delete
