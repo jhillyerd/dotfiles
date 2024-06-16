@@ -8,6 +8,9 @@ super + Return
 super + b
   x-www-browser
 
+super + c
+  google-chrome-stable
+
 super + p
   $HOME/.scripts/screenshot.sh
 
