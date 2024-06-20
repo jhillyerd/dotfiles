@@ -1,3 +1,4 @@
+{{- $place := promptString "place: home|work" -}}
 {{- $machine := promptString "machine: laptop|desktop" -}}
 {{- $wm := promptString "window manager: awesome|i3" -}}
 {{- $wired := promptString "wired interface" -}}
@@ -5,6 +6,7 @@
 [data]
   freenode_user = "jhillyerd"
   freenode_password = "SETME"
+  place = "{{ $place }}"
   machine = "{{ $machine }}"
   wired = "{{ $wired }}"
   wifi = "{{ $wifi }}"
