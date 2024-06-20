@@ -20,6 +20,9 @@ super + d
 super + v
   pavucontrol
 
+super + slash
+  thunar
+
 super + Escape
   $HOME/.scripts/lock-screen.sh
 
