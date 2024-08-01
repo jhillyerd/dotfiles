@@ -2,6 +2,13 @@
 #
 # It is invoked by the fish shell automatically using its event system.
 function __postexec_notify_on_long_running_commands --on-event fish_postexec
+  # Must be first to not overwrite $status.
+  if test $status -eq 0
+    set --function label Success
+  else
+    set --function label Failed
+  end
+
   set --function monitor_commands cargo go make
   set --function command (string split ' ' $argv[1])
 
@@ -14,6 +21,6 @@ function __postexec_notify_on_long_running_commands --on-event fish_postexec
   end
 
   if test $CMD_DURATION -gt 5000
-    notify-send --expire-time=5000 "Finished: $argv"
+    notify-send --expire-time=5000 "$label: $argv"
   end
 end
