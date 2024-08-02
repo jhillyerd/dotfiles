@@ -37,7 +37,7 @@ abbr -ag dke docker exec -it
 abbr -ag dki docker run -itP --rm
 
 abbr -ag ghb gh browse
-abbr -ag ghwatch gh pr checks --watch
+abbr -ag ghwatch "gh pr checks --watch; notify-send 'PR checks done'"
 
 abbr -ag kk kubectl kustomize
 abbr -ag lg lazygit
