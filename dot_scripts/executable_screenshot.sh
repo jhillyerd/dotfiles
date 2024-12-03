@@ -1,3 +1,3 @@
 #!/bin/sh
 
-maim --select | xclip -selection clipboard -t image/png
+maim --select | tee ~/Pictures/$(date +%s).png | xclip -selection clipboard -t image/png
