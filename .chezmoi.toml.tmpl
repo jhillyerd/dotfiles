@@ -1,8 +1,11 @@
-{{- $place := promptString "place: home|work" -}}
-{{- $machine := promptString "machine: laptop|desktop" -}}
-{{- $wm := promptString "window manager: awesome|i3" -}}
-{{- $wired := promptString "wired interface" -}}
-{{- $wifi := promptString "wifi interface" -}}
+{{- $places := list "home" "work" -}}
+{{- $place := promptChoiceOnce . "place" "Place" $places -}}
+{{- $machines := list "laptop" "desktop" -}}
+{{- $machine := promptChoiceOnce . "machine" "Machine type" $machines -}}
+{{- $wms := list "awesome" "i3" -}}
+{{- $wm := promptChoice "Window manager" $wms -}}
+{{- $wired := promptStringOnce . "wired" "Wired interface" "eth0" -}}
+{{- $wifi := promptStringOnce . "wifi" "Wifi interface" "wlp0s2" -}}
 [data]
   freenode_user = "jhillyerd"
   freenode_password = "SETME"
