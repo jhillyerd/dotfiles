@@ -22,6 +22,10 @@ if test "$TERM" = "xterm"
   set -xg TERM "xterm-256color"
 end
 
+if test -n "$WSL_DISTRO_NAME"
+  set -xg BROWSER "/mnt/c/Program Files/Mozilla Firefox/firefox.exe"
+end
+
 set -xg EDITOR nvim
 set -xg VISUAL nvim
 
