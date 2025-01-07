@@ -1,4 +1,7 @@
 add_newline = false
 
+# Add OSC 133 marker for tmux prompt navigation.
+format = "$all\u001b\\]133;A\u0007"
+
 [hg_branch]
 disabled = false
