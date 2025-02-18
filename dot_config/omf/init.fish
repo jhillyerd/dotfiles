@@ -30,6 +30,8 @@ set -xg EDITOR nvim
 set -xg VISUAL nvim
 
 # Abbreviations
+abbr -ag -- - cd -
+
 abbr -ag cm chezmoi
 abbr -ag cma chezmoi apply -v
 abbr -ag cmcd chezmoi cd
