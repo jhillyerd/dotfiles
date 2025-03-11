@@ -50,7 +50,7 @@ inherit = section/base
 
 modules-left = bspwm i3
 modules-center = xwindow
-modules-right = filesystem xbacklight pulseaudio cpu memory wlan eth battery temperature date powermenu
+modules-right = filesystem xbacklight pulseaudio cpu memory wlan eth info-tailscale battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -358,6 +358,14 @@ menu-3-0 = logout
 menu-3-0-exec = i3-msg exit
 menu-3-1 = cancel
 menu-3-1-exec = menu-open-0
+
+[module/info-tailscale]
+type = custom/script
+exec = ~/.scripts/info-tailscale.sh
+interval = 10
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #4bef6c
 
 [settings]
 screenchange-reload = true
