@@ -23,6 +23,7 @@
 	updateRefs = false
 [rerere]
 	enabled = true
+	autoupdate = true
 [safe]
 	directory = /home/james/cluster_prod/homeassistant-data
 [user]
