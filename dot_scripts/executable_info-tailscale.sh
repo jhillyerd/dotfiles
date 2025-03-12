@@ -9,7 +9,8 @@ if [ $? != 0 ]; then
 fi
 
 # check if it's stopped (down)
-if [ "$(echo ${status} | jq --raw-output .BackendState)" = "Stopped" ]; then
+state=$(echo ${status} | jq --raw-output .BackendState)
+if [ "$state" = "Stopped" -o "$state" = "NeedsLogin" ]; then
     echo "VPN Down"
     exit 0
 fi
