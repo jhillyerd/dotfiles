@@ -165,7 +165,19 @@ bindsym --release button2 kill
 bindsym $mod+comma resize shrink width 100 px or 3 ppt
 bindsym $mod+period resize grow width 100 px or 3 ppt
 
+# Other keybinds
+bindsym $mod+Return exec kitty
+bindsym $mod+b exec x-www-browser
+bindsym $mod+c exec google-chrome-stable
+bindsym $mod+p exec $HOME/.scripts/screenshot-xorg.sh
+bindsym $mod+d exec rofi -show combi
+bindsym $mod+Slash exec thunar
+bindsym $mod+Escape exec $HOME/.scripts/lock-screen-xorg.sh
+bindsym Mod4+Control+v exec pavucontrol
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_SINK@ 3%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_SINK@ 3%-
+
 # Assignments
 assign [class="^jetbrains-idea-ce$"] 7
 
-exec --no-startup-id "$HOME/.scripts/after-wm-start.sh"
+exec --no-startup-id "$HOME/.scripts/after-i3-start.sh"
