@@ -1,9 +1,3 @@
-# Typical laptop setup, with wifi, brightness, battery etc, for
-# i3/Sway.
-
-# For X11/i3, you'll want to replace calls to swaymsg with i3-msg, and
-# the sway-xkb module with the xkb module.
-
 # fonts we'll be reusing here and there
 awesome: &awesome Font Awesome 6 Free:style=solid:pixelsize=14
 awesome_brands: &awesome_brands Font Awesome 6 Brands:pixelsize=16
@@ -15,19 +9,19 @@ bar:
   height: 26
   location: bottom
   spacing: 5
-  margin: 7
+  left-margin: 0
+  right-margin: 7
 
   # Default font
   font: Droid Sans:pixelsize=13
 
   foreground: ffffffff
-  background: 111111cc
+  background: 252525ff
 
   border:
     width: 1
-    color: 999999cc
-    margin: 5
-    top-margin: 0
+    color: 404040ff
+    margin: 0
 
   left:
     - i3:
@@ -168,6 +162,22 @@ bar:
         content:
           - string: {text: , font: *awesome}
           - string: {text: "{layout}"}
+
+    - cpu:
+        poll-interval: 2500
+        content:
+          map:
+            conditions:
+              id < 0:
+                - string: {text: , font: *awesome}
+                - string: {text: "{cpu}%"}
+
+    - mem:
+        poll-interval: 2500
+        content:
+          - string: {text: , font: *awesome}
+          - string: {text: "{percent_used}%"}
+
     - network:
         content:
           map:
@@ -203,28 +213,47 @@ bar:
                           ipv4 == "":
                             - string: {text: , font: *awesome, foreground: ffffff66}
                             - string: {text: "{ssid} {dl-speed:mb}/{ul-speed:mb} Mb/s", foreground: ffffff66}
-    - alsa:
-        card: hw:PCH
-        mixer: Master
-        content:
-          map:
+
+    - pipewire:
+        anchors:
+          volume: &volume
             conditions:
-              ~online: {string: {text: , font: *awesome, foreground: ff0000ff}}
-              online:
-                map:
-                  on-click: /bin/sh -c "amixer -q sset Speaker unmute && amixer -q sset Headphone unmute && amixer -q sset Master toggle"
+              muted: {string: {text: "{linear_volume}%", foreground: ff0000ff}}
+              ~muted: {string: {text: "{linear_volume}%"}}
+        content:
+          list:
+            on-click:
+              wheel-up: "wpctl set-volume @DEFAULT_SINK@ 3%+"
+              wheel-down: "wpctl set-volume @DEFAULT_SINK@ 3%-"
+            items:
+              - map:
+                  default: {empty: {}}
                   conditions:
-                    muted: {string: {text: , font: *awesome, foreground: ffffff66}}
-                    ~muted:
-                      ramp:
-                        tag: percent
-                        items:
-                          - string: {text: , font: *awesome}
-                          - string: {text: , font: *awesome}
-                          - string: {text: , font: *awesome}
+                    type == "sink":
+                      map:
+                        conditions:
+                          icon == "audio-headset-bluetooth":
+                            string: {text: "🎧  "}
+                        default:
+                          - ramp:
+                              tag: linear_volume
+                              items:
+                                - string: {text: , font: *awesome}
+                                - string: {text: , font: *awesome}
+                                - string: {text: , font: *awesome}
+              - map:
+                  conditions:
+                    type == "source": {empty: {}}
+                  default:
+                    map:
+                      <<: *volume
+
+
+{{ if eq .machine "laptop" }}
     - backlight:
         name: intel_backlight
         content: [ string: {text: , font: *awesome}, string: {text: "{percent}%"}]
+
     - battery:
         name: BAT0
         poll-interval: 30000
@@ -274,6 +303,8 @@ bar:
                       - string: {text:  , foreground: 00ff00ff, font: *awesome}
                       - string: {text:  , foreground: 00ff00ff, font: *awesome}
                 - string: {text: "{capacity}%"}
+{{ end }}
+
     - clock:
         time-format: "%H:%M %Z"
         content:
@@ -281,9 +312,3 @@ bar:
           - string: {text: "{date}", right-margin: 5}
           - string: {text: , font: *awesome}
           - string: {text: "{time}"}
-    - label:
-        content:
-          string:
-            on-click: systemctl poweroff
-            text: 
-            font: *awesome
