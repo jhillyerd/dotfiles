@@ -1,0 +1,26 @@
+#!/usr/bin/env -S awk -f
+
+BEGIN {
+  # Define the command to be executed.
+  cmd = "df --human --output=avail /"
+
+  last_line = ""
+  current_line = ""
+
+  # Execute the command and read its output line by line using getline.
+  while ( (cmd | getline current_line) > 0 ) {
+    # When the loop finishes, last_line will hold the final line read.
+    last_line = current_line
+  }
+
+  close(cmd)
+
+  # Check if we actually captured a last line (df might have failed or produced no output)
+  if (last_line != "") {
+    print gensub(/ *([^ ]+)/, "avail|string|\\1", 1, last_line)
+    print ""
+  } else {
+    print "Error: Failed to execute or read output from '" cmd "'." > "/dev/stderr"
+    exit 1
+  }
+}

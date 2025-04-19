@@ -4,6 +4,11 @@ awesome_brands: &awesome_brands Font Awesome 6 Brands:pixelsize=16
 
 std_underline: &std_underline {underline: { size: 2, color: ff0000ff}}
 
+awesome_icon: &awesome_icon
+  font: *awesome
+  foreground: 808080ff
+  margin: 3
+
 # This is THE bar configuration
 bar:
   height: 26
@@ -133,6 +138,13 @@ bar:
               state == playing: {list: *artist_album_title}
 
   right:
+    - script: # disk space
+        path: ~/.scripts/yambar-disk
+        poll-interval: 5000
+        content:
+          - string: {text: , <<: *awesome_icon}
+          - string: {text: "{avail}"}
+
     - removables:
         anchors:
           drive: &drive { text: , font: *awesome}
@@ -169,13 +181,13 @@ bar:
           map:
             conditions:
               id < 0:
-                - string: {text: , font: *awesome}
+                - string: {text: , <<: *awesome_icon}
                 - string: {text: "{cpu}%"}
 
     - mem:
         poll-interval: 2500
         content:
-          - string: {text: , font: *awesome}
+          - string: {text: , <<: *awesome_icon}
           - string: {text: "{percent_used}%"}
 
     - network:
@@ -189,9 +201,11 @@ bar:
                     ~carrier: {empty: {}}
                     carrier:
                       map:
-                        default: {string: {text: , font: *awesome, foreground: ffffff66}}
+                        default: {string: {text: , <<: *awesome_icon}}
                         conditions:
-                          state == up && ipv4 != "": {string: {text: , font: *awesome}}
+                          state == up && ipv4 != "":
+                            - string: {text: , <<: *awesome_icon}
+                            - string: {text: "{ipv4}"}
     - network:
         poll-interval: 1000
         content:
@@ -200,18 +214,18 @@ bar:
             conditions:
               name == {{ .wifi }}:
                 map:
-                  default: {string: {text: , font: *awesome, foreground: ffffff66}}
+                  default: {string: {text: , <<: *awesome_icon, foreground: ffffff66}}
                   conditions:
-                    state == down: {string: {text: , font: *awesome, foreground: ff0000ff}}
+                    state == down: {string: {text: , <<: *awesome_icon, foreground: ff0000ff}}
                     state == up:
                       map:
                         default:
-                          - string: {text: , font: *awesome}
+                          - string: {text: , <<: *awesome_icon}
                           - string: {text: "{ssid} {dl-speed:mb}/{ul-speed:mb} Mb/s"}
 
                         conditions:
                           ipv4 == "":
-                            - string: {text: , font: *awesome, foreground: ffffff66}
+                            - string: {text: , <<: *awesome_icon, foreground: ffffff66}
                             - string: {text: "{ssid} {dl-speed:mb}/{ul-speed:mb} Mb/s", foreground: ffffff66}
 
     - pipewire:
@@ -238,9 +252,9 @@ bar:
                           - ramp:
                               tag: linear_volume
                               items:
-                                - string: {text: , font: *awesome}
-                                - string: {text: , font: *awesome}
-                                - string: {text: , font: *awesome}
+                                - string: {text: , <<: *awesome_icon}
+                                - string: {text: , <<: *awesome_icon}
+                                - string: {text: , <<: *awesome_icon}
               - map:
                   conditions:
                     type == "source": {empty: {}}
@@ -252,7 +266,7 @@ bar:
 {{ if eq .machine "laptop" }}
     - backlight:
         name: intel_backlight
-        content: [ string: {text: , font: *awesome}, string: {text: "{percent}%"}]
+        content: [ string: {text: , <<: *awesome_icon}, string: {text: "{percent}%"}]
 
     - battery:
         name: BAT0
@@ -266,13 +280,13 @@ bar:
                     items:
                       - string: {text: , foreground: ff0000ff, font: *awesome}
                       - string: {text: , foreground: ffa600ff, font: *awesome}
-                      - string: {text: , font: *awesome}
-                      - string: {text: , font: *awesome}
-                      - string: {text: , font: *awesome}
-                      - string: {text: , font: *awesome}
-                      - string: {text: , font: *awesome}
-                      - string: {text: , font: *awesome}
-                      - string: {text: , font: *awesome}
+                      - string: {text: , <<: *awesome_icon}
+                      - string: {text: , <<: *awesome_icon}
+                      - string: {text: , <<: *awesome_icon}
+                      - string: {text: , <<: *awesome_icon}
+                      - string: {text: , <<: *awesome_icon}
+                      - string: {text: , <<: *awesome_icon}
+                      - string: {text: , <<: *awesome_icon}
                       - string: {text: , foreground: 00ff00ff, font: *awesome}
                 - string: {text: "{capacity}% {estimate}"}
         content:
@@ -308,7 +322,7 @@ bar:
     - clock:
         time-format: "%H:%M %Z"
         content:
-          - string: {text: , font: *awesome}
+          - string: {text: , <<: *awesome_icon}
           - string: {text: "{date}", right-margin: 5}
-          - string: {text: , font: *awesome}
+          - string: {text: , <<: *awesome_icon}
           - string: {text: "{time}"}
