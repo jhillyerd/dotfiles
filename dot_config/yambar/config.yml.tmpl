@@ -53,6 +53,7 @@ bar:
                 - empty: {right-margin: 7}
               conditions:
                 mode == default: {empty: {}}
+        sort: native
         content:
           "":
             map:
@@ -172,7 +173,7 @@ bar:
     - sway-xkb:
         identifiers: [1:1:AT_Translated_Set_2_keyboard]
         content:
-          - string: {text: , font: *awesome}
+          - string: {text: , <<: *awesome_icon}
           - string: {text: "{layout}"}
 
     - cpu:
@@ -214,19 +215,21 @@ bar:
             conditions:
               name == {{ .wifi }}:
                 map:
-                  default: {string: {text: , <<: *awesome_icon, foreground: ffffff66}}
+                  default:
+                    - string: {text: , <<: *awesome_icon}
+                    - string: {text: "{ssid}?"}
                   conditions:
                     state == down: {string: {text: , <<: *awesome_icon, foreground: ff0000ff}}
                     state == up:
                       map:
                         default:
                           - string: {text: , <<: *awesome_icon}
-                          - string: {text: "{ssid} {dl-speed:mb}/{ul-speed:mb} Mb/s"}
+                          - string: {text: "{ssid} ↓{dl-speed:mb}/↑{ul-speed:mb} Mb/s"}
 
                         conditions:
                           ipv4 == "":
                             - string: {text: , <<: *awesome_icon, foreground: ffffff66}
-                            - string: {text: "{ssid} {dl-speed:mb}/{ul-speed:mb} Mb/s", foreground: ffffff66}
+                            - string: {text: "{ssid} ...", foreground: ffffff66}
 
     - pipewire:
         anchors:
@@ -265,7 +268,7 @@ bar:
 
 {{ if eq .machine "laptop" }}
     - backlight:
-        name: intel_backlight
+        name: nvidia_0
         content: [ string: {text: , <<: *awesome_icon}, string: {text: "{percent}%"}]
 
     - battery:
