@@ -22,5 +22,8 @@ function __postexec_notify_on_long_running_commands --on-event fish_postexec
 
   if test $CMD_DURATION -gt 5000
     notify-send --expire-time=10000 "$label: $argv"
+
+    set seconds (math --scale=1 "$CMD_DURATION / 1000")
+    date +"(notified at %r on %a, after $seconds seconds)"
   end
 end
