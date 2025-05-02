@@ -39,6 +39,15 @@ workspace 10 output $right_display $left_display
 
 for_window [shell="xwayland"] title_format "[XW] %title"
 
+# Mouse
+set $mouse "6780:407:SONiX_Evoluent_VerticalMouse_D"
+bindsym --input-device=$mouse --whole-window button8 seat - cursor press button 10
+bindsym --input-device=$mouse --whole-window --release button8 seat - cursor release button 10
+bindsym --input-device=$mouse --whole-window button9 seat - cursor press button 9
+bindsym --input-device=$mouse --whole-window --release button9 seat - cursor release button 9
+bindsym --input-device=$mouse --whole-window BTN_FORWARD seat - cursor press button 8
+bindsym --input-device=$mouse --whole-window --release BTN_FORWARD seat - cursor release button 8
+
 # kill focused window
 bindsym $mod+w kill
 
