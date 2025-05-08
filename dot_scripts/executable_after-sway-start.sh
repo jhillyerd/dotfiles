@@ -7,8 +7,8 @@ lock="$HOME/.scripts/lock-screen-sway.sh"
 killall swayidle
 swayidle -w \
   lock $lock \
-  timeout 300 $lock \
-  timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+  timeout 600 $lock \
+  timeout 900 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
   before-sleep $lock & disown
 
 killall wl-paste
