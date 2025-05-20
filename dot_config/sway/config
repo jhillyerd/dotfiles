@@ -17,10 +17,10 @@ seat seat0 xcursor_theme elementary 30
 set $right_display "Samsung Display Corp. 0x4141 Unknown"
 output $right_display {
   scale 2
-  pos 3440 162
+  pos 3840 480
 }
 
-set $left_display "Dell Inc. DELL U3419W 1J3Z5T2"
+set $left_display "BNQ BenQ EX321UX ET57R00574SL0"
 output $left_display {
   pos 0 0
   subpixel rgb
