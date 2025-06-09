@@ -20,7 +20,7 @@ output $right_display {
   pos 3840 480
 }
 
-set $left_display "BNQ BenQ EX321UX ET57R00574SL0"
+set $left_display "BNQ BenQ EX321UX ET57R00573SL0"
 output $left_display {
   pos 0 0
   subpixel rgb
