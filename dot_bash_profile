@@ -16,8 +16,6 @@ export PATH="$HOME/bin:$PATH"
 export EDITOR=vim
 export VISUAL=vim
 
-set -o emacs
-
 # Handle unsupported terminal types
 if ! infocmp "$TERM" &>/dev/null; then
   if [[ "$TERM" == *screen* ]]; then
