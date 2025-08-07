@@ -1,8 +1,11 @@
-{{- if eq .place "home" }}
 git:
+  autoForwardBranches: none
+{{- if eq .place "home" }}
   commit:
     signOff: true
-
 {{- end }}
+
 gui:
   scrollHeight: 20
+
+notARepository: quit
