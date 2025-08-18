@@ -9,7 +9,7 @@
   {
     "context": "Workspace",
     "bindings": {
-      // "shift shift": "file_finder::Toggle"
+      "alt-o": "workspace::CloseAllDocks"
     }
   },
   {
