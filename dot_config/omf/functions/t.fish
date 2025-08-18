@@ -1,6 +1,6 @@
 function t -a session -d "Start or attach to tmux session"
   if test "$session" = ""
-    set session main
+    set session (basename (pwd) | sed 's/[^a-zA-Z0-9]/-/g')
   end
 
   # Prompt for ssh-key if needed
