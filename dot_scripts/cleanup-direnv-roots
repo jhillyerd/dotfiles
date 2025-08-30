@@ -1,0 +1,15 @@
+#!/usr/bin/env fish
+# Script to find all direnv nix root symlinks and remove them.
+
+set gcroots /nix/var/nix/gcroots/auto
+
+# Remove nix root symlinks that inlcude `/.direnv/` in their target path.
+set substrings "/.direnv/" "/.devenv/"
+for substring in $substrings
+    find $gcroots -lname "*$substring*" | while read -l root
+        echo "Removing root for "(readlink $root)
+        rm $root
+    end
+end
+
+nix-collect-garbage -d
