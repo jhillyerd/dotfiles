@@ -1,0 +1,8 @@
+#!/usr/bin/env fish
+# Set fixed volume for miniDSP 2x4HD
+
+# Find `m2x4HD` alsa card number from yaml
+set card (alsactl info m2x4HD | sed -n 's/^\(- \)*card: //p')
+
+# Set playback volume for index 0
+amixer -c $card sset 'miniDSP 2x4HD',0 122
