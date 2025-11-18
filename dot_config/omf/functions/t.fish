@@ -8,12 +8,6 @@ function t -a session -d "Start or attach to tmux session"
     ssh-add
   end
 
-  # Creates a new session, but connects to same window group main
-  set -l args new-session -t $session
-
-  if test -x /usr/bin/tmx2
-    tmx2 $args
-  else
-    tmux $args
-  end
+  # Creates a new session, but connects to same window group
+  tmux new-session -t $session
 end
