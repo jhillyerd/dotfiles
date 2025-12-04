@@ -7,12 +7,26 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "languages": {
+    "Rust": {
+      "show_wrap_guides": true,
+      "soft_wrap": "editor_width"
+    }
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
+  },
   "agent": {
     "default_profile": "ask",
     "default_model": {
       "provider": "copilot_chat",
       "model": "gpt-4.1"
     }
+  },
+  "indent_guides": {
+    "coloring": "indent_aware"
   },
   "features": {
     "edit_prediction_provider": "copilot"
@@ -26,5 +40,5 @@
     "light": "Gruvbox Dark Hard",
     "dark": "One Dark"
   },
-  "relative_line_numbers": true
+  "relative_line_numbers": "enabled"
 }
