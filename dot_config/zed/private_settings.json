@@ -7,12 +7,8 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "languages": {
-    "Rust": {
-      "show_wrap_guides": true,
-      "soft_wrap": "editor_width"
-    }
-  },
+  "agent_ui_font_size": 19.0,
+  "agent_buffer_font_size": 16.0,
   "diagnostics": {
     "inline": {
       "enabled": true
@@ -36,9 +32,22 @@
   "buffer_font_size": 17,
   "buffer_font_family": "Fira Code",
   "theme": {
-    "mode": "system",
-    "light": "Gruvbox Dark Hard",
-    "dark": "One Dark"
+    "mode": "dark",
+    "light": "Nightfox - opaque",
+    "dark": "Nightfox - opaque"
   },
-  "relative_line_numbers": "enabled"
+  "relative_line_numbers": "enabled",
+  "languages": {
+    "Rust": {
+      "show_wrap_guides": true,
+      "soft_wrap": "editor_width"
+    }
+  },
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        "checkOnSave": false
+      }
+    }
+  }
 }
