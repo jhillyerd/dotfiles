@@ -13,14 +13,20 @@
       "alt-j": "workspace::ActivatePaneDown",
       "alt-k": "workspace::ActivatePaneUp",
       "alt-l": "workspace::ActivatePaneRight",
-      "alt-o": "workspace::CloseAllDocks"
-    }
+      "alt-o": "workspace::CloseAllDocks",
+    },
   },
   {
     "context": "Editor && vim_mode == insert",
     "bindings": {
-      "j k": "vim::NormalBefore"
-    }
+      "j k": "vim::NormalBefore",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert && edit_prediction",
+    "bindings": {
+      "right": "editor::AcceptEditPrediction",
+    },
   },
   {
     "context": "Editor && vim_mode == normal",
@@ -30,13 +36,13 @@
       "space g g": ["task::Spawn", { "task_name": "Open lazygit" }],
       ", c c": "editor::RunFlycheck",
       ", q": "editor::Format",
-      ", t t": "editor::SpawnNearestTask"
-    }
+      ", t t": "editor::SpawnNearestTask",
+    },
   },
   {
     "context": "Editor && vim_mode == visual",
     "bindings": {
-      ", q": "editor::FormatSelections"
-    }
-  }
+      ", q": "editor::FormatSelections",
+    },
+  },
 ]
