@@ -23,14 +23,16 @@
     },
   },
   {
-    "context": "Editor && vim_mode == insert && edit_prediction",
+    "context": "Editor && vim_mode == insert && (edit_prediction || edit_prediction_conflict)",
     "bindings": {
       "right": "editor::AcceptEditPrediction",
     },
   },
   {
-    "context": "Editor && vim_mode == normal",
+    "context": "Editor && vim_mode == normal && !showing_code_actions",
     "bindings": {
+      "up": "editor::GoToPreviousDiagnostic",
+      "down": "editor::GoToDiagnostic",
       "space b": "tab_switcher::ToggleAll",
       "space d": "diagnostics::Deploy",
       "space g g": ["task::Spawn", { "task_name": "Open lazygit" }],
@@ -43,6 +45,12 @@
     "context": "Editor && vim_mode == visual",
     "bindings": {
       ", q": "editor::FormatSelections",
+    },
+  },
+  {
+    "context": "Editor && multibuffer && vim_mode == normal && !menu",
+    "bindings": {
+      "enter": "editor::OpenExcerpts",
     },
   },
 ]
