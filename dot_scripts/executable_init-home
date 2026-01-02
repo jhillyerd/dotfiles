@@ -45,7 +45,7 @@ curl \
   https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install \
   > $omfinst/install
 cd $omfinst
-echo "429a76e5b5e692c921aa03456a41258b614374426f959535167222a28b676201  install" | sha256sum -c; or exit 1
+echo "1464a0163257e729579735955a834ccff4c3eb2e91d015e96e459382acaab2b7  install" | sha256sum -c; or exit 1
 cd $root
 
 notice "Checkout config repos"
@@ -63,6 +63,7 @@ if [ ! -e $cheztoml ]
   freenode_user = \"jhillyerd\"
   freenode_password = \"SETME\"
   machine = \"desktop\"
+  place = \"home\"
   wired = \"eth0\"
   wifi = \"none\"
   wm = \"i3\""
@@ -73,8 +74,5 @@ chezmoi apply; or exit 1
 notice "Install oh my fish"
 fish $omfinst/install --noninteractive
 rm -rf $omfinst
-
-notice "Setup neovim"
-$root/.config/nvim/install-plug
 
 notice "Home init complete!"
