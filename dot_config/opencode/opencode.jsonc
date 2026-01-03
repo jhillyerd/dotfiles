@@ -4,16 +4,16 @@
   "provider": {
     "fractal-internal": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "Fractal (Iternal)",
+      "name": "Fractal (Internal)",
       "options": {
         "baseURL": "http://fractal.home.arpa:8001/v1"
       },
       "models": {
-        "unsloth/Nemotron-3-Nano-30B-A3B-GGUF:IQ4_NL": {
-          "name": "Nemotron 3 Nano 30B A3B",
+        "unsloth/Devstral-Small-2-24B-Instruct-2512-GGUF:IQ4_NL": {
+          "name": "Devstral Small 2 24B Instruct 2512",
           "limit": {
-            "context": 512000,
-            "output": 131072,
+            "context": 49152,
+            "output": 32768,
           },
         },
       },
