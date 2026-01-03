@@ -1,0 +1,22 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "opencode",
+  "provider": {
+    "fractal-internal": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Fractal (Iternal)",
+      "options": {
+        "baseURL": "http://fractal.home.arpa:8001/v1"
+      },
+      "models": {
+        "unsloth/Nemotron-3-Nano-30B-A3B-GGUF:IQ4_NL": {
+          "name": "Nemotron 3 Nano 30B A3B",
+          "limit": {
+            "context": 512000,
+            "output": 131072,
+          },
+        },
+      },
+    },
+  },
+}
