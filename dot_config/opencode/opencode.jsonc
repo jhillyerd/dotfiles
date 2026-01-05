@@ -9,11 +9,11 @@
         "baseURL": "http://fractal.home.arpa:8001/v1"
       },
       "models": {
-        "unsloth/Devstral-Small-2-24B-Instruct-2512-GGUF:IQ4_NL": {
-          "name": "Devstral Small 2 24B Instruct 2512",
+        "unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF": {
+          "name": "Qwen3 Coder 30B A3B Instruct",
           "limit": {
-            "context": 49152,
-            "output": 32768,
+            "context": 65536,
+            "output": 49152,
           },
         },
       },

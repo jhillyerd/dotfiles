@@ -7,10 +7,10 @@
       "base_url": "http://fractal.home.arpa:8001/v1",
       "models": [
         {
-          "id": "unsloth/Nemotron-3-Nano-30B-A3B-GGUF:IQ4_NL",
-          "name": "Nemotron 3 Nano 30B A3B",
-          "context_window": 512000,
-          "default_max_tokens": 20000
+          "id": "unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:IQ4_NL",
+          "name": "Qwen3 Coder 30B A3B Instruct",
+          "context_window": 65536,
+          "default_max_tokens": 49152
         }
       ]
     }
