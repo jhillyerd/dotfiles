@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 # init-home: initialize my home directory from repos
 
-function notice -a text
+function STAGE -a text
   set_color -r
   echo "### $text"
   set_color normal
@@ -29,8 +29,6 @@ function checkout_my_repo -a name path
   or exit 1
 end
 
-set root (pwd)
-
 # Verify necessary tools are installed.
 for cmd in git chezmoi sha256sum
   if ! type -qf $cmd
@@ -39,26 +37,37 @@ for cmd in git chezmoi sha256sum
   end
 end
 
-notice "Fetch and verify oh my fish installer"
-set omfinst (mktemp -d)
+set root (pwd)
+set tempdir (mktemp -d)
+if test -z $tempdir -o ! -d $tempdir
+  echo "failed to create tempdir"
+  exit 1
+end
+
+STAGE "Fetch and verify oh-my-fish installer"
+set want_sum "1464a0163257e729579735955a834ccff4c3eb2e91d015e96e459382acaab2b7  install"
+cd $tempdir
 curl \
   https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install \
-  > $omfinst/install
-cd $omfinst
-echo "1464a0163257e729579735955a834ccff4c3eb2e91d015e96e459382acaab2b7  install" | sha256sum -c; or exit 1
+  > install
+if ! echo $want_sum | sha256sum -c
+  echo "oh-my-fish installer checksum mismatch"
+  echo "expected: $want_sum"
+  echo "actual:  " (sha256sum install)
+  exit 1
+end
 cd $root
 
-notice "Checkout config repos"
+STAGE "Checkout config repos"
 checkout_my_repo "dotfiles" "$root/.local/share/chezmoi"
 checkout_my_repo "dotvim" "$root/.config/nvim"
 
-notice "Setup chezmoi"
+STAGE "Setup chezmoi"
 set chezdir "$root/.config/chezmoi"
 set cheztoml "$chezdir/chezmoi.toml"
-
 if [ ! -e $cheztoml ]
   mkdir -p $chezdir
-  echo > $cheztoml "\
+  echo -n > $cheztoml "\
 [data]
   freenode_user = \"jhillyerd\"
   freenode_password = \"SETME\"
@@ -66,13 +75,14 @@ if [ ! -e $cheztoml ]
   place = \"home\"
   wired = \"eth0\"
   wifi = \"none\"
-  wm = \"i3\""
+  wm = \"i3\"
+"
 end
 
 chezmoi apply; or exit 1
 
-notice "Install oh my fish"
-fish $omfinst/install --noninteractive
-rm -rf $omfinst
+STAGE "Install oh my fish"
+fish $tempdir/install --noninteractive
+rm -rf $tempdir
 
-notice "Home init complete!"
+STAGE "Home init complete!"
