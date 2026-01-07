@@ -182,7 +182,7 @@ bindsym $mod+period resize grow width 100 px or 3 ppt
 # Other keybinds
 bindsym $mod+Return exec kitty
 bindsym $mod+b exec x-www-browser
-bindsym $mod+c exec google-chrome-stable
+bindsym $mod+c exec chromium
 bindsym $mod+p exec $HOME/.scripts/screenshot-sway.sh
 bindsym $mod+d exec rofi -show combi
 bindsym $mod+v exec clipman pick -t rofi
