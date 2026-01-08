@@ -33,7 +33,7 @@ set -xg VISUAL nvim
 abbr -ag -- - cd -
 
 abbr -ag cm chezmoi
-abbr -ag cma chezmoi apply -v
+abbr -ag cma chezmoi apply --interactive
 abbr -ag cmcd chezmoi cd
 abbr -ag cmu chezmoi update -v
 

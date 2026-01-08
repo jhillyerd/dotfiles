@@ -9,11 +9,11 @@
         "baseURL": "http://fractal.home.arpa:8001/v1"
       },
       "models": {
-        "unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF": {
-          "name": "Qwen3 Coder 30B A3B Instruct",
+        "unsloth/Nemotron-3-Nano-30B-A3B-GGUF:IQ4_NL": {
+          "name": "Nemotron 3 Nano 30B A3B",
           "limit": {
-            "context": 65536,
-            "output": 49152,
+            "context": 262000,
+            "output": 131072,
           },
         },
       },
