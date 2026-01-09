@@ -195,9 +195,12 @@ bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume \@DEFAULT_SINK@ 3%+
 bindsym --locked XF86AudioLowerVolume exec wpctl set-volume \@DEFAULT_SINK@ 3%-
 
 # Window assignments
-assign [class="Slack"] workspace 6
+assign [app_id="Slack"] workspace 6
 for_window [app_id="floating_btop"] floating enable, resize set width 70 ppt height 90 ppt
 
 include /etc/sway/config.d/*
+
+exec swaymsg focus output $right_display, workspace 6
+exec swaymsg focus output $left_display, workspace 1
 
 exec_always $HOME/.scripts/after-sway-start.sh
