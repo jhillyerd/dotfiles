@@ -181,6 +181,7 @@ bindsym $mod+period resize grow width 100 px or 3 ppt
 
 # Other keybinds
 bindsym $mod+Return exec kitty
+bindsym $mod+t exec kitty --class floating_btop -e btop
 bindsym $mod+b exec x-www-browser
 bindsym $mod+c exec chromium
 bindsym $mod+p exec $HOME/.scripts/screenshot-sway.sh
@@ -195,6 +196,7 @@ bindsym --locked XF86AudioLowerVolume exec wpctl set-volume \@DEFAULT_SINK@ 3%-
 
 # Window assignments
 assign [class="Slack"] workspace 6
+for_window [app_id="floating_btop"] floating enable, resize set width 70 ppt height 90 ppt
 
 include /etc/sway/config.d/*
 
