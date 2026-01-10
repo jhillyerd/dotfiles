@@ -5,3 +5,10 @@ Host *
   ControlPersist 15s
   PermitLocalCommand yes
   LocalCommand ~/.scripts/ssh-title.fish %h
+
+# Don't use local agent for inbound SSH sessions.
+Match host * exec "test -z $SSH_TTY"
+  IdentityAgent ~/.1password/agent.sock
+
+Host *.home.arpa
+  ForwardAgent yes
