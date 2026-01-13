@@ -35,6 +35,7 @@
       "down": "editor::GoToDiagnostic",
       "space b": "tab_switcher::ToggleAll",
       "space d": "diagnostics::Deploy",
+      "space f s": "project_symbols::Toggle",
       "space g g": ["task::Spawn", { "task_name": "Open lazygit" }],
       ", c c": "editor::RunFlycheck",
       ", q": "editor::Format",
