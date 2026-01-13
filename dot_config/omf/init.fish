@@ -56,6 +56,12 @@ abbr -ag nfish! "nix-shell -I nixpkgs=/home/james/nixpkgs --command 'SHELL=fish;
 
 abbr -ag hdel history delete --case-sensitive --exact \$history[1]
 
+# 1Password SSH agent for `ssh-add -l`, etc.
+set op_sock $HOME/.1password/agent.sock
+if test -z "$SSH_AUTH_SOCK"; and test -S $op_sock
+  set -xg SSH_AUTH_SOCK $op_sock
+end
+
 if command -q bat
   abbr -ag cat bat
 end
