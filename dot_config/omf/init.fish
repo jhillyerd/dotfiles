@@ -29,6 +29,10 @@ end
 set -xg EDITOR nvim
 set -xg VISUAL nvim
 
+# Key bindings
+bind \co nvim-last-file
+bind \cp fzf-file-widget
+
 # Abbreviations
 abbr -ag -- - cd -
 
@@ -38,7 +42,6 @@ abbr -ag cmcd chezmoi cd
 abbr -ag cmu chezmoi update -v
 
 abbr -ag dk docker
-abbr -ag dkclean docker container prune --force
 abbr -ag dke docker exec -it
 abbr -ag dki docker run -itP --rm
 
@@ -47,22 +50,15 @@ abbr -ag ghwatch "gh pr checks --watch; notify-send 'PR checks done'"
 
 abbr -ag kk kubectl kustomize
 abbr -ag lg lazygit
-abbr -ag tf terraform
 
 abbr -ag nfish "nix-shell --command 'SHELL=fish; exec fish'"
 abbr -ag nfish! "nix-shell -I nixpkgs=/home/james/nixpkgs --command 'SHELL=fish; exec fish'"
 
 abbr -ag hdel history delete --case-sensitive --exact \$history[1]
 
-abbr -ag run-inbucket "tmux neww -n inbucketd $HOME/dev-start.sh \; set remain-on-exit failed \; splitw"
-
 if command -q bat
   abbr -ag cat bat
 end
-
-# Key bindings
-bind \co nvim-last-file
-bind \cp fzf-file-widget
 
 if command -q direnv
   direnv hook fish | source
