@@ -7,6 +7,12 @@
 // from the command palette.
 [
   {
+    "context": "!Terminal",
+    "bindings": {
+      "ctrl-shift-c": "editor::Copy",
+    },
+  },
+  {
     "context": "Workspace || Dock",
     "bindings": {
       "alt-h": "workspace::ActivatePaneLeft",
