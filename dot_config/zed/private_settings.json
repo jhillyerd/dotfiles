@@ -11,21 +11,22 @@
   "agent_buffer_font_size": 16.0,
   "diagnostics": {
     "inline": {
-      "enabled": true
-    }
+      "enabled": true,
+    },
   },
   "agent": {
+    "dock": "left",
     "default_profile": "write",
     "default_model": {
       "provider": "anthropic",
-      "model": "claude-sonnet-4-5-latest"
-    }
+      "model": "claude-opus-4-5-latest",
+    },
   },
   "indent_guides": {
-    "coloring": "indent_aware"
+    "coloring": "indent_aware",
   },
   "features": {
-    "edit_prediction_provider": "zed"
+    "edit_prediction_provider": "zed",
   },
   "vim_mode": true,
   "ui_font_size": 18,
@@ -34,20 +35,23 @@
   "theme": {
     "mode": "dark",
     "light": "Nightfox - opaque",
-    "dark": "Ayu Dark"
+    "dark": "Ayu Dark",
   },
   "relative_line_numbers": "enabled",
   "languages": {
     "Rust": {
       "show_wrap_guides": true,
-      "soft_wrap": "editor_width"
-    }
+      "soft_wrap": "editor_width",
+    },
   },
   "lsp": {
     "rust-analyzer": {
       "initialization_options": {
-        "checkOnSave": false
-      }
-    }
-  }
+        "checkOnSave": false,
+        "check": {
+          "command": "clippy",
+        },
+      },
+    },
+  },
 }
