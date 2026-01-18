@@ -20,7 +20,7 @@
 [rebase]
 	abbreviateCommands = true
 	autoSquash = true
-	updateRefs = false
+	updateRefs = true
 [rerere]
 	enabled = true
 	autoupdate = true
