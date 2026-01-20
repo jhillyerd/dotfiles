@@ -1,0 +1,12 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[user]
+name = "James Hillyerd"
+email = "james@hillyerd.com"
+
+[ui]
+default-command = "log"
+
+[aliases]
+e = ["edit"]
+tug = ["bookmark", "set", "main", "-r", "@-"]
