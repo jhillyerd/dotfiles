@@ -182,7 +182,7 @@ bindsym $mod+period resize grow width 100 px or 3 ppt
 # Other keybinds
 bindsym $mod+Return exec kitty
 bindsym $mod+t exec kitty --class floating_btop -e btop
-bindsym $mod+b exec x-www-browser
+bindsym $mod+b exec firefox
 bindsym $mod+c exec chromium
 bindsym $mod+p exec $HOME/.scripts/screenshot-sway.sh
 bindsym $mod+d exec rofi -show combi

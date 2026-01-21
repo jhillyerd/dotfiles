@@ -13,3 +13,9 @@ swayidle -w \
 
 killall wl-paste
 wl-paste -t text --watch clipman store --no-persist & disown
+
+if command -v 1password > /dev/null 2>&1; then
+    if ! pgrep -x 1password > /dev/null; then
+        1password --silent > /dev/null 2>&1 & disown
+    fi
+fi

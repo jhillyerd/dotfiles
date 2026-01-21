@@ -39,6 +39,7 @@ abbr -ag -- - cd -
 abbr -ag cm chezmoi
 abbr -ag cma chezmoi apply --interactive
 abbr -ag cmcd chezmoi cd
+abbr -ag cmra chezmoi re-add --interactive
 abbr -ag cmu chezmoi update -v
 
 abbr -ag dk docker
