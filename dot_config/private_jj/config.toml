@@ -10,3 +10,5 @@ default-command = "log"
 [aliases]
 e = ["edit"]
 tug = ["bookmark", "set", "main", "-r", "@-"]
+lmain = ["log", "-r", "heads(ancestors(@) & ancestors(main))::"]
+
