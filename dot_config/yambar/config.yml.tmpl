@@ -323,6 +323,13 @@ bar:
 {{ end }}
 
     - clock:
+        time-format: "%H:%M UTC"
+        utc: true
+        content:
+          - string: {text: , <<: *awesome_icon}
+          - string: {text: "{time}"}
+
+    - clock:
         time-format: "%H:%M %Z"
         content:
           - string: {text: , <<: *awesome_icon}
