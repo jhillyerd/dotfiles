@@ -9,6 +9,7 @@ default-command = "log"
 
 [aliases]
 e = ["edit"]
+fetch = ["git", "fetch"]
+push = ["git", "push"]
 tug = ["bookmark", "set", "main", "-r", "@-"]
 lmain = ["log", "-r", "heads(ancestors(@) & ancestors(main))::"]
-
