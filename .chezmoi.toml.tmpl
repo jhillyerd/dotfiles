@@ -2,8 +2,6 @@
 {{- $place := promptChoiceOnce . "place" "Place" $places -}}
 {{- $machines := list "laptop" "desktop" -}}
 {{- $machine := promptChoiceOnce . "machine" "Machine type" $machines -}}
-{{- $wms := list "awesome" "i3" -}}
-{{- $wm := promptChoice "Window manager" $wms -}}
 {{- $wired := promptStringOnce . "wired" "Wired interface" "eth0" -}}
 {{- $wifi := promptStringOnce . "wifi" "Wifi interface" "wlp0s2" -}}
 [data]
@@ -13,4 +11,3 @@
   machine = "{{ $machine }}"
   wired = "{{ $wired }}"
   wifi = "{{ $wifi }}"
-  wm = "{{ $wm }}"
