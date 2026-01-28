@@ -5,8 +5,6 @@
 {{- $wired := promptStringOnce . "wired" "Wired interface" "eth0" -}}
 {{- $wifi := promptStringOnce . "wifi" "Wifi interface" "wlp0s2" -}}
 [data]
-  freenode_user = "jhillyerd"
-  freenode_password = "SETME"
   place = "{{ $place }}"
   machine = "{{ $machine }}"
   wired = "{{ $wired }}"
