@@ -15,7 +15,18 @@
     },
   },
   "agent": {
-    "dock": "left",
+    "tool_permissions": {
+      "tools": {
+        "terminal": {
+          "always_allow": [
+            {
+              "pattern": "^cargo\\s"
+            }
+          ]
+        }
+      }
+    },
+    "dock": "right",
     "default_profile": "write",
     "default_model": {
       "provider": "anthropic",

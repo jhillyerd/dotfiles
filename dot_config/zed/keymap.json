@@ -37,6 +37,7 @@
   {
     "context": "Editor && vim_mode == normal && !showing_code_actions",
     "bindings": {
+      "ctrl-6": "pane::AlternateFile",
       "up": "editor::GoToPreviousDiagnostic",
       "down": "editor::GoToDiagnostic",
       "space b": "tab_switcher::ToggleAll",
