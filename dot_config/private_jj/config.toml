@@ -8,6 +8,7 @@ email = "james@hillyerd.com"
 default-command = "log"
 
 [aliases]
+d = ["diff"]
 e = ["edit"]
 fetch = ["git", "fetch"]
 push = ["git", "push"]
