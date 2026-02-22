@@ -63,6 +63,13 @@ if test -z "$SSH_AUTH_SOCK"; and test -S $op_sock
   set -xg SSH_AUTH_SOCK $op_sock
 end
 
+# We forward port 9999 for plannotator, so set an environment variable to let
+# it know when we're in an SSH session.
+if set -q SSH_TTY
+  set -xg PLANNOTATOR_REMOTE 1
+  set -xg PLANNOTATOR_PORT 9999
+end
+
 if command -q bat
   abbr -ag cat bat
 end

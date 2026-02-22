@@ -1,3 +1,11 @@
+Host boss
+  HostName boss.home.arpa
+  ForwardAgent yes
+  LocalForward 9999 localhost:9999
+
+Host *.home.arpa
+  ForwardAgent yes
+
 Host *
   User james
   ControlPath ~/.ssh/%C
@@ -9,6 +17,3 @@ Host *
 # Don't use local agent for inbound SSH sessions.
 Match host * exec "test -z $SSH_TTY"
   IdentityAgent ~/.1password/agent.sock
-
-Host *.home.arpa
-  ForwardAgent yes
