@@ -35,6 +35,7 @@ bind \cp fzf-file-widget
 
 # Abbreviations
 abbr -ag -- - cd -
+abbr -ag hdel history delete --case-sensitive --exact \$history[1]
 
 abbr -ag cm chezmoi
 abbr -ag cma chezmoi apply --interactive
@@ -49,13 +50,8 @@ abbr -ag dki docker run -itP --rm
 abbr -ag ghb gh browse
 abbr -ag ghwatch "gh pr checks --watch; notify-send 'PR checks done'"
 
-abbr -ag kk kubectl kustomize
 abbr -ag lg lazygit
-
-abbr -ag nfish "nix-shell --command 'SHELL=fish; exec fish'"
-abbr -ag nfish! "nix-shell -I nixpkgs=/home/james/nixpkgs --command 'SHELL=fish; exec fish'"
-
-abbr -ag hdel history delete --case-sensitive --exact \$history[1]
+abbr -ag oc opencode --port
 
 # 1Password SSH agent for `ssh-add -l`, etc.
 set op_sock $HOME/.1password/agent.sock
