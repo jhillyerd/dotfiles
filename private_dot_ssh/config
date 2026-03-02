@@ -1,3 +1,5 @@
+Include config.d/*.conf
+
 Host boss
   HostName boss.home.arpa
   ForwardAgent yes
