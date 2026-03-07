@@ -52,6 +52,7 @@ abbr -ag ghwatch "gh pr checks --watch; notify-send 'PR checks done'"
 
 abbr -ag lg lazygit
 abbr -ag oc opencode --port
+abbr -ag t? tmux list-sessions
 abbr -ag vim nvim
 
 # 1Password SSH agent for `ssh-add -l`, etc.
