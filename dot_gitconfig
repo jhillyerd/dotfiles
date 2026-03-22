@@ -31,3 +31,5 @@
 	email = james@hillyerd.com
 [diff]
 	algorithm = histogram
+[fetch]
+	prune = true
