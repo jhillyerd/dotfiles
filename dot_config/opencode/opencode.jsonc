@@ -5,16 +5,16 @@
   "provider": {
     "fractal-internal": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "Fractal (Internal)",
+      "name": "Fractal",
       "options": {
         "baseURL": "http://fractal.home.arpa:8001/v1"
       },
       "models": {
-        "unsloth/Nemotron-3-Nano-30B-A3B-GGUF:IQ4_NL": {
-          "name": "Nemotron 3 Nano 30B A3B",
+        "default": {
+          "name": "Qwen3.5 35B-A3B (local)",
           "limit": {
-            "context": 262000,
-            "output": 131072,
+            "context": 131072,
+            "output": 65536,
           },
         },
       },
