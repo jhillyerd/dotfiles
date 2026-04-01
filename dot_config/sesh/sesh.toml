@@ -1,0 +1,3 @@
+[[wildcard]]
+pattern = "~/devel/*"
+startup_command = "git status"
