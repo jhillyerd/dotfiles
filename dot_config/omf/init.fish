@@ -50,8 +50,10 @@ abbr -ag dki docker run -itP --rm
 abbr -ag ghb gh browse
 abbr -ag ghwatch "gh pr checks --watch; notify-send 'PR checks done'"
 
+abbr -ag hermes ssh -t hermes@hermes.home.arpa hermes chat
 abbr -ag lg lazygit
 abbr -ag oc opencode --port
+abbr -ag occ opencode --port --continue
 abbr -ag t? tmux list-sessions
 abbr -ag vim nvim
 
