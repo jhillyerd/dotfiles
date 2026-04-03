@@ -51,6 +51,7 @@ abbr -ag ghb gh browse
 abbr -ag ghwatch "gh pr checks --watch; notify-send 'PR checks done'"
 
 abbr -ag hermes ssh -t hermes@hermes.home.arpa hermes chat
+abbr -ag hermes? ssh -t hermes@hermes.home.arpa hermes sessions browse
 abbr -ag lg lazygit
 abbr -ag oc opencode --port
 abbr -ag occ opencode --port --continue
