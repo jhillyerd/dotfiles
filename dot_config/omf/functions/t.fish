@@ -1,4 +1,6 @@
 function t -a session -d "Start or attach to tmux session"
+  zoxide-seed-devel
+
   # Allow SSH agent forwarding to follow last inbound connection.
   set inbound_auth_sock ~/.ssh/ssh_auth_sock
   if test -S $inbound_auth_sock
