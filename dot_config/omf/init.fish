@@ -59,7 +59,9 @@ abbr -ag vim nvim
 
 # 1Password SSH agent for `ssh-add -l`, etc.
 set op_sock $HOME/.1password/agent.sock
-if test -z "$SSH_AUTH_SOCK"; and test -S $op_sock
+if test -z "$SSH_AUTH_SOCK"
+  and test -S $op_sock
+  and env SSH_AUTH_SOCK=$op_sock ssh-add -l >/dev/null 2>&1
   set -xg SSH_AUTH_SOCK $op_sock
 end
 
