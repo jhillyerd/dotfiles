@@ -15,10 +15,12 @@ nix profile add \
   nixpkgs#nixfmt \
   nixpkgs#nmap \
   nixpkgs#nodejs \
+  nixpkgs#sesh \
   nixpkgs#starship \
   nixpkgs#ripgrep \
   nixpkgs#tmux \
   nixpkgs#tree \
   nixpkgs#watchexec \
   nixpkgs#whois \
-  nixpkgs#yazi
+  nixpkgs#yazi \
+  nixpkgs#zoxide
