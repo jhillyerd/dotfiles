@@ -1,5 +1,14 @@
 #!/bin/sh
 
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+nixconf=$XDG_CONFIG_HOME/nix/nix.conf
+
+if [ ! -f $nixconf ]; then
+  mkdir -p "$(dirname $nixconf)"
+  echo "extra-experimental-features = nix-command flakes" > $nixconf
+  echo "Created $nixconf"
+fi
+
 nix profile add \
   nixpkgs#bat \
   nixpkgs#chezmoi \
