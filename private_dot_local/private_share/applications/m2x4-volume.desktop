@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=miniDSP 2x4HD Volume
+GenericName=Set miniDSP Volume
+Comment=Set fixed playback volume for miniDSP 2x4HD
+Categories=Audio;Utility;
+Exec=/home/james/.scripts/m2x4-volume
+Icon=audio-volume-high
+Keywords=minidsp;volume;alsa;audio;
+NoDisplay=false
+Terminal=false
+Type=Application
