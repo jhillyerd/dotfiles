@@ -51,12 +51,15 @@ abbr -ag dki docker run -itP --rm
 abbr -ag ghb gh browse
 abbr -ag ghwatch "gh pr checks --watch; notify-send 'PR checks done'"
 
-abbr -ag hermes ssh -t hermes@hermes.home.arpa hermes chat
-abbr -ag 'hermes?' ssh -t hermes@hermes.home.arpa hermes sessions browse
 abbr -ag lg lazygit
 abbr -ag oc opencode --port
 abbr -ag occ opencode --port --continue
 abbr -ag vim nvim
+
+# Host abbreviations
+abbr -ag boss ssh -t boss.home.arpa
+abbr -ag hermes ssh -t hermes@hermes.home.arpa hermes
+abbr -ag 'hermes?' ssh -t hermes@hermes.home.arpa hermes sessions browse
 
 # 1Password SSH agent for `ssh-add -l`, etc.
 set op_sock $HOME/.1password/agent.sock
