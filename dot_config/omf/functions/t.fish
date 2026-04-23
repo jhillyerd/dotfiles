@@ -8,7 +8,12 @@ function t -a session -d "Start or attach to tmux session"
   end
 
   if test -n "$session"
-    tmux new-session -t $session
+    if test "$session" = "."
+      sesh connect .
+    else
+      tmux new-session -t $session
+    end
+
     return
   end
 
