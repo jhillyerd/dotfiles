@@ -5,6 +5,9 @@ Host boss
   ForwardAgent yes
   LocalForward 9999 localhost:9999
 
+Host hermes.home.arpa
+  ForwardAgent no
+
 Host *.home.arpa
   ForwardAgent yes
 
