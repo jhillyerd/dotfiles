@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "name": "pi",
+    "version": "1.0.0",
+    "description": "Pi coding agent"
+  },
+  "filesystem": {
+    "allow": [
+      "/tmp",
+      "~/.bun",
+      "~/.cache/gleam",
+      "~/.cache/go-build",
+      "~/.cache/goimports",
+      "~/.cache/gopls",
+      "~/.config/go",
+      "~/.cargo",
+      "~/.npm",
+      "~/.pi",
+      "~/go"
+    ],
+    "read": [
+      "/etc",
+      "/nix/store"
+    ],
+    "write": [],
+    "allow_file": [],
+    "read_file": [
+      "/proc/sys/vm/overcommit_memory",
+      "/proc/version_signature",
+      "~/.cvsignore",
+      "~/.gitconfig"
+    ],
+    "write_file": []
+  },
+  "network": {
+    "block": false
+  },
+  "workdir": {
+    "access": "readwrite"
+  }
+}
