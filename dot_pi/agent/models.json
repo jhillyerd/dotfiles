@@ -1,0 +1,35 @@
+{
+  "providers": {
+    "dgx1": {
+      "baseUrl": "http://dgx1.home.arpa:8000/v1",
+      "api": "openai-completions",
+      "apiKey": "any-value",
+      "models": [
+        {
+          "id": "qwen/qwen3.5",
+          "name": "Qwen 3.6 122B (internal)",
+          "reasoning": true,
+          "contextWindow": 150000,
+          "maxTokens": 32768,
+          "compat": {
+            "supportsDeveloperRole": false
+          }
+        }
+      ]
+    },
+    "fractal": {
+      "baseUrl": "http://fractal.home.arpa:8000/v1",
+      "api": "openai-completions",
+      "apiKey": "any-value",
+      "models": [
+        {
+          "id": "qwen",
+          "name": "Qwen 3.6 27B (internal)",
+          "reasoning": true,
+          "contextWindow": 100000,
+          "maxTokens": 32768
+        }
+      ]
+    }
+  }
+}

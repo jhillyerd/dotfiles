@@ -55,6 +55,7 @@ abbr -ag lg lazygit
 abbr -ag oc opencode --port
 abbr -ag occ opencode --port --continue
 abbr -ag vim nvim
+abbr -ag ,pi nono run --profile pi --allow-cwd -- pi
 
 # Host abbreviations
 abbr -ag boss ssh -t boss
