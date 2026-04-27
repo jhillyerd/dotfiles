@@ -6,7 +6,10 @@
   },
   "security": {
     "groups": [
-      "python_runtime"
+      "go_runtime",
+      "nix_runtime",
+      "python_runtime",
+      "rust_runtime"
     ]
   },
   "filesystem": {
@@ -17,17 +20,13 @@
       "~/.cache/go-build",
       "~/.cache/goimports",
       "~/.cache/gopls",
-      "~/.cache/nix",
       "~/.cache/uv",
       "~/.config/go",
-      "~/.cargo",
       "~/.npm",
-      "~/.pi",
-      "~/go"
+      "~/.pi"
     ],
     "read": [
-      "/etc",
-      "/nix/store"
+      "/etc"
     ],
     "write": [],
     "allow_file": [],
