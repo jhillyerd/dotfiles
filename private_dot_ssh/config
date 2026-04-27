@@ -5,6 +5,11 @@ Host boss
   ForwardAgent yes
   LocalForward 9999 localhost:9999
 
+Host dgx1
+  HostName dgx1.home.arpa
+  ForwardAgent yes
+  LocalForward 11000 localhost:11000
+
 Host hermes
   HostName hermes.home.arpa
   User hermes
