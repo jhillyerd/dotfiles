@@ -59,8 +59,6 @@ abbr -ag ,pi nono run --profile pi --allow-cwd -- pi
 
 # Host abbreviations
 abbr -ag boss ssh -t boss
-abbr -ag hermes ssh -t hermes hermes
-abbr -ag 'hermes?' ssh -t hermes hermes sessions browse
 
 # 1Password SSH agent for `ssh-add -l`, etc.
 set op_sock $HOME/.1password/agent.sock
