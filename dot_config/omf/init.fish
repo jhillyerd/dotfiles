@@ -29,6 +29,7 @@ end
 
 set -xg EDITOR nvim
 set -xg VISUAL nvim
+set -xg NPM_CONFIG_PREFIX ~/.npm-global
 
 # Key bindings
 bind \co nvim-last-file

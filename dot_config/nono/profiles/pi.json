@@ -8,6 +8,7 @@
     "groups": [
       "go_runtime",
       "nix_runtime",
+      "node_runtime",
       "python_runtime",
       "rust_runtime"
     ]
