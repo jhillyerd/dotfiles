@@ -6,38 +6,36 @@
   },
   "security": {
     "groups": [
+      "git_config",
       "go_runtime",
       "nix_runtime",
       "node_runtime",
       "python_runtime",
-      "rust_runtime"
+      "rust_runtime",
+      "user_caches_linux"
     ]
   },
   "filesystem": {
     "allow": [
       "/tmp",
       "~/.bun",
-      "~/.cache/gleam",
-      "~/.cache/go-build",
-      "~/.cache/goimports",
-      "~/.cache/gopls",
-      "~/.cache/uv",
       "~/.config/go",
       "~/.npm",
-      "~/.pi"
+      "~/.pi",
+      "~/go"
     ],
     "read": [
-      "/etc"
+      "/etc",
+      "~/.local/share/gh/extensions"
     ],
-    "write": [],
     "allow_file": [],
     "read_file": [
       "/proc/sys/vm/overcommit_memory",
       "/proc/version_signature",
-      "~/.cvsignore",
-      "~/.gitconfig"
-    ],
-    "write_file": []
+      "~/.config/gh/config.yml",
+      "~/.config/gh/hosts.yml",
+      "~/.cvsignore"
+    ]
   },
   "network": {
     "block": false
