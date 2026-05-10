@@ -1,0 +1,5 @@
+{
+  "searxngUrl": "https://search.bytemonkey.org/",
+  "timeoutMs": 30000,
+  "maxResults": 10
+}

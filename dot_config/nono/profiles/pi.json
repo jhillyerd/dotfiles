@@ -21,6 +21,7 @@
       "~/.bun",
       "~/.config/go",
       "~/.npm",
+      "~/.npm-global",
       "~/.pi",
       "~/go"
     ],
