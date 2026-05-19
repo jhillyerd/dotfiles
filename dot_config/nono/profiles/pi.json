@@ -19,6 +19,7 @@
     "allow": [
       "/tmp",
       "~/.bun",
+      "~/.cargo",
       "~/.config/go",
       "~/.npm",
       "~/.npm-global",
