@@ -4,8 +4,8 @@
     "version": "1.0.0",
     "description": "Pi coding agent"
   },
-  "security": {
-    "groups": [
+  "groups": {
+    "include": [
       "git_config",
       "go_runtime",
       "nix_runtime",
@@ -24,6 +24,7 @@
       "~/.npm",
       "~/.npm-global",
       "~/.pi",
+      "~/.plannotator",
       "~/go"
     ],
     "read": [
