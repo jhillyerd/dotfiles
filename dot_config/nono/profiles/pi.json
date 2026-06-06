@@ -31,13 +31,19 @@
       "/etc",
       "~/.local/share/gh/extensions"
     ],
-    "allow_file": [],
+    "allow_file": [
+      "~/.gitconfig",
+      "~/.ssh/known_hosts"
+    ],
     "read_file": [
       "/proc/sys/vm/overcommit_memory",
       "/proc/version_signature",
       "~/.config/gh/config.yml",
       "~/.config/gh/hosts.yml",
       "~/.cvsignore"
+    ],
+    "bypass_protection": [
+      "~/.ssh/known_hosts"
     ]
   },
   "network": {
