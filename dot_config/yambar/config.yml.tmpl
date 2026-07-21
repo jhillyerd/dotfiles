@@ -207,12 +207,6 @@ bar:
                           state == up && ipv4 != "":
                             - string: {text: , <<: *awesome_icon}
                             - string: {text: "{ipv4}"}
-    - network:
-        poll-interval: 1000
-        content:
-          map:
-            default: {empty: {}}
-            conditions:
               name == {{ .wifi }}:
                 map:
                   default:
