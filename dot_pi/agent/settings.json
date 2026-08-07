@@ -4,6 +4,8 @@
   "defaultModel": "glm-5.1",
   "defaultThinkingLevel": "medium",
   "packages": [
-    "npm:pi-searxng"
-  ]
+    "npm:pi-searxng",
+    "npm:@plannotator/pi-extension"
+  ],
+  "theme": "dark"
 }
