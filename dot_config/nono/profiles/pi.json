@@ -29,7 +29,8 @@
     ],
     "read": [
       "/etc",
-      "~/.local/share/gh/extensions"
+      "~/.local/share/gh/extensions",
+      "~/devel/pi-plugins"
     ],
     "allow_file": [
       "~/.gitconfig",

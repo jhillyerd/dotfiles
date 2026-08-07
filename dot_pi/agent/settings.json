@@ -5,7 +5,8 @@
   "defaultThinkingLevel": "medium",
   "packages": [
     "npm:pi-searxng",
-    "npm:@plannotator/pi-extension"
+    "npm:@plannotator/pi-extension",
+    "../../devel/pi-plugins"
   ],
   "theme": "dark"
 }
