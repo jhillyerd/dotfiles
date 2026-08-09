@@ -1,7 +1,7 @@
 {
-  "lastChangelogVersion": "0.78.1",
+  "lastChangelogVersion": "0.80.7",
   "defaultProvider": "zai",
-  "defaultModel": "glm-5.1",
+  "defaultModel": "glm-5.2",
   "defaultThinkingLevel": "medium",
   "packages": [
     "npm:pi-searxng",
