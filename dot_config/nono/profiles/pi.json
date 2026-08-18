@@ -34,7 +34,8 @@
     ],
     "allow_file": [
       "~/.gitconfig",
-      "~/.ssh/known_hosts"
+      "~/.ssh/known_hosts",
+      "~/.config/orca/agent-hooks/endpoint.env"
     ],
     "read_file": [
       "/proc/sys/vm/overcommit_memory",
