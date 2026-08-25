@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Run Pi in nono with Git worktree support.
+
+nono_args=(run --profile pi --allow-cwd)
+
+# A linked worktree keeps its writable Git metadata in the main checkout's
+# .git directory, which is outside the worktree allowed by --allow-cwd.
+if git_common_dir="$(git rev-parse --path-format=absolute --git-common-dir 2>/dev/null)"; then
+  nono_args+=(--allow "$git_common_dir")
+fi
+
+exec nono "${nono_args[@]}" -- pi "$@"
