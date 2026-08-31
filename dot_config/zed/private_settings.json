@@ -7,6 +7,24 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "proxy": "",
+  "agent_servers": {
+    "pi-acp": {
+      "type": "registry"
+    }
+  },
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
   "agent_ui_font_size": 19.0,
   "agent_buffer_font_size": 16.0,
   "diagnostics": {
@@ -15,12 +33,36 @@
     },
   },
   "agent": {
+    "sandbox_permissions": {
+      "allow_all_hosts": true,
+      "allow_unsandboxed": false,
+      "write_paths": [
+        {
+          "requested": "/home/james/.cargo",
+          "resolved": "/home/james/.cargo"
+        }
+      ],
+      "network_hosts": [
+        "static.crates.io",
+        "crates.io",
+        "index.crates.io"
+      ]
+    },
     "tool_permissions": {
       "tools": {
         "terminal": {
           "always_allow": [
             {
               "pattern": "^cargo\\s"
+            },
+            {
+              "pattern": "^make\\s+sqlx-metadata(\\s|$)"
+            },
+            {
+              "pattern": "^make\\s+sqlx-check(\\s|$)"
+            },
+            {
+              "pattern": "^git\\b"
             }
           ]
         }
@@ -29,15 +71,14 @@
     "dock": "right",
     "default_profile": "write",
     "default_model": {
-      "provider": "anthropic",
-      "model": "claude-opus-4-5-latest",
+      "effort": "high",
+      "enable_thinking": true,
+      "provider": "openai",
+      "model": "gpt-5.6-terra",
     },
   },
   "indent_guides": {
     "coloring": "indent_aware",
-  },
-  "features": {
-    "edit_prediction_provider": "zed",
   },
   "vim_mode": true,
   "ui_font_size": 18,
