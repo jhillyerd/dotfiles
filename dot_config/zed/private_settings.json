@@ -7,6 +7,46 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "cli_default_open_behavior": "new_window",
+  "ssh_connections": [
+    {
+      "host": "boss.home.arpa",
+      "username": "james",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/james/devel/enmime"
+          ]
+        }
+      ]
+    }
+  ],
+  "language_models": {
+    "openai_compatible": {
+      "dgx1 (local)": {
+        "api_url": "http://dgx1.home.arpa:8000/v1",
+        "available_models": [
+          {
+            "name": "qwen",
+            "max_tokens": 90000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 90000,
+            "reasoning_effort": "medium",
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": true,
+              "max_tokens_parameter": false
+            }
+          }
+        ]
+      }
+    }
+  },
   "proxy": "",
   "agent_servers": {
     "pi-acp": {
@@ -63,6 +103,27 @@
             },
             {
               "pattern": "^git\\b"
+            },
+            {
+              "pattern": "^echo\\b"
+            },
+            {
+              "pattern": "^git\\s+remote(\\s|$)"
+            },
+            {
+              "pattern": "^tail\\b"
+            },
+            {
+              "pattern": "^head\\b"
+            },
+            {
+              "pattern": "^grep\\b"
+            },
+            {
+              "pattern": "^diff\\s+/tmp/apidiff/old-dsn\\.txt(\\s|$)"
+            },
+            {
+              "pattern": "^diff\\s+/tmp/apidiff/old-mediatype\\.txt(\\s|$)"
             }
           ]
         }
@@ -71,10 +132,10 @@
     "dock": "right",
     "default_profile": "write",
     "default_model": {
-      "effort": "high",
+      "effort": "medium",
       "enable_thinking": true,
-      "provider": "openai",
-      "model": "gpt-5.6-terra",
+      "provider": "dgx1 (local)",
+      "model": "qwen",
     },
   },
   "indent_guides": {
