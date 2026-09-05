@@ -13,6 +13,20 @@ This repository is the chezmoi source state used to manage home-directory files.
 - Configuration is templated in `.chezmoi.toml.tmpl`. Do not place secrets in
   tracked source files.
 
+## Noctalia
+
+- The installed Noctalia version is **v5.0.1** (`noctalia --version`), provided
+  by the system Nix profile.
+- Its configuration source is `dot_config/noctalia/config.toml`, which maps to
+  `~/.config/noctalia/config.toml`.
+
+### Documentation
+
+- [Noctalia documentation](https://docs.noctalia.dev/noctalia/)
+- [Configuration reference](https://docs.noctalia.dev/noctalia/configuration/)
+- [Bar configuration](https://docs.noctalia.dev/noctalia/bar/)
+- [Clock widget](https://docs.noctalia.dev/noctalia/bar/widgets/clock/)
+
 ## References
 
 - [Chezmoi documentation](https://www.chezmoi.io/)

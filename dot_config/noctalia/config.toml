@@ -1,0 +1,24 @@
+# Noctalia desktop shell configuration.
+# Docs: https://docs.noctalia.dev/noctalia/configuration/
+# This file layers on top of the default config Noctalia seeds into
+# ~/.config/noctalia/ on first run.
+
+[bar.default]
+position = "bottom"
+
+# Idle behavior, replacing swayidle:
+#   lock        was: swayidle timeout 600 'lock-screen-sway.sh'
+#   screen-off  was: swayidle timeout 900 'swaymsg "output * power off"'
+[idle.behavior.lock]
+timeout = 600
+action = "lock"
+enabled = true
+
+[idle.behavior.screen-off]
+timeout = 900
+action = "screen_off"
+enabled = true
+
+[hooks]
+# Lock 1Password whenever the session locks; was part of lock-screen-sway.sh.
+session_locked = "1password --lock"
