@@ -4,7 +4,7 @@
   "defaultModel": "glm-5.3",
   "defaultThinkingLevel": "medium",
   "packages": [
-    "npm:pi-searxng",
+    "npm:@capotej/pi-zsearch",
     "npm:@plannotator/pi-extension",
     "../../devel/pi-plugins"
   ],
