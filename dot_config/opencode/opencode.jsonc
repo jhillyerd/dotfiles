@@ -3,15 +3,27 @@
   "theme": "opencode",
   "lsp": false,
   "provider": {
+    "dgx1-internal": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "DGX Spark 1",
+      "options": {
+        "baseURL": "http://dgx1.home.arpa:8000/v1"
+      },
+      "models": {
+        "qwen": {
+          "name": "Qwen 3.8 Flash Next (local)",
+        },
+      },
+    },
     "fractal-internal": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "Fractal",
       "options": {
-        "baseURL": "http://fractal.home.arpa:8001/v1"
+        "baseURL": "http://fractal.home.arpa:8000/v1"
       },
       "models": {
         "default": {
-          "name": "Qwen3.5 35B-A3B (local)",
+          "name": "Qwen3.6 35B-A3B (local)",
           "limit": {
             "context": 131072,
             "output": 65536,
