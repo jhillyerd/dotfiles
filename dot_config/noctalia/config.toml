@@ -44,3 +44,8 @@ enabled = true
 [hooks]
 # Lock 1Password whenever the session locks; was part of lock-screen-sway.sh.
 session_locked = "1password --lock"
+
+# Launch 1Password via after-noctalia-start.sh, backgrounded so startup
+# isn't blocked. The script waits for the tray host before launching;
+# see it for the full rationale. Previously started by after-sway-start.sh.
+started = '~/.scripts/after-noctalia-start.sh >/dev/null 2>&1 &'
