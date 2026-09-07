@@ -2,11 +2,15 @@
   "lastChangelogVersion": "0.85.0",
   "defaultProvider": "zai",
   "defaultModel": "glm-5.3",
-  "defaultThinkingLevel": "medium",
+  "defaultThinkingLevel": "high",
   "packages": [
     "npm:@capotej/pi-zsearch",
     "npm:@plannotator/pi-extension",
     "../../devel/pi-plugins"
   ],
-  "theme": "dark"
+  "theme": "dark",
+  "enabledModels": [
+    "zai/glm-5.3",
+    "dgx1/qwen"
+  ]
 }
