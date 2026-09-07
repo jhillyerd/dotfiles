@@ -5,6 +5,28 @@
 
 [bar.default]
 position = "bottom"
+# Move the now-playing widget from the busy right lane to the left lane.
+start = ["launcher", "wallpaper", "workspaces", "spacer", "media"]
+# Keep the default right lane, except for the media widget now placed at start.
+end = ["tray", "notifications", "clipboard", "network", "bluetooth", "volume", "brightness", "battery", "control-center", "session"]
+# Local clock followed by the UTC clock, side by side.
+center = ["clock", "clock-utc"]
+
+# Add a small click-through gap before the now-playing widget.
+[widget.spacer]
+type = "spacer"
+length = 40
+
+# Show the date alongside the time in the clock widget.
+# Docs: https://docs.noctalia.dev/noctalia/bar/widgets/clock/
+[widget.clock]
+format = "{:%a %d %b}  {:%H:%M %Z}"
+
+# Second clock instance showing UTC time only.
+[widget.clock-utc]
+type = "clock"
+format = "{:%H:%M} UTC"
+timezone = "UTC"
 
 # Idle behavior, replacing swayidle:
 #   lock        was: swayidle timeout 600 'lock-screen-sway.sh'
