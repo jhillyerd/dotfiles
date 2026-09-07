@@ -1,12 +1,29 @@
 #!/usr/bin/env bash
 # Run Pi in nono with Git worktree support.
 
-nono_args=(run --profile pi --allow-cwd)
+# `wrap` instead of `run`: nono execs away after applying the sandbox, so pi stays
+# the pane's foreground process. Under `run`, nono is the foreground process and
+# marks itself non-dumpable, which hides pi from Herdr's process detection and
+# makes /proc/<pid>/environ unreadable (blocking the HERDR_AGENT hint below) —
+# Herdr then silently drops every report the herdr-agent-state.ts extension
+# sends over the socket, even though connects are allowed.
+nono_args=(wrap --profile pi --allow-cwd)
 
 # A linked worktree keeps its writable Git metadata in the main checkout's
 # .git directory, which is outside the worktree allowed by --allow-cwd.
 if git_common_dir="$(git rev-parse --path-format=absolute --git-common-dir 2>/dev/null)"; then
   nono_args+=(--allow "$git_common_dir")
+fi
+
+# Tell Herdr which agent this nono wrapper hides so the pane gets pi's
+# detection manifest. Read only by Herdr; inert in any other terminal.
+# Scoped to this pi process subtree, never exported globally.
+export HERDR_AGENT=pi
+
+# Under Herdr, let the pi integration extension (herdr integration install pi)
+# report lifecycle state through the local socket.
+if [[ "${HERDR_ENV:-}" == 1 && -n "${HERDR_SOCKET_PATH:-}" ]]; then
+  nono_args+=(--allow-unix-socket "$HERDR_SOCKET_PATH")
 fi
 
 exec nono "${nono_args[@]}" -- pi "$@"
