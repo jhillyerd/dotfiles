@@ -1,0 +1,2 @@
+# Repository-only agent guidance; never apply this file to $HOME.
+AGENTS.md
