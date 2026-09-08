@@ -5,6 +5,10 @@ name = "catppuccin"
 
 [ui]
 agent_panel_scope = "all"
+prompt_new_tab_name = false
 
 [keys]
 prefix = "ctrl+t"
+last_pane = "prefix+t"
+settings = "ctrl+shift+s"
+split_horizontal = "prefix+s"
