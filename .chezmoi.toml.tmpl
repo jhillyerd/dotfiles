@@ -2,10 +2,13 @@
 {{- $place := promptChoiceOnce . "place" "Place" $places -}}
 {{- $machines := list "laptop" "desktop" -}}
 {{- $machine := promptChoiceOnce . "machine" "Machine type" $machines -}}
+{{- $browsers := list "chromium" "firefox" -}}
+{{- $browser := promptChoiceOnce . "browser" "Default web browser" $browsers -}}
 {{- $wired := promptStringOnce . "wired" "Wired interface" "eth0" -}}
 {{- $wifi := promptStringOnce . "wifi" "Wifi interface" "wlp0s2" -}}
 [data]
   place = "{{ $place }}"
   machine = "{{ $machine }}"
+  browser = "{{ $browser }}"
   wired = "{{ $wired }}"
   wifi = "{{ $wifi }}"
