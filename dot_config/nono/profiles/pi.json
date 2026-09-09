@@ -29,13 +29,15 @@
     ],
     "read": [
       "/etc",
+      "/proc",
       "~/.local/share/gh/extensions",
       "~/devel/pi-plugins"
     ],
     "allow_file": [
       "~/.gitconfig",
       "~/.ssh/known_hosts",
-      "~/.config/orca/agent-hooks/endpoint.env"
+      "~/.config/orca/agent-hooks/endpoint.env",
+      "~/.yarnrc"
     ],
     "read_file": [
       "/proc/sys/vm/overcommit_memory",
