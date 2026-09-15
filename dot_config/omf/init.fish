@@ -69,12 +69,11 @@ if test -z "$SSH_AUTH_SOCK"
   set -xg SSH_AUTH_SOCK $op_sock
 end
 
-# We forward port 9999 for plannotator, so set an environment variable to let
-# it know when we're in an SSH session.
-if set -q SSH_TTY
-  set -xg PLANNOTATOR_REMOTE 1
-  set -xg PLANNOTATOR_PORT 9999
-end
+# Always show Plannotator's review URL instead of launching a browser. This is
+# required when Pi runs in nono, and port 9999 is available to host-side SSH
+# port forwarding when needed.
+set -xg PLANNOTATOR_REMOTE 1
+set -xg PLANNOTATOR_PORT 9999
 
 if command -q bat
   abbr -ag cat bat

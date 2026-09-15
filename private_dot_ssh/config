@@ -3,7 +3,6 @@ Include config.d/*.conf
 Host boss
   HostName boss.home.arpa
   ForwardAgent yes
-  LocalForward 9999 localhost:9999
 
 Host dgx1
   HostName dgx1.home.arpa
