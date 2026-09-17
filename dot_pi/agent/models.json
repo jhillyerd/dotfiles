@@ -1,13 +1,20 @@
 {
   "providers": {
-    "dgx1": {
-      "baseUrl": "http://dgx1.home.arpa:8000/v1",
+    "bifrost": {
+      "baseUrl": "https://bifrost.bytemonkey.org/v1",
       "api": "openai-completions",
       "apiKey": "any-value",
       "models": [
         {
-          "id": "qwen",
-          "name": "Qwen 3.8 Flash Next (internal)",
+          "id": "fast",
+          "name": "Fast Model (internal)",
+          "reasoning": true,
+          "contextWindow": 100000,
+          "maxTokens": 32768
+        },
+        {
+          "id": "smart",
+          "name": "Smart Model (internal)",
           "reasoning": true,
           "contextWindow": 262144,
           "maxTokens": 65536,
@@ -20,20 +27,6 @@
             "xhigh": "xhigh",
             "max": null
           }
-        }
-      ]
-    },
-    "fractal": {
-      "baseUrl": "http://fractal.home.arpa:8000/v1",
-      "api": "openai-completions",
-      "apiKey": "any-value",
-      "models": [
-        {
-          "id": "qwen",
-          "name": "Qwen 3.6 27B (internal)",
-          "reasoning": true,
-          "contextWindow": 100000,
-          "maxTokens": 32768
         }
       ]
     }

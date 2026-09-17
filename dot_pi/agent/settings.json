@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.85.0",
+  "lastChangelogVersion": "0.85.1",
   "defaultProvider": "zai",
   "defaultModel": "glm-5.3",
   "defaultThinkingLevel": "high",
@@ -11,6 +11,7 @@
   "theme": "dark",
   "enabledModels": [
     "zai/glm-5.3",
-    "dgx1/qwen"
+    "bifrost/smart",
+    "bifrost/fast"
   ]
 }
