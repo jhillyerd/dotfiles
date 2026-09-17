@@ -25,6 +25,7 @@
       "~/.npm-global",
       "~/.pi",
       "~/.plannotator",
+      "~/devel/planning",
       "~/go"
     ],
     "read": [
