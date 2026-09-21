@@ -71,5 +71,15 @@
   },
   "workdir": {
     "access": "readwrite"
-  }
+  },
+  "hooks": {},
+  "session_hooks": {},
+  "rollback": {
+    "exclude_patterns": [],
+    "exclude_globs": []
+  },
+  "skipdirs": [],
+  "packs": [],
+  "command_args": [],
+  "unsafe_macos_seatbelt_rules": []
 }
