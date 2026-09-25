@@ -7,15 +7,46 @@
 position = "bottom"
 # Move the now-playing widget from the busy right lane to the left lane.
 start = ["launcher", "wallpaper", "workspaces", "spacer", "media"]
-# Keep the default right lane, except for the media widget now placed at start.
-end = ["tray", "notifications", "clipboard", "network", "bluetooth", "volume", "brightness", "battery", "control-center", "session"]
+# Keep the default right lane, except for the media widget now placed at start,
+# plus CPU usage and free space on / after the tray.
+end = [
+  "tray",
+  "notifications",
+  "clipboard",
+  "spacer",
+  "network",
+  "bluetooth",
+  "volume",
+  "brightness",
+  "battery",
+  "control-center",
+  "session",
+]
 # Local clock followed by the UTC clock, side by side.
-center = ["clock", "clock-utc"]
+center = [
+  "clock",
+  "clock-utc",
+  "spacer",
+  "cpu",
+  "disk-free",
+]
 
 # Add a small click-through gap before the now-playing widget.
 [widget.spacer]
 type = "spacer"
-length = 40
+length = 30
+
+# CPU usage percentage.
+[widget.cpu]
+type = "sysmon"
+stat = "cpu_usage"
+
+# Remaining disk space on the root filesystem.
+# Docs: https://docs.noctalia.dev/noctalia/bar/widgets/sysmon/
+[widget.disk-free]
+type = "sysmon"
+stat = "disk_free"
+path = "/"
 
 # Show the date alongside the time in the clock widget.
 # Docs: https://docs.noctalia.dev/noctalia/bar/widgets/clock/
