@@ -1,0 +1,118 @@
+#!/usr/bin/env bash
+# Run a command in nono with the pi profile, Git worktree support, and the
+# project's tool environment. Environment resolution, nearest ancestor first
+# (.envrc beats flake.nix within the same directory):
+#   1. direnv .envrc  - `direnv export bash` is eval'd into this shell
+#   2. flake.nix      - the flake's devShell is eval'd via `nix print-dev-env`
+#   3. bare           - the ambient environment as-is
+#
+# The environment is acquired *before* the sandbox is applied: direnv's cache
+# writes and the Nix daemon socket live outside what the sandbox grants, and
+# eval'ing keeps direnv/nix out of the process tree so the wrapped command
+# stays the pane's foreground process.
+
+if (( $# == 0 )); then
+  echo "usage: sandbox-with-tools <command> [args...]" >&2
+  exit 2
+fi
+
+# `wrap` instead of `run`: nono execs away after applying the sandbox, so the
+# command stays the pane's foreground process. Under `run`, nono is the
+# foreground process and marks itself non-dumpable, which hides it from
+# Herdr's process detection and makes /proc/<pid>/environ unreadable (blocking
+# the HERDR_AGENT hint below) — Herdr then silently drops every report the
+# herdr-agent-state.ts extension sends over the socket, even though connects
+# are allowed.
+nono_args=(wrap --profile pi --allow-cwd)
+
+# A linked worktree keeps its writable Git metadata in the main checkout's
+# .git directory, which is outside the worktree allowed by --allow-cwd.
+# git_dir and git_common_dir are equal in a main checkout but differ in a
+# linked worktree, which is how inherit_worktree_direnv_allow below tells
+# them apart.
+git_dir=""
+git_common_dir=""
+worktree_root=""
+if git_common_dir="$(git rev-parse --path-format=absolute --git-common-dir 2>/dev/null)" &&
+   git_dir="$(git rev-parse --path-format=absolute --git-dir 2>/dev/null)"; then
+  nono_args+=(--allow "$git_common_dir")
+  worktree_root="$(git rev-parse --show-toplevel 2>/dev/null)"
+fi
+
+# Tell Herdr which agent this nono wrapper hides so the pane gets pi's
+# detection manifest. Read only by Herdr; inert in any other terminal.
+# Scoped to this process subtree, never exported globally.
+export HERDR_AGENT=pi
+
+# Under Herdr, let the pi integration extension (herdr integration install pi)
+# report lifecycle state through the local socket.
+if [[ "${HERDR_ENV:-}" == 1 && -n "${HERDR_SOCKET_PATH:-}" ]]; then
+  nono_args+=(--allow-unix-socket "$HERDR_SOCKET_PATH")
+fi
+
+# Resolve nono's path before the project environment can repoint $PATH.
+nono_bin="$(command -v nono)"
+
+# direnv records an approval at
+# ${XDG_DATA_HOME:-$HOME/.local/share}/direnv/allow/<sha256("<absolute .envrc path>\n" + contents)>:
+# keyed on the absolute path as well as the contents, so moving or copying an
+# approved .envrc does not carry the approval with it.
+direnv_envrc_approved() {
+  local envrc="$1/.envrc" hash
+  hash="$( { printf '%s\n' "$envrc"; cat "$envrc"; } | sha256sum | cut -d' ' -f1)"
+  [[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/direnv/allow/$hash" ]]
+}
+
+# Because approvals are path-keyed, a freshly created linked worktree starts
+# blocked even when its .envrc is byte-identical to the main checkout's — and
+# agents create worktrees with no interactive direnv prompt to approve them.
+# When the .envrc found by the walk-up below lives inside this worktree and the
+# main checkout's own .envrc has already been approved, inherit that approval.
+# A main checkout that was denied or never approved leaves the worktree
+# blocked, and the direnv export below reports the failure as usual.
+inherit_worktree_direnv_allow() {
+  local dir="$1" main_root
+  [[ -n "$git_dir" && "$git_dir" != "$git_common_dir" && -n "$worktree_root" ]] || return 0
+  # Only an .envrc checked out inside this worktree, never one found by
+  # walking up out of it.
+  [[ "$dir" == "$worktree_root" || "$dir" == "$worktree_root"/* ]] || return 0
+  direnv_envrc_approved "$dir" && return 0
+  main_root="${git_common_dir%/.git}"
+  # %/.git must have stripped something: a bare repo has no main checkout to
+  # inherit from.
+  [[ "$main_root" != "$git_common_dir" && -f "$main_root/.envrc" ]] || return 0
+  direnv_envrc_approved "$main_root" || return 0
+  echo "sandbox-with-tools: inheriting direnv approval from $main_root into $dir" >&2
+  direnv allow "$dir/.envrc"
+}
+
+# Walk up from the cwd; the nearest ancestor with project tooling wins, so the
+# search never crosses out of the current project into, say, a home-level
+# .envrc. A blocked (un-allowed) .envrc degrades the same way an interactive
+# direnv shell does: direnv warns on stderr and the command runs without it.
+dir="$(pwd -P)"
+while :; do
+  if [[ -f "$dir/.envrc" ]]; then
+    inherit_worktree_direnv_allow "$dir"
+    if direnv_env="$(direnv export bash)"; then
+      eval "$direnv_env"
+    else
+      echo "sandbox-with-tools: direnv failed to load $dir/.envrc" >&2
+      exit 1
+    fi
+    break
+  fi
+  if [[ -f "$dir/flake.nix" ]]; then
+    if dev_env="$(nix print-dev-env "$dir")"; then
+      eval "$dev_env"
+    else
+      echo "sandbox-with-tools: could not evaluate a devShell from $dir/flake.nix" >&2
+      exit 1
+    fi
+    break
+  fi
+  [[ "$dir" == / ]] && break
+  dir="$(cd "$dir/.." && pwd -P)"
+done
+
+exec "$nono_bin" "${nono_args[@]}" -- "$@"
