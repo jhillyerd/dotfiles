@@ -4,9 +4,9 @@
   "defaultModel": "glm-5.3",
   "defaultThinkingLevel": "high",
   "packages": [
-    "npm:@capotej/pi-zsearch",
     "npm:@plannotator/pi-extension",
     "npm:pi-mcp-extension",
+    "npm:pi-web-access",
     "../../devel/pi-plugins"
   ],
   "theme": "dark",
