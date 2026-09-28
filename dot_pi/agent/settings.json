@@ -6,6 +6,7 @@
   "packages": [
     "npm:@capotej/pi-zsearch",
     "npm:@plannotator/pi-extension",
+    "npm:pi-mcp-extension",
     "../../devel/pi-plugins"
   ],
   "theme": "dark",
