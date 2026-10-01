@@ -23,7 +23,7 @@ fi
 # the HERDR_AGENT hint below) — Herdr then silently drops every report the
 # herdr-agent-state.ts extension sends over the socket, even though connects
 # are allowed.
-nono_args=(wrap --profile pi --allow-cwd)
+nono_args=(wrap --profile pi --allow-cwd --allow "$HOME/devel")
 
 # A linked worktree keeps its writable Git metadata in the main checkout's
 # .git directory, which is outside the worktree allowed by --allow-cwd.
