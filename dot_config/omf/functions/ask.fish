@@ -1,5 +1,6 @@
 function ask -d "Get quick help from local llama.cpp"
-  set -l endpoint "https://llm.bytemonkey.org/v1/chat/completions"
+  set -l endpoint "https://bifrost.bytemonkey.org/v1/chat/completions"
+  set -l model "smart"
   set -l system_prompt "You are a helpful command-line assistant. Provide brief, practical answers focused on shell commands and terminal usage. Prefer showing example commands over lengthy explanations. Be concise."
 
   if test (count $argv) -eq 0
@@ -19,12 +20,15 @@ function ask -d "Get quick help from local llama.cpp"
   set -l payload (jq -n \
     --arg system "$system_prompt" \
     --arg prompt "$prompt" \
+    --arg model "$model" \
     '{
       messages: [
         {role: "system", content: $system},
         {role: "user", content: $prompt}
       ],
-      temperature: 0.6
+      model: $model,
+      temperature: 0.6,
+      reasoning_effort: "none"
     }')
 
   curl -s "$endpoint" \
