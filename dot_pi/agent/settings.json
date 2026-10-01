@@ -1,9 +1,10 @@
 {
-  "lastChangelogVersion": "0.85.1",
+  "lastChangelogVersion": "0.99.2",
   "defaultProvider": "zai",
   "defaultModel": "glm-5.3",
   "defaultThinkingLevel": "high",
   "packages": [
+    "npm:@luxusai/pi-hindsight",
     "npm:@plannotator/pi-extension",
     "npm:pi-mcp-extension",
     "npm:pi-web-access",
@@ -14,5 +15,6 @@
     "zai/glm-5.3",
     "bifrost/smart",
     "bifrost/fast"
-  ]
+  ],
+  "hideThinkingBlock": true
 }

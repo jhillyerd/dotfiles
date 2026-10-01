@@ -1,0 +1,40 @@
+{
+  // Config for @luxusai/pi-hindsight. Read from here only when a repo has no
+  // .pi/hindsight.json{,c} override. Full reference:
+  // https://luxus.github.io/pi-hindsight/reference/configuration/
+
+  // Hindsight is served by Nomad, so this is not a localhost daemon.
+  // Override per machine with HINDSIGHT_BASE_URL if this ever needs to differ.
+  "hindsight": {
+    "baseUrl": "https://hindsight-api.bytemonkey.org",
+    // Read at startup from $HINDSIGHT_API_TOKEN. Never store the secret here.
+    "apiKeyRef": "env:HINDSIGHT_API_TOKEN"
+  },
+
+  // One bank per repo (isolated), rather than a single domain bank that every
+  // repo is tag-filtered inside. Bank ids come from the main worktree's folder
+  // name, so worktrees of a repo land in the same bank and a path move does not
+  // silently create a new one. Colliding folder names would merge repos, so
+  // keep clone directory names distinct.
+  "scope": {
+    "mode": "isolated-bank",
+    "projectIdStrategy": "remote"
+  },
+  "banks": {
+    "project": { "enabled": true, "derive": "basename" },
+    // Cross-project preferences live in a separate bank and are only written by
+    // hindsight_retain_global. Flip this on once you have a bank to point it at.
+    "user": { "enabled": false, "bankId": "pi-user" }
+  },
+
+  // Keep recall cheap and predictable: observations only, small token budget.
+  "recall": {
+    "budget": "mid",
+    "maxTokens": 800,
+    "types": ["observation"]
+  },
+
+  // Setup is complete on purpose. Without this the extension would keep asking
+  // and would not auto-recall or auto-retain.
+  "setupComplete": true
+}
