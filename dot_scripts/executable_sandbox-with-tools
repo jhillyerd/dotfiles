@@ -50,6 +50,12 @@ if [[ "${HERDR_ENV:-}" == 1 && -n "${HERDR_SOCKET_PATH:-}" ]]; then
   nono_args+=(--allow-unix-socket "$HERDR_SOCKET_PATH")
 fi
 
+if [ -n "${KANDEV_TASK_ID:-}" ] || [ -n "${KANDEV_INSTANCE_ID:-}" ]; then
+  # running under Kandev, allow workspace access
+  kandir="$HOME/.kandev"
+  nono_args+=(--allow "$kandir/repos" --allow "$kandir/tasks")
+fi
+
 # Resolve nono's path before the project environment can repoint $PATH.
 nono_bin="$(command -v nono)"
 
