@@ -60,7 +60,7 @@ disk_free_critical_threshold = 0
 # Show the date alongside the time in the clock widget.
 # Docs: https://docs.noctalia.dev/noctalia/bar/widgets/clock/
 [widget.clock]
-format = "{:%a %d %b}  {:%H:%M %Z}"
+format = "{:%a %d %b} - {:%-I:%M %p %Z} -"
 
 # Second clock instance showing UTC time only.
 [widget.clock-utc]
