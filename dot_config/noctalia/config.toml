@@ -48,6 +48,15 @@ type = "sysmon"
 stat = "disk_free"
 path = "/"
 
+# The built-in disk_free thresholds ramp toward highlight_color as the *free*
+# percentage rises, so a large amount of free space (ours is ~80%) reads as a
+# critical value and turns the widget red. Disabling the critical threshold
+# disables highlighting for that stat entirely.
+# Docs: https://docs.noctalia.dev/noctalia/services/system-monitor/#value-highlighting
+[system.monitor]
+disk_free_activity_threshold = 80
+disk_free_critical_threshold = 0
+
 # Show the date alongside the time in the clock widget.
 # Docs: https://docs.noctalia.dev/noctalia/bar/widgets/clock/
 [widget.clock]
