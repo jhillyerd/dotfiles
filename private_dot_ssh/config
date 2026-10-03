@@ -26,6 +26,8 @@ Host *
   PermitLocalCommand yes
   LocalCommand ~/.scripts/ssh-title.fish %h
 
-# Don't use local agent for inbound SSH sessions.
-Match host * exec "test -z $SSH_TTY"
+# Fall back to a locally-installed 1Password agent only when the environment
+# has no live agent socket. Covers herdr panes (no SSH_TTY), SSH logins with
+# forwarded agents, and local consoles without one.
+Match host * exec "test ! -S \"$SSH_AUTH_SOCK\""
   IdentityAgent ~/.1password/agent.sock
