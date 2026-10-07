@@ -7,7 +7,7 @@
     },
     "user": {
       "enabled": true,
-      "bankId": "global"
+      "bankId": "james"
     }
   },
   "setupComplete": true,
