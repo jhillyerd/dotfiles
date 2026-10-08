@@ -28,6 +28,7 @@ Host *
 
 # Fall back to a locally-installed 1Password agent only when the environment
 # has no live agent socket. Covers herdr panes (no SSH_TTY), SSH logins with
-# forwarded agents, and local consoles without one.
-Match host * exec "test ! -S \"$SSH_AUTH_SOCK\""
+# forwarded agents, and local consoles without one. No escaped quotes in the
+# exec string: OpenSSH 9.6 + fish as login shell fails to parse \" sequences.
+Match host * exec "test -z $SSH_AUTH_SOCK || test ! -S $SSH_AUTH_SOCK"
   IdentityAgent ~/.1password/agent.sock
