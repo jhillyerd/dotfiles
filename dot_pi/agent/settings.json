@@ -2,6 +2,7 @@
   "lastChangelogVersion": "1.1.0",
   "defaultProvider": "zai",
   "defaultModel": "glm-5.3",
+  "defaultTools": ["+codemode"],
   "defaultThinkingLevel": "high",
   "packages": [
     "npm:@luxusai/pi-hindsight",
