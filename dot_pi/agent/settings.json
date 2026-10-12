@@ -2,7 +2,9 @@
   "lastChangelogVersion": "1.1.0",
   "defaultProvider": "zai",
   "defaultModel": "glm-5.3",
-  "defaultTools": ["+codemode"],
+  "defaultTools": [
+    "+codemode"
+  ],
   "defaultThinkingLevel": "high",
   "packages": [
     "npm:@luxusai/pi-hindsight",
@@ -14,7 +16,8 @@
   "enabledModels": [
     "zai/glm-5.3",
     "bifrost/smart",
-    "bifrost/fast"
+    "bifrost/fast",
+    "zai/glm-5.3-flash"
   ],
   "hideThinkingBlock": true
 }

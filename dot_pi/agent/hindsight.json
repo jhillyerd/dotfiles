@@ -20,6 +20,7 @@
   },
   "agentUse": "coding",
   "recall": {
+    "enabled": true,
     "budget": "mid",
     "maxTokens": 800,
     "types": ["observation"]
