@@ -6,7 +6,6 @@
   "packages": [
     "npm:@luxusai/pi-hindsight",
     "npm:@plannotator/pi-extension",
-    "npm:pi-mcp-extension",
     "npm:pi-web-access",
     "../../devel/pi-plugins"
   ],
