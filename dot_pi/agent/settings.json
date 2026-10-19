@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.1.0",
+  "lastChangelogVersion": "1.3.0",
   "defaultProvider": "zai",
   "defaultModel": "glm-5.3",
   "defaultTools": [
@@ -7,7 +7,6 @@
   ],
   "defaultThinkingLevel": "high",
   "packages": [
-    "npm:@luxusai/pi-hindsight",
     "npm:@plannotator/pi-extension",
     "npm:pi-web-access",
     "../../devel/pi-plugins"
