@@ -5,8 +5,11 @@ function _bin_path -a path -d "Prepend path if not already present"
   end
 end
 
+set -xg NPM_CONFIG_PREFIX ~/.npm-global
+
 _bin_path /usr/local/cuda/bin
 _bin_path /usr/local/bin
+_bin_path $NPM_CONFIG_PREFIX/bin
 _bin_path $HOME/google-cloud-sdk/bin
 _bin_path $HOME/go/bin
 _bin_path $HOME/.cargo/bin
@@ -25,7 +28,6 @@ end
 
 set -xg EDITOR nvim
 set -xg VISUAL nvim
-set -xg NPM_CONFIG_PREFIX ~/.npm-global
 
 # Key bindings
 bind \co nvim-last-file
