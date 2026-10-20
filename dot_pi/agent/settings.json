@@ -11,6 +11,9 @@
     "npm:pi-web-access",
     "../../devel/pi-plugins"
   ],
+  "extensions": [
+    "/home/james/.hindsight/coding-agents/dist/pi.js"
+  ],
   "theme": "dark",
   "enabledModels": [
     "zai/glm-5.3",

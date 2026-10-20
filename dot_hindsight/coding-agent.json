@@ -1,0 +1,9 @@
+{
+  "serverMode": "self-hosted",
+  "apiUrl": "https://hindsight-api.bytemonkey.org",
+  "banks": {
+    "coding-agent::grafana-boards": {
+      "bank": "coding-agent::homelab"
+    }
+  }
+}
