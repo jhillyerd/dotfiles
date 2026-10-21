@@ -21,6 +21,7 @@
       "~/.bun",
       "~/.cargo",
       "~/.config/go",
+      "~/.hindsight",
       "~/.npm",
       "~/.npm-global",
       "~/.pi",
