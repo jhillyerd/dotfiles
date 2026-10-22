@@ -1,8 +1,4 @@
 # Path setup
-if test -d $HOME/devel
-  set -xg CDPATH . $HOME/devel
-end
-
 function _bin_path -a path -d "Prepend path if not already present"
   if not string match -q $path $PATH; and test -d $path
     set -x PATH $path $PATH
