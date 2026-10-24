@@ -1,9 +1,14 @@
 {
   "serverMode": "self-hosted",
   "apiUrl": "https://hindsight-api.bytemonkey.org",
+  "pageTriggerCron": "H H(11-13) * * *",
+  "defaultBankConfig": {
+    "enable_observations": false
+  },
   "banks": {
     "coding-agent::grafana-boards": {
-      "bank": "coding-agent::homelab"
+      "bank": "coding-agent::homelab",
+      "pageTriggerCron": "H H(11-13) * * *"
     }
   }
 }
