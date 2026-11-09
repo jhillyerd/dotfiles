@@ -1,0 +1,83 @@
+#!/usr/bin/env fish
+
+# Sets up a generic sway workspace:
+#   left:  default web browser
+#   right: tabbed container with kitty + another browser window
+#
+# Usage: setup-workspace [directory]   (kitty starts in directory, default $HOME)
+
+set work_dir $HOME
+if set -q argv[1]
+    set work_dir $argv[1]
+end
+
+# Resolve the default browser's command from its .desktop file
+function default_browser_cmd
+    set desktop (xdg-settings get default-web-browser 2>/dev/null)
+    if test -z "$desktop"
+        set desktop (xdg-mime query default x-scheme-handler/https 2>/dev/null)
+    end
+    test -n "$desktop"; or return 1
+
+    set data_home $HOME/.local/share
+    set -q XDG_DATA_HOME; and set data_home $XDG_DATA_HOME
+    set data_dirs /usr/local/share /usr/share
+    set -q XDG_DATA_DIRS; and set data_dirs (string split : $XDG_DATA_DIRS)
+
+    for dir in $data_home $data_dirs
+        set file $dir/applications/$desktop
+        test -f $file; or continue
+        # First Exec= line in the [Desktop Entry] section, minus field codes
+        set exec_line (sed -n '/^\[Desktop Entry\]/,/^\[/{s/^Exec=//p}' $file | head -n1)
+        string replace -ra '\s*%[a-zA-Z]' '' -- $exec_line | string split -n ' '
+        return 0
+    end
+    return 1
+end
+
+# Count application windows (view nodes have a pid; containers don't)
+function window_count
+    swaymsg -t get_tree | grep -c '"pid":'
+end
+
+# Launch a program and wait for a new window to appear in sway
+function launch_and_wait
+    set before (window_count)
+    nohup $argv >/dev/null 2>&1 &
+    set timeout 10
+    set elapsed 0
+    while test $elapsed -lt $timeout
+        if test (window_count) -gt $before
+            return 0
+        end
+        sleep 0.1
+        set elapsed (math $elapsed + 0.1)
+    end
+    echo "Warning: timed out waiting for window: $argv[1]" >&2
+    return 1
+end
+
+set browser (default_browser_cmd)
+if test -z "$browser"
+    set error_msg "Could not determine default web browser"
+    if isatty stdin
+        echo "Error: $error_msg" >&2
+    else
+        notify-send "Setup Failed" "$error_msg"
+    end
+    exit 1
+end
+
+# Left: empty browser window
+launch_and_wait $browser --new-window
+
+# Right: kitty running herdr (via `h`), then make its container tabbed.
+# fish -C keeps an interactive shell after herdr exits.
+launch_and_wait kitty --directory $work_dir fish -C h
+swaymsg resize set width 60 ppt
+swaymsg splith
+swaymsg layout tabbed
+
+# Second empty browser window as another tab, then return focus to kitty
+launch_and_wait $browser --new-window
+swaymsg focus left

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Setup Workspace
+GenericName=Workspace Setup
+Comment=Launch a browser alongside a tabbed kitty and browser in sway
+Categories=Utility;
+Exec=/home/james/.scripts/setup-workspace
+Icon=utilities-terminal
+Keywords=workspace;browser;kitty;sway;
+NoDisplay=false
+Terminal=false
+Type=Application
