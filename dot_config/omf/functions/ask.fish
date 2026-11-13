@@ -1,6 +1,6 @@
 function ask -d "Get quick help from local llama.cpp"
   set -l endpoint "https://bifrost.bytemonkey.org/v1/chat/completions"
-  set -l model "smart"
+  set -l model "fast"
   set -l system_prompt "You are a helpful command-line assistant. Provide brief, practical answers focused on shell commands and terminal usage. Prefer showing example commands over lengthy explanations. Be concise."
 
   if test (count $argv) -eq 0
