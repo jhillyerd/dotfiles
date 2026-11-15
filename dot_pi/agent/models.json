@@ -27,6 +27,26 @@
             "xhigh": "xhigh",
             "max": null
           }
+        },
+        {
+          "id": "deepseek/deepseek-flash",
+          "name": "DeepSeek Flash",
+          "reasoning": true,
+          "contextWindow": 1048576,
+          "maxTokens": 393216,
+          "compat": {
+            "supportsDeveloperRole": false
+          }
+        },
+        {
+          "id": "deepseek/deepseek-v4-pro",
+          "name": "DeepSeek V4 Pro",
+          "reasoning": true,
+          "contextWindow": 1000000,
+          "maxTokens": 393216,
+          "compat": {
+            "supportsDeveloperRole": false
+          }
         }
       ]
     }
