@@ -209,7 +209,6 @@ bindsym --locked XF86MonBrightnessUp exec $ipc brightness-up
 bindsym --locked XF86MonBrightnessDown exec $ipc brightness-down
 
 # Window assignments
-assign [app_id="slack"] workspace 6
 for_window [app_id="floating_btop"] floating enable, resize set width 70 ppt height 90 ppt
 
 include /etc/sway/config.d/*
