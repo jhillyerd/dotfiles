@@ -25,6 +25,15 @@ set $left_display "BNQ BenQ EX321UX ET57R00573SL0"
 output $left_display {
   pos 0 0
   subpixel rgb
+  # The EX321UX panel is 144Hz, but its HDMI 2.1 input only exposes modes up
+  # to 120Hz at 4K (144Hz needs DisplayPort). Without this line wlroots picks
+  # the EDID's preferred 3840x2160@60Hz and games cap out at 60fps.
+  # Trailing "Hz" is required by sway's parser: bare "@120" is rejected.
+  mode 3840x2160@120Hz
+  # FreeSync works over this HDMI link; wlroots exposes it as adaptive_sync.
+  # Keeps frame pacing smooth when a game can't hold 120fps. The panel's VRR
+  # window is 48-144Hz, so frames below ~48fps fall back to fixed-rate.
+  adaptive_sync on
 }
 
 workspace 1 output $left_display $right_display
