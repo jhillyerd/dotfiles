@@ -9,19 +9,16 @@
   "packages": [
     "npm:@plannotator/pi-extension",
     "npm:pi-web-access",
-    "../../devel/pi-plugins"
-  ],
-  "extensions": [
-    "/home/james/.hindsight/coding-agents/dist/pi.js"
+    "~/devel/pi-plugins"
   ],
   "theme": "dark",
   "enabledModels": [
     "zai/glm-5.3",
-    "bifrost/smart",
-    "bifrost/fast",
     "zai/glm-5.3-flash",
     "bifrost/deepseek/deepseek-v4-pro",
-    "bifrost/deepseek/deepseek-flash"
+    "bifrost/deepseek/deepseek-flash",
+    "bifrost/smart",
+    "bifrost/fast"
   ],
   "hideThinkingBlock": true,
   "extensionChangelogVersions": {
